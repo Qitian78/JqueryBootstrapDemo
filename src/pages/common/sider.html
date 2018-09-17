@@ -1,0 +1,30 @@
+<!--公共组件：项目导航栏-->
+<div class="mody-sider">
+    <div class="sider-nav">
+        <div class="navbar-collapse sidebar-nav">
+
+            <ul class="nav nav-tabs nav-stacked main-menu">
+                <li style="background: #999;"  onclick="expendSider(event)"><a href="#"> <i class="fa fa-bars" aria-hidden="true"></i></a></li>
+                <!--左侧菜单栏，每一个一级菜单都需要这样一个name属性，值为对应模块的文件夹的名字(小驼峰)-->
+                <li name="index" onclick="javascript:loadPage(this,'../index/index','index')"><a href="#" ><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-tablet"> 首页</span></a></li>
+                <li name="personalCenter">
+                    <a href="#" class="dropdown nav-a" >
+                        <i class="fa fa-address-card" aria-hidden="true"></i>
+                        <span class="hidden-tablet"> 个人中心</span>
+                    </a>
+                    <ul class="dropdown-submenu" style="display: none;">
+                        <!--每一个二级菜单，都需要这样一个name属性，值为跳转的页面名称-->
+                        <li name="personal" onclick="javascript:loadPage(this,'../personal-center/personal','personalCenter-personal')"><a href="#" class="drop-a" ><i class="fa fa-address-card"></i><span class="hidden-tablet">个人中心</span></a></li>
+                        <li name="2"><a href="#" class="drop-a"><i class="fa fa-address-card"></i><span class="hidden-tablet"> Sub Menu 2</span></a></li>
+                        <li name="3"><a href="#" class="drop-a"><i class="fa fa-address-card"></i><span class="hidden-tablet"> Sub Menu 3</span></a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="sider-content">
+
+        </div>
+    </div>
+
+</div>
+<script src="../../js/common/sider.js"></script>

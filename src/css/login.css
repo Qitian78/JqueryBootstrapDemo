@@ -1,0 +1,40 @@
+/**
+* @Desc 仅存放项目登录页面样式
+* @Date 2018-09-17 00:50:25
+* @Author qitian
+*/
+.login-box{
+    height: 275px;
+    background: #fff;
+    line-height: 1.5;
+    width: 25%;
+    padding: 1rem;
+    margin: 8% auto;
+    box-shadow: 0px 0px 0px 5px rgba(137, 111, 111, 0.15);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(245,245,245,1)), color-stop(19%,rgba(255,255,255,1)), color-stop(77%,rgba(255,255,255,1)), color-stop(100%,rgba(245,245,245,1)));
+}
+
+.row{
+    height: 100%;
+    width: 100%;
+}
+.login-box .input-group {
+    background: #fff;
+    width: 100%;
+    text-align: center;
+    height: 80%;
+    padding: 3% 10%;
+    border-left: 3px solid #fff;
+}
+.login-box .remember {
+    padding: 3% 12%;
+}
+.input-group .input-sm,span{
+    height: 100%;
+}
+.input-group .input-sm{
+    width: 100%;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
