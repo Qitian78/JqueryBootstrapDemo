@@ -1,0 +1,23 @@
+{
+  "name": "project-demo",
+  "description": "jQuery + Bootstrap",
+  "main": "index.js",
+  "authors": [
+    "Tina"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "jquery": "3",
+    "bootstrap": "3",
+    "bootstrap-table": "^1.12.1",
+    "echarts": "3.7.1",
+    "laydate": "^5.0.85",
+    "font-awesome": "^5.3.1"
+  }
+}

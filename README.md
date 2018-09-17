@@ -1,4 +1,3 @@
-# JqueryBootstrapDemo
 # 使用技术及工具
 
 * 工程包管理工具：npm

@@ -1,0 +1,43 @@
+{
+  "name": "project-demo",
+  "version": "1.0.0",
+  "description": "jQuery + Bootstrap",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp",
+    "dev": "cross-env NODE_ENV=production && gulp",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tina",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "bower": "^1.8.2",
+    "browser-sync": "^2.23.6",
+    "cross-env": "^5.2.0",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.1",
+    "gulp-clean": "^0.4.0",
+    "gulp-clean-css": "^3.9.3",
+    "gulp-concat": "^2.6.1",
+    "gulp-file-include": "^2.0.1",
+    "gulp-flatten": "^0.4.0",
+    "gulp-htmlmin": "^4.0.0",
+    "gulp-if": "^2.0.2",
+    "gulp-jshint": "^2.1.0",
+    "gulp-rev": "^7.1.2",
+    "gulp-rev-collector": "^1.2.2",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify": "^3.0.0",
+    "gulp-useref": "^3.1.5",
+    "jshint": "^2.9.5",
+    "main-bower-files": "^2.13.1",
+    "run-sequence": "^2.2.1",
+    "vinyl-paths": "^2.1.0"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0"
+  }
+}
