@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../lib/bootstrap-table/bootstrap-table.min.css">
     <link rel="stylesheet" href="../../lib/fontawesome/css/fontawesome-all.css">
     <link rel="stylesheet" href="../../lib/layer/theme/default/laydate.css">
     <link rel="stylesheet" href="../../css/common.css"/>
@@ -18,11 +19,20 @@
             <ul class="nav nav-tabs content-left">
                 <li class="text-center"><h4>个人中心</h4></li>
                 <li class="active"><a href="#base-resource" data-toggle="tab">基本资料</a></li>
-                <li><a href="#change-pwd" data-toggle="tab">修改密码</a></li>
+                <li><a href="#login-log" onclick="tabGo()" data-toggle="tab">登录日志</a></li>
             </ul>
             <div class="tab-content content-right">
+                <!--基本资料-->
                 <div class="tab-pane active" id="base-resource">
                     <button type="button" class="btn btn-primary btn-open" data-target="#my-modal" data-toggle="modal">open dialog</button>
+                    <p class=" btn-open">
+                        <button type="button" class="btn btn-primary" id="uploads">上传文件</button>
+                        <button type="button" id="start_upload" class="btn btn-primary">开始上传</button>
+                    </p>
+                    <div id="imgs-preload">
+
+                    </div>
+                    <!--模态框-->
                     <div class="modal fade" id="my-modal">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -99,14 +109,20 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane" id="change-pwd">
-                    <p>Howdy, I'm in Section B.</p>
+                <!--登录日志-->
+                <div class="tab-pane" id="login-log">
+                    <table id="login-log-table"></table>
                 </div>
             </div>
         </div>
     </div>
     <script src="../../lib/js/jquery.min.js"></script>
+    <script src="../../lib/js/moxie.min.js"></script>
+    <script src="../../lib/js/plupload.full.min.js"></script>
+    <script src="../../config/config.js"></script>
     <script src="../../lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../lib/bootstrap-table/bootstrap-table.min.js"></script>
+    <script src="../../lib/bootstrap-table/bootstrap-table-zh-CN.min.js"></script>
     <script src="../../lib/layer/laydate.js"></script>
     <script src="../../utils/const-manager.js"></script>
     <script src="../../utils/common-util.js"></script>

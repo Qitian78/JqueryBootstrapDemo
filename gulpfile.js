@@ -135,7 +135,7 @@ if(env){//生产环境
     // 页面使用的json文件
     gulp.task('json', function () {
         return gulp.src(['./src/jsonDatas/*.json', '!' + bowerPath + '/**/*'])
-            .pipe(gulp.dest(destPath + '/jsonData'));
+            .pipe(gulp.dest(destPath + '/jsonDatas'));
     });
     gulp.task('css', function () {
         return gulp.src(['./src/css/**/*.css', '!' + bowerPath + '/**/*'])
@@ -183,6 +183,9 @@ gulp.task('copyJsLib', function () {
         .pipe(uglify())
         .pipe(gulp.dest(destPath + '/lib/js'));
     gulp.src(bowerPath + '/plupload/js/plupload.full.min.js')
+        .pipe(uglify())
+        .pipe(gulp.dest(destPath + '/lib/js'));
+    gulp.src(bowerPath + '/plupload/js/moxie.min.js')
         .pipe(uglify())
         .pipe(gulp.dest(destPath + '/lib/js'));
     gulp.src(bowerPath + '/jquery.serializeJSON/jquery.serializejson.min.js')

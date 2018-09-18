@@ -18,6 +18,7 @@
     "bootstrap-table": "^1.12.1",
     "echarts": "3.7.1",
     "laydate": "^5.0.85",
-    "font-awesome": "^5.3.1"
+    "font-awesome": "^5.3.1",
+    "plupload": "3.1.2"
   }
 }

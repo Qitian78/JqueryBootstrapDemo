@@ -114,7 +114,7 @@ body,html,.catrc-container{
     float: right;
     background-color: #fff;
 }
-.tab-content{
+.left .tab-content{
     padding: 20px;
 }
 .tabs,.left{
