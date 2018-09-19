@@ -22,3 +22,28 @@
     margin: 14px;
     line-height: 64px;
 }
+.header-navbar{
+    width: 30%;
+    float: right;
+    padding: 12px;
+}
+.header-navbar a{
+    color: #fff;
+}
+.header-navbar ul{
+    min-width: 90px!important;
+    max-width: 160px;
+}
+.nav-pills>li {
+    float: right!important;
+}
+.caret{
+    margin-left: 6px;
+}
+.header-navbar .dropdown-toggle:hover{
+    background: #555558!important;
+}
+.nav .open>.dropdown-toggle, .nav .open>.dropdown-toggle:focus, .nav .open>.dropdown-toggle:hover{
+    background: none!important;
+}
+

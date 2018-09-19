@@ -1,8 +1,10 @@
 /**
- * @Desc 工具方法文件
+ * @Desc 工具/公共方法文件
  * @Date 2018-09-17 00:53:21
  * @Author qitian
  */
+
+/**************************************************************工具方法*************************************************************/
 
 /**
  * @Desc 时间戳格式转换(fmt:时间格式化)
@@ -23,133 +25,6 @@ Date.prototype.Format = function (fmt) {
         if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
     return fmt;
 }
-
-/**
- * @Desc
- * @Param num 最大输入字符数
- * @Date 2018-08-28 16:24:53
- * @Author qitian
- */
-function checkTypeNum(num, t_this) {
-    let value = t_this.value;
-    if (value.length > num) t_this.value = value.slice(0, num);
-}
-
-/**
- * @Desc 限制文本框只能输入数字
- */
-function keyUpTypeNum(t_this) {
-    let value = t_this.value;
-    let reg = /^[1-9]\d*$/;
-    if (!reg.test(value)) {
-        t_this.value = value.substr(0, t_this.value.length - 1);
-    }
-}
-
-/**
- * @Desc 文件控件清空
- * @Param id 控件id
- * @Date 2018-09-12 16:41:22
- * @Author qitian
- */
-function cleanFileInput (id) {
-    let $input = document.getElementById(id).outerHTML;
-    $('#'+id).replaceWith($input);
-}
-
-/**
- * @Desc 表单输入框提示验证
- * @Param
- * @Date 2018-09-16 23:12:19
- * @Author qitian
- */
-function checkThisItem(_this){
-    let regex = $(_this).attr('regex');
-    let notNull = $(_this).hasClass('not-null');
-    let value = _this.value;
-    let warn;
-    switch (_this.type){
-        case 'text':default:
-            warn = $(_this).next('.alert-warn');
-        if(value){
-            if(regex && !REGEX[regex].test(value)){
-                warn.html(INPUT_ALERT.account);
-                warn.show();
-                return false;
-            }else{
-                warn.html('');
-                warn.hide();
-                return true;
-            }
-        }else if(notNull){
-            warn.html(INPUT_ALERT.notNull);
-            warn.show();
-            return false;
-        }else{
-            warn.html('');
-            warn.hide();
-            return true;
-        }
-            break;
-        case 'radio':
-            warn = $(_this).parent().parent().next('.alert-warn');
-            if(notNull){
-                let radios = $(_this).parent().parent().find('input[name="'+_this.name+'"]');
-                let unpassCount = 0;
-                radios.each(function (index,item) {
-                    if(!item.checked){
-                        unpassCount++;
-                    }
-                })
-                if(unpassCount === radios.length){
-                    warn.html(INPUT_ALERT.notNull);
-                    warn.show();
-                    return false;
-                }else{
-                    warn.html('');
-                    warn.hide();
-                    return true;
-                }
-            }else{
-                warn.html('');
-                warn.hide();
-                return true;
-            }
-            break;
-    }
-
-
-    $(_this).on('input',function(){
-        warn.html('');
-        warn.hide();
-    })
-}
-
-/**
- * @Desc 表单输入，保存按钮验证
- * @Date 2018-09-16 23:53:54
- * @Author qitian
- */
-function checkFormItems(modalId){
-    let checkItems = $('#'+modalId).find('.need-check');
-    let passCount = checkItems.length;
-    checkItems.each(function(index,item){
-        if(checkThisItem(item)){
-            passCount --;
-        }
-    });
-    if(passCount === 0){
-        return false;
-    }else{
-        return true;
-    }
-}
-/**
- * @Desc 弹出框
- * @Param
- * @Date 2018-09-13 13:41:25
- * @Author qitian
- */
 
 /**
  * @Desc XSS攻击
@@ -518,5 +393,229 @@ function EncodetoHtml(str) {
         }[m]
     }) : '';
 }
+let formsth;let poptip;
+(function(){
+    /**
+     * @Desc 表单工具类
+     * @Date 2018-09-18 15:21:43
+     * @Author qitian
+     */
+    let Formsth = function (){};
+    /**
+     * @Desc 最大输入字符
+     * @Param num 最大输入字符数
+     */
+    Formsth.prototype.limitLength = function (num, t_this) {
+        let value = t_this.value;
+        if (value.length > num) t_this.value = value.slice(0, num);
+    }
+    /**
+     * @Desc 限制文本框只能输入数字
+     */
+    Formsth.prototype.onlyNum = function (t_this) {
+        let value = t_this.value;
+        let reg = /^[1-9]\d*$/;
+        if (!reg.test(value)) {
+            t_this.value = value.substr(0, t_this.value.length - 1);
+        }
+    }
+    /**
+     * @Desc 文件控件清空
+     */
+    Formsth.prototype.clearFile = function (t_this) {
+        let $input = t_this.outerHTML;
+        $('#'+t_this.id).replaceWith($input);
+    }
+    /**
+     * @Desc 表单输入框提示验证
+     */
+    Formsth.prototype.checkItem = function (t_this){
+        let regex = $(t_this).attr('regex');
+        let notNull = $(t_this).hasClass('not-null');
+        let value = t_this.value;
+        let warn;
+        switch (t_this.type){
+            case 'text':default:
+            warn = $(t_this).next('.alert-warn');
+            if(value){
+                if(regex && !REGEX[regex].test(value)){
+                    warn.html(INPUT_ALERT.account);
+                    warn.show();
+                    return false;
+                }else{
+                    warn.html('');
+                    warn.hide();
+                    return true;
+                }
+            }else if(notNull){
+                warn.html(INPUT_ALERT.notNull);
+                warn.show();
+                return false;
+            }else{
+                warn.html('');
+                warn.hide();
+                return true;
+            }
+            break;
+            case 'radio':
+                warn = $(t_this).parent().parent().next('.alert-warn');
+                if(notNull){
+                    let radios = $(t_this).parent().parent().find('input[name="'+t_this.name+'"]');
+                    let unpassCount = 0;
+                    radios.each(function (index,item) {
+                        if(!item.checked){
+                            unpassCount++;
+                        }
+                    })
+                    if(unpassCount === radios.length){
+                        warn.html(INPUT_ALERT.notNull);
+                        warn.show();
+                        return false;
+                    }else{
+                        warn.html('');
+                        warn.hide();
+                        return true;
+                    }
+                }else{
+                    warn.html('');
+                    warn.hide();
+                    return true;
+                }
+                break;
+        }
+
+
+        $(_this).on('input',function(){
+            warn.html('');
+            warn.hide();
+        })
+    }
+    /**
+     * @Desc 表单输入，保存按钮验证
+     * @Param formId 主要用于遍历need-check项，可以是模态框最外层id，也可以是form标签的id等
+     */
+    Formsth.prototype.checkItems = function (formId){
+        let checkItems = $('#'+formId).find('.need-check');
+        let passCount = checkItems.length;
+        checkItems.each(function(index,item){
+            if(!formsth.checkItem(item)){
+                passCount --;
+            }
+        });
+        if(passCount !== checkItems.length){
+            return false;
+        }else{
+            return true;
+        }
+    }
+    /**
+     * @Desc 弹出框
+     * @Param
+     * @Date 2018-09-13 13:41:25
+     * @Author qitian
+     */
+    let Poptip = function(){
+        this.yes;
+        this.calcel;
+    };
+    Poptip.prototype.getEl = function(){
+        let $el;
+        if($('#alert-modal').length === 0){
+            $el = $('#alert-modal', parent.document);
+        }else{
+            $el = $('#alert-modal');
+        }
+        return $el;
+    }
+    Poptip.prototype.close = function(){
+        let $el = this.getEl();
+        $el.modal('hide');
+    }
+    Poptip.prototype.alert = function (content){
+        let $el = this.getEl();
+        let _this = this;
+        $el.find('h4').html('提示');
+        $el.find('.form-horizontal').html('<h4>'+content+'</h4>');
+        $el.find('.alert-yes').bind('click',function(){poptip.close()});
+        $el.find('.alert-cancel').hide();
+        $el.find('.close').show();
+        $el.modal('show');
+    }
+    Poptip.prototype.confirm = function(obj){
+        let $el = this.getEl();
+        $el.find('h4').html('<i class="fa fa-question-circle" aria-hidden="true"></i>');
+        $el.find('.form-horizontal').html('<h4>'+obj.content+'</h4>');
+        $el.find('.alert-cancel').show();
+        $el.find('.close').hide();
+        $el.find('.alert-yes').bind('click',obj.yes);
+        $el.find('.alert-cancel').bind('click',obj.cancel);
+        $el.modal('show');
+    }
+    formsth = new Formsth();
+    poptip = new Poptip();
+    $('.need-check').each(function(index,item){
+        if(item.type === 'text'){
+            $(item).bind('blur',function(){formsth.checkItem(item)})
+        }else{
+            $(item).bind('change',function(){formsth.checkItem(item)})
+        }
+    });
+    $('.only-num').each(function(index,item){
+        $(item).bind('input',function(){formsth.onlyNum(item)})
+    });
+    $('.save-check').each(function(index,item){
+        let $onclick = item.onclick;
+        $(item).removeAttr('onclick');
+        let formId = $(item).attr('check-area');
+        $(item).bind('click',function(){
+            if(formsth.checkItems(formId)){
+                $onclick();
+            }
+        })
+    });
+})()
+/**************************************************************工具方法结束*************************************************************/
+/**************************************************************公共方法*************************************************************/
+/**
+ * @Desc 嵌套页面高度自适应
+ * @Date 2018-09-18 10:30:46
+ * @Author qitian
+ */
+$(function(){
+    $('.nav-tabs a').on('click',function(e){
+        setTimeout(function(){
+            initHeight($('body').attr('id'),$(e.currentTarget).attr('href'));
+        },100)
+    })
+});
+
+function initHeight(bodyId,thisId) {
+    if(thisId && thisId !== '#'){
+        let contentHeight =  $(''+ thisId + '').css('height').split('px');
+        let htmlHeight = $('html').css('height').split('px');
+        if(contentHeight && htmlHeight){
+            if(parseFloat(contentHeight[0]) > parseFloat(htmlHeight[0])){
+                let height = calcPageHeight(document);
+                $('#'+bodyId).css('height', height + 'px');
+            }else{
+                $('#'+bodyId).css('height', $('html').css('height'));
+            }
+        }
+    }else{
+        let height = calcPageHeight(document);
+        $('#'+bodyId).css('height', height + 'px');
+    }
+
+
+
+}
+
+function calcPageHeight(doc) {
+    let cHeight = Math.max(doc.body.clientHeight, doc.documentElement.clientHeight)
+    let sHeight = Math.max(doc.body.scrollHeight, doc.documentElement.scrollHeight)
+    let height  = Math.max(cHeight, sHeight)
+    return height
+}
+/**************************************************************公共方法结束*************************************************************/
 
 

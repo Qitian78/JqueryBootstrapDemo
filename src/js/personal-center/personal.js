@@ -16,7 +16,7 @@ $(function(){
     //实例化一个plupload上传对象
     let uploader = new plupload.Uploader({
         browse_button : 'uploads', //触发文件选择对话框的按钮，为那个元素id
-        container: document.body,
+        container: 'imgs-preload',
         url : 'http://106.2.13.200:8082/QYS//api/business/applymember/updateIDPhoto', //服务器端的上传页面地址
         filters: {
             mime_types : [ //只允许上传图片
@@ -112,16 +112,8 @@ function previewImage(file, callback) { //file为plupload事件监听函数参�
  * @Author qitian
  */
 
-function saveInfo(modalId,checkFormItem){
-    if(checkFormItem){
-        if(checkFormItems(modalId)){
-            console.log('保存请求');
-        }else{
-            return false;
-        }
-    }else{
-        console.log('保存请求');
-    }
+function saveInfo(modalId){
+    poptip.alert(POP_TIP.saveSuccess);
 }
 function tabGo(){
     $('#login-log-table').bootstrapTable({
@@ -134,13 +126,13 @@ function tabGo(){
         pagination: true,                   //是否显示分页（*）
         sortable: false,                     //是否启用排序
         sortOrder: "asc",                   //排序方式
-        sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
+        sidePagination: "client",           //分页方式：client客户端分页，server服务端分页（*）
         pageNumber: 1,                      //初始化加载第一页，默认第一页,并记录
         pageSize: 10,                     //每页的记录行数（*）
         pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
         search: false,                      //是否显示表格搜索
         strictSearch: true,
-        showColumns: true,                  //是否显示所有的列（选择显示的列）
+        //showColumns: true,                  //是否显示所有的列（选择显示的列）
         showRefresh: true,                  //是否显示刷新按钮
         minimumCountColumns: 2,             //最少允许的列数
         clickToSelect: true,                //是否启用点击选中行
@@ -149,7 +141,7 @@ function tabGo(){
         showToggle: false,                   //是否显示详细视图和列表视图的切换按钮
         cardView: false,                    //是否显示详细视图
         detailView: false,                  //是否显示父子表
-      /*  //得到查询的参数
+        //得到查询的参数
         queryParams : function (params) {
             //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
             var temp = {
@@ -159,7 +151,7 @@ function tabGo(){
                 sortOrder: params.order //排位命令（desc，asc）
             };
             return temp;
-        },*/
+        },
         columns: [{
             checkbox: true,
             visible: true                  //是否显示复选框
@@ -200,8 +192,22 @@ function tabGo(){
         },
         onDblClickRow: function (row, $element) {
         },
+        //客户端分页，需要指定到rows
+        responseHandler: function(data){
+            return data.rows;
+        }
     });
 }
 function openAlertModal() {
-    
+    poptip.confirm({
+        content: POP_TIP.confirm,
+        yes: function(){
+            console.log('confirm-yes');
+            poptip.close();
+        },
+        cancel:function(){
+            console.log('confirm-cancel');
+            poptip.close();
+        }
+    });
 }

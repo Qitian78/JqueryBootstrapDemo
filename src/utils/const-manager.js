@@ -32,7 +32,8 @@ const POP_TIP = {
     selOnlyone: '只能选择一条数据',//by qitian
     fileFormatFail: '您上传的文件格式不正确！',//by qitian
     completeInfo: '请完善信息',//by qitian
-    checkInfo: '请核对信息'//by qitian
+    checkInfo: '请核对信息',//,by qitian
+    confirm: '您确定执行此操作吗？'
 };
 
 /**

@@ -79,11 +79,20 @@ function expendSider(event){
  * @Date 2018-09-16 20:08:21
  * @Author qitian
  */
-function loadPage(_this,page,liName) {
+function loadPage(liName) {
     $('.nav-tabs').find('li').each(function(index,item){
         $(item).removeClass('active');
     })
-    $(_this).addClass('active');
-    $('.content-center')[0].innerHTML = '<object type="text/html" data="'+page+'.html" width="100%" height="100%"></object>';
+    let $li;
+    let activeList = liName.split('-');
+    if(activeList.length > 1){
+        $li = $('.nav-tabs').find('li[name="'+activeList[0]+'"]').find('.dropdown-submenu').find('li[name="'+activeList[1]+'"]');
+        $li.addClass('active');
+    }else{
+        $li = $('.nav-tabs').find('li[name="'+activeList[0]+'"]').addClass('active');
+        $li.addClass('active');
+    }
+    let page = $li.attr('go');
+    $('.content-center')[0].innerHTML = '<object type="text/html" id="'+liName+'" data="'+page+'" width="100%" height="100%"></object>';
     sessionStorage.setItem('nav-page',liName);
 };

@@ -24,7 +24,6 @@
     content: '*';
     color: #ff0000;
 }
-
 /**************************************************全局样式结束**************************************************/
 /**************************************************全局标签样式**************************************************/
 a,button{
@@ -48,6 +47,9 @@ select{
 select::-ms-expand {
     display: none;
 }
+/*::-webkit-scrollbar{
+    display: none;
+}*/
 /**************************************************全局标签样式结束**************************************************/
 /**************************************************页面布局**************************************************/
 body,html,.catrc-container{
@@ -60,16 +62,9 @@ body,html,.catrc-container{
     width: 100%;
     height: 100%;
 }
-.header-navbar{
-    width: 30%;
-    float: right;
-}
-.header-navbar a{
-    color: #fff;
-}
 .row{
     height: 100%;
-    position: relative;
+    /*position: relative;*/
 }
 .container{
     width: 100%;
@@ -79,6 +74,7 @@ body,html,.catrc-container{
 .content{
     height: calc(100% - 64px);
     width: 100%;
+    top: 64px;
 }
 .content-center{
     /*border-top-left-radius: 8px;*/
@@ -131,20 +127,32 @@ body,html,.catrc-container{
     opacity: .3;
 }
 /*弹出提示*/
-.alert-dia-content{
-    min-width: 300px!important;
-    max-width: 380px!important;
+.alert-dia-content,.alert-dia-dialog{
+    min-width: 250px!important;
+    max-width: 280px!important;
     height: auto;
 }
-.alert-dia-content .modal-header,.alert-dia-content .modal-footer{
+.alert-dia-content .modal-header{
+    height: 36px!important;
+    padding: 7px 10px 7px 14px!important;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    background: #f3f3f3;
+
+}
+.alert-dia-content .modal-footer{
+    padding: 10px!important;
     height: 50px!important;
+    border-top: none!important;
 }
 .alert-dia-content h4{
     margin: 0 !important;
 }
 .alert-dia-content .btn{
-    height: 30px!important;
+    height: 27px!important;
+    padding: 0px 12px!important;
 }
+
 /**************************************************模态框结束**************************************************/
 /**************************************************其他**************************************************/
 .alert-warn{

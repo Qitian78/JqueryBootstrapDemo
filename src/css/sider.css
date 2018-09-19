@@ -28,9 +28,11 @@
     background: #eaeaea;
     float: right;
 }
-.active > a{
+.active{
     background: #646268!important;
     border: 1px solid #646268!important;
+}
+.active a{
     color: #fff!important;
 }
 .nav-tabs a{
@@ -38,12 +40,17 @@
     color: #cdd0d2;
     min-height: 20px;
 }
-ul a:hover{
+.sidebar-nav ul a:hover{
     color: #fff;
     background: #646268!important;
 }
-ul li:hover{
-    background: none!important;
+.sider-nav ul a{
+    -webkit-border-radius: 0px!important;
+    -moz-border-radius: 0px!important;
+    border-radius: 0px!important;
+}
+.dropdown-submenu li:hover{
+    background: #646268!important;
 }
 .tablet-shirnk{
     display: none;
@@ -73,4 +80,8 @@ ul li:hover{
 }
 .nav-tabs{
     border-bottom: none;
+}
+.nav>li>a:focus, .nav>li>a:hover,.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+    background: #646268!important;
+    color: #fff!important;
 }

@@ -14,6 +14,7 @@
 .tab-wrapper {
     margin: 20px auto;
     width: 93%;
+    height: 100%;
     line-height: 1.5;
     color: #464646;
 }
@@ -59,9 +60,14 @@
     box-sizing:border-box;
     width: 100%;
     padding: 30px;
-    height:200px;
+    height:100%;
 }
-
+.tab-content{
+    height: 50%;
+    max-height: 200px;
+    overflow: auto;
+    background: #fff;
+}
 .line {
     position:absolute;
     width: 0;
@@ -99,6 +105,8 @@ a{
 }
 .info-content ul li{
     list-style: circle;
+    word-wrap: break-word;
+    word-break: break-all;
 }
 .problem-head{
     margin-top: 1%;
@@ -113,9 +121,10 @@ a{
 }
 .problem-info{
     background-color: #fff;
-    padding: 30px;
-    width: 20%;
+    padding: 2%;
+    width: 26%;
     height: 150px;
+    margin: 1.65%;
     float: left;
 }
 #problemProblem2{
