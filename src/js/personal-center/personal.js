@@ -13,108 +13,25 @@ $(function(){
 
         }
     });
-    //实例化一个plupload上传对象
-    let uploader = new plupload.Uploader({
-        browse_button : 'uploads', //触发文件选择对话框的按钮，为那个元素id
-        container: 'imgs-preload',
-        url : 'http://106.2.13.200:8082/QYS//api/business/applymember/updateIDPhoto', //服务器端的上传页面地址
-        filters: {
-            mime_types : [ //只允许上传图片
-                { title : "Image files", extensions : "jpg,gif,png,jpeg" }
-            ],
-            max_file_size : '5M', //最大只能上传5M的文件
-            prevent_duplicates : true ,//不允许选取重复文件
-            unique_names: true
-        }
-    });
-
-    //在实例对象上调用init()方法进行初始化
-    uploader.init();
-
-    //绑定各种事件，并在事件监听函数中做你想做的事
-    uploader.bind('FilesAdded',function(uploader,addFiles){
-        console.log(addFiles)
-        var oldLen = uploader.files.length - addFiles.length;
-
-        // 根据最大文件数量截取
-        uploader.files.splice(MAX_FILE_NUM, uploader.files.length);
-        addFiles = addFiles.slice(0, MAX_FILE_NUM - oldLen);
-
-        // 对addFiles分别生成base64编码，用于预览
-        $.each(addFiles || [], function(i, file) {
-
-            if (!file || !/image\//.test(file.type)) return; //确保文件是图片
-            if (file.type == 'image/gif') {//gif使用FileReader进行预览,因为mOxie.Image只支持jpg和png
-                var fr = new mOxie.FileReader();
-                fr.onload = function () {
-                    file.imgsrc = fr.result;
-                    fr.destroy();
-                    fr = null;
-                }
-                fr.readAsDataURL(file.getSource());
-            } else {
-                var preloader = new mOxie.Image();
-                preloader.onload = function () {
-                    preloader.downsize(180, 120);//先压缩一下要预览的图片
-                    var imgsrc = preloader.type == 'image/jpeg' ? preloader.getAsDataURL('image/jpeg', 80) : preloader.getAsDataURL(); //得到图片src,实质为一个base64编码的数据
-                    file.imgsrc = imgsrc;
-                    preloader.destroy();
-                    preloader = null;
-                };
-                preloader.load(file.getSource());
-            }
-
-        });
-
-    });
-    uploader.bind('UploadProgress',function(uploader,file){
-            console.log(file.getNative())
-    });
-
-    //最后给"开始上传"按钮注册事件
-    document.getElementById('start_upload').onclick = function(){
-        uploader.start(); //调用实例对象的start()方法开始上传文件，当然你也可以在其他地方调用该方法
-    }
-
 });
-function preloadImg(url){
-    $('#imgs-preload').append('<img src="'+url+'"/>');
-}
 
-//有关mOxie的介绍和说明请看：https://github.com/moxiecode/moxie/wiki/API
-function previewImage(file, callback) { //file为plupload事件监听函数参数中的file对象,callback为预览图片准备完成的回调函数
-    if (!file || !/image\//.test(file.type)) return;
-    if (file.type == 'image/gif') { //gif使用FileReader进行预览,因为mOxie.Image只支持jpg和png
-        var fr = new mOxie.FileReader();
-        fr.onload = function() {
-            callback(fr.result);
-            fr.destroy();
-            fr = null;
-        }
-        fr.readAsDataURL(file.getSource());
-    } else {
-        var preloader = new mOxie.Image();
-        preloader.onload = function() {
-            preloader.downsize(300, 300); //先压缩一下要预览的图片,宽300，高300
-            var imgsrc = preloader.type == 'image/jpeg' ? preloader.getAsDataURL('image/jpeg', 80) : preloader.getAsDataURL(); //得到图片src,实质为一个base64编码的数据
-            callback && callback(imgsrc); //callback传入的参数为预览图片的url
-            preloader.destroy();
-            preloader = null;
-        };
-        preloader.load(file.getSource());
-    }
-}
 
 /**
- * @Desc 保存按钮出发事件
- * @Param modalId模态框id,checkFormItem
+ * @Desc 保存按钮出发事件-弹出框示例
  * @Date 2018-09-17 00:47:31
  * @Author qitian
  */
 
-function saveInfo(modalId){
+function saveInfo(){
     poptip.alert(POP_TIP.saveSuccess);
 }
+
+/**
+ * @Desc 登录日志tab跳转
+ * @Date 2018-09-19 10:06:12
+ * @Author qitian
+ */
+
 function tabGo(){
     $('#login-log-table').bootstrapTable({
         url: AJAX_URL.loginLog,
@@ -198,6 +115,13 @@ function tabGo(){
         }
     });
 }
+
+/**
+ * @Desc 确认框示例
+ * @Date 2018-09-19 10:06:43
+ * @Author qitian
+ */
+
 function openAlertModal() {
     poptip.confirm({
         content: POP_TIP.confirm,

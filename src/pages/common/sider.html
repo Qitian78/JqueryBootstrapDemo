@@ -8,22 +8,20 @@
                 <!--左侧菜单栏，每一个一级菜单都需要这样一个name属性，属性值为对应模块的文件夹的名字(小驼峰)
                                 跳转页面使用：loadPage([name])
                                 需要跳转的菜单项需要添加go属性，属性值为要跳转的页面-->
-                <li name="index" go="../index/index.html" onclick="loadPage('index')"><a href="#" ><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-tablet"> 首页</span></a></li>
+                <li name="index" go="../index/index.html" ><a href="#" ><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-tablet"> 首页</span></a></li>
                 <li name="personalCenter">
                     <a href="#" class="dropdown nav-a" >
                         <i class="fa fa-address-card" aria-hidden="true"></i>
                         <span class="hidden-tablet"> 个人中心</span>
                     </a>
                     <ul class="dropdown-submenu" style="display: none;">
-                        <!--每一个二级菜单，都需要这样一个name属性，值为跳转的页面名称(小驼峰)
-                                跳转页面使用：loadPage([name1]-[name])
+                        <!--每一个二级菜单，都需要这样一个name属性，值为[文件夹名称]-[跳转的页面名称(小驼峰)]
                                 需要跳转的菜单项需要添加go属性，属性值为要跳转的页面-->
-                        <li name="personal" go="../personal-center/personal.html" onclick="loadPage('personalCenter-personal')"><a href="#" class="drop-a" ><i class="fa fa-address-card"></i><span class="hidden-tablet">个人中心</span></a></li>
-                        <li name="2"><a href="#" class="drop-a"><i class="fa fa-address-card"></i><span class="hidden-tablet"> Sub Menu 2</span></a></li>
-                        <li name="3"><a href="#" class="drop-a"><i class="fa fa-address-card"></i><span class="hidden-tablet"> Sub Menu 3</span></a></li>
+                        <li name="personalCenter-personal" go="../personal-center/personal.html"><a href="#" class="drop-a" ><i class="fa fa-address-card"></i><span class="hidden-tablet">个人中心</span></a></li>
+                        <li name="personalCenter-fileupload" go="../personal-center/fileupload.html" onclick=""><a href="#" class="drop-a"><i class="fa fa-address-card"></i><span class="hidden-tablet"> Sub Menu 2</span></a></li>
                     </ul>
                 </li>
-                <li name="personDatabase" go="../person-database/person-database.html" onclick="loadPage('personDatabase')"><a href="#" ><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-tablet"> 人员库</span></a></li>
+                <li name="personDatabase" go="../person-database/person-database.html" ><a href="#" ><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-tablet"> 人员库</span></a></li>
             </ul>
         </div>
         <div class="sider-content">

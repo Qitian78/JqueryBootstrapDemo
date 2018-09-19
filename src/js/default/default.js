@@ -10,24 +10,13 @@ $(function(){
         let activeList = activeLi.split('-');
         if(activeList.length > 1){
             setTimeout(function(){
-                let $li = $('.nav-tabs').find('li[name="'+activeList[0]+'"]').find('.dropdown-submenu').find('li[name="'+activeList[1]+'"]');
-                //$li.trigger('click',this,'../'+activeList[0]+'/'+activeList[1],activeLi);
-                console.log($li.attr('onclick'))
-                eval($li.attr('onclick'));
-                $('.nav-tabs').find('li[name="'+activeList[0]+'"]').find('.dropdown-submenu').css('display','block');
-                $li.addClass('active');
-
-            })
-        }else{
-            setTimeout(function() {
-                let $li = $('.nav-tabs').find('li[name="'+activeList[0]+'"]');
-                eval($li.attr('onclick'));
-                $li.addClass('active');
-                //$('.nav-tabs').find('li[name="'+activeList[0]+'"]').trigger('click',this,'../');
-            });
-
+                $('.sider-nav').find('li[name="'+activeList[0]+'"]').find('.dropdown-submenu').css('display','block');
+             })
         }
+        let $li = $('.sider-nav').find('li[name="'+activeLi+'"]');
+        loadPage(activeLi);
+        $li.addClass('active');
     }else{
-        $('.nav-tabs').find('li[name="index"]').trigger('click');
+        loadPage('index');
     }
 })
