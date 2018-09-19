@@ -6,11 +6,10 @@
             <ul class="nav nav-tabs nav-stacked main-menu">
                 <li style="background: #999;"  onclick="expendSider(event)"><a href="#"> <i class="fa fa-bars" aria-hidden="true"></i></a></li>
                 <!--左侧菜单栏，每一个一级菜单都需要这样一个name属性，属性值为对应模块的文件夹的名字(小驼峰)
-                                跳转页面使用：loadPage([name])
                                 需要跳转的菜单项需要添加go属性，属性值为要跳转的页面-->
-                <li name="index" go="../index/index.html" ><a href="#" ><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-tablet"> 首页</span></a></li>
+                <li name="index" go="../index/index.html"><a href="#" ><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-tablet"> 首页</span></a></li>
                 <li name="personalCenter">
-                    <a href="#" class="dropdown nav-a" >
+                    <a href="#" class="dropdown nav-a">
                         <i class="fa fa-address-card" aria-hidden="true"></i>
                         <span class="hidden-tablet"> 个人中心</span>
                     </a>
@@ -18,7 +17,7 @@
                         <!--每一个二级菜单，都需要这样一个name属性，值为[文件夹名称]-[跳转的页面名称(小驼峰)]
                                 需要跳转的菜单项需要添加go属性，属性值为要跳转的页面-->
                         <li name="personalCenter-personal" go="../personal-center/personal.html"><a href="#" class="drop-a" ><i class="fa fa-address-card"></i><span class="hidden-tablet">个人中心</span></a></li>
-                        <li name="personalCenter-fileupload" go="../personal-center/fileupload.html" onclick=""><a href="#" class="drop-a"><i class="fa fa-address-card"></i><span class="hidden-tablet"> Sub Menu 2</span></a></li>
+                        <li name="personalCenter-fileupload" go="../personal-center/fileupload.html"><a href="#" class="drop-a"><i class="fa fa-address-card"></i><span class="hidden-tablet"> Sub Menu 2</span></a></li>
                     </ul>
                 </li>
                 <li name="personDatabase" go="../person-database/person-database.html" ><a href="#" ><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-tablet"> 人员库</span></a></li>
