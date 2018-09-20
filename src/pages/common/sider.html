@@ -21,6 +21,17 @@
                     </ul>
                 </li>
                 <li name="personDatabase" go="../person-database/person-database.html" ><a href="#" ><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-tablet"> 人员库</span></a></li>
+                <li name="knowledgeBase">
+                    <a href="#" class="dropdown nav-a" >
+                        <i class="fa fa-address-card" aria-hidden="true"></i>
+                        <span class="hidden-tablet"> 知识库管理</span>
+                    </a>
+                    <ul class="dropdown-submenu" style="display: none;">
+                        <!--每一个二级菜单，都需要这样一个name属性，值为[文件夹名称]-[跳转的页面名称(小驼峰)]
+                                需要跳转的菜单项需要添加go属性，属性值为要跳转的页面-->
+                        <li name="knowledgeBase-knowledgeBase" go="../knowledge-base/knowledge-base.html"><a href="#" class="drop-a" ><i class="fa fa-address-card"></i><span class="hidden-tablet">知识库列表</span></a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
         <div class="sider-content">

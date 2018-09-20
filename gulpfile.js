@@ -208,6 +208,13 @@ gulp.task('copyUiLib', function () {
     gulp.src(bowerPath + '/bootstrap-table/dist/locale/bootstrap-table-zh-CN.min.js')
         .pipe(uglify())
         .pipe(gulp.dest(destPath + '/lib/bootstrap-table'));
+    //fileinput
+    gulp.src(bowerPath + '/fileinput/fileinput.css')
+        .pipe(cleanCss())
+        .pipe(gulp.dest(destPath + '/lib/fileinput'));
+    gulp.src(bowerPath + '/fileinput/fileinput.min.js')
+        .pipe(uglify())
+        .pipe(gulp.dest(destPath + '/lib/fileinput'));
     // bootstrap
     gulp.src(bowerPath + '/bootstrap/dist/js/bootstrap.min.js')
         .pipe(uglify())

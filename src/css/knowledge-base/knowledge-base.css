@@ -1,0 +1,61 @@
+body{
+    background-color: #fff;
+    height: 100%;
+}
+.child-content{
+    height: 100%;
+}
+.search-content{
+    width: 100%;
+    height: 10%;
+}
+.knowledge-right{
+    height: 100%;
+    margin: 30px;
+}
+#knowledge-table{
+    border-radius: 5px;
+    background-color: #fff;
+}
+.search-head{
+    height: 50%;
+    width: 100%;
+}
+
+.search-from{
+    width: 20%;
+    float: left;
+    margin-left: 1%;
+}
+.search-submit{
+    float: right;
+    width: 20%;
+}
+.search-submit button{
+    width: 40%;
+    float: left;
+    margin-left: 5%;
+}
+.result-num{
+    width: 40%;
+    float: left;
+}
+.operation-btn{
+    float: right;
+    margin-bottom: 2%;
+    width: 25%;
+}
+.operation-btn button{
+    margin-left: 3%;
+}
+.knowledge-list{
+    background-color: #fff;
+}
+.modelBtn{
+    width: 30%;
+    float: right;
+}
+.modelBtn button{
+    width: 40%;
+    margin-left: 5%;
+}

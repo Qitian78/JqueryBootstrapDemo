@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="../../lib/bootstrap-table/bootstrap-table.min.css">
     <link rel="stylesheet" href="../../lib/fontawesome/css/fontawesome-all.css">
     <link rel="stylesheet" href="../../lib/layer/theme/default/laydate.css">
-    <link rel="stylesheet" href="../../css/common.css"/>
-    <link rel="stylesheet" href="../../css/personal-center.css"/>
+    <link rel="stylesheet" href="../../css/common/common.css"/>
+    <link rel="stylesheet" href="../../css/personal-center/personal-center.css"/>
     <script src="../..//lib/js/polyfill.js" type="text/javascript"></script>
     <title>个人中心</title>
 </head>
-<body onload="initHeight()" id="personal-body">
+<body id="personal-body">
 <!--个人信息页面-->
     <div class="child-content">
         <div class="tabbable tabs left">
@@ -26,7 +26,7 @@
                 <div class="tab-pane active" id="base-resource">
                     <button type="button" class="btn btn-primary btn-open" data-target="#my-modal" data-toggle="modal">open dialog</button>
                     <!--模态框-->
-                    <div class="modal fade" id="my-modal">
+                    <div class="modal fade drag-modal" id="my-modal"  data-backdrop="static">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -44,7 +44,7 @@
                                                 <label for="inputName" class="col-sm-2 control-label required">姓名 </label>
                                                 <div class="col-sm-10">
                                                     <!--需要验证提示的表单项，绑定相应的验证class： -->
-                                                    <!--need-check:需要被验证（正则）-->
+                                                    <!--need-check:需要被验证-->
                                                     <!--not-null:不可为空-->
                                                     <!--绑定regex属性，值为:对应的正则key值-->
                                                     <input type="text" class="form-control need-check not-null" regex="account" maxlength="15" id="inputName" placeholder="请输入姓名">

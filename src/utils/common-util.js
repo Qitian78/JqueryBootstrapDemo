@@ -516,13 +516,15 @@ let formsth;let poptip;
     let Poptip = function(){
         this.yes;
         this.calcel;
+        this.state;//0：提示，1：确认
     };
     Poptip.prototype.getEl = function(){
         let $el;
-        if($('#alert-modal').length === 0){
-            $el = $('#alert-modal', parent.document);
+        let id = this.state === 0 ? '#alert-modal' : '#confirm-modal';
+        if($(id).length === 0){
+            $el = $(id, parent.document);
         }else{
-            $el = $('#alert-modal');
+            $el = $(id);
         }
         return $el;
     }
@@ -531,21 +533,29 @@ let formsth;let poptip;
         $el.modal('hide');
     }
     Poptip.prototype.alert = function (content){
+        this.state = 0;
+        if(!this.getEl().hasClass('fade')){
+            poptip.close();
+        }
         let $el = this.getEl();
         let _this = this;
-        $el.find('h4').html('提示');
+       // $el.find('h4').html('提示');
         $el.find('.form-horizontal').html('<h4>'+content+'</h4>');
-        $el.find('.alert-yes').bind('click',function(){poptip.close()});
-        $el.find('.alert-cancel').hide();
-        $el.find('.close').show();
+        //$el.find('.alert-yes').bind('click',function(){poptip.close()});
+        //$el.find('.alert-cancel').hide();
+        //$el.find('.close').show();
         $el.modal('show');
     }
     Poptip.prototype.confirm = function(obj){
-        let $el = this.getEl();
-        $el.find('h4').html('<i class="fa fa-question-circle" aria-hidden="true"></i>');
+        this.state = 1;
+        if(!this.getEl().hasClass('fade')){
+            poptip.close();
+        }
+        let $el = this.getEl(1);
+        //$el.find('h4').html('<i class="fa fa-question-circle" aria-hidden="true"></i>');
         $el.find('.form-horizontal').html('<h4>'+obj.content+'</h4>');
-        $el.find('.alert-cancel').show();
-        $el.find('.close').hide();
+        //$el.find('.alert-cancel').show();
+        //$el.find('.close').hide();
         $el.find('.alert-yes').bind('click',obj.yes);
         $el.find('.alert-cancel').bind('click',obj.cancel);
         $el.modal('show');
@@ -567,10 +577,60 @@ let formsth;let poptip;
         $(item).removeAttr('onclick');
         let formId = $(item).attr('check-area');
         $(item).bind('click',function(){
-            if(formsth.checkItems(formId)){
+            if(formsth.checkItems(formId) && $onclick){
                 $onclick();
             }
         })
+    });
+    /*可拖动模态框*/
+    $(function(){
+        let _move=false;//移动标记
+        let _x,_y;//鼠标离控件左上角的相对位置
+        let _dragZone = $(".drag-modal .modal-header");
+        let _dragBody = _dragZone.parent().parent().parent();
+        _dragZone.mousedown(function(e){
+            $(this).attr("onselectstart", "return false"); //禁双击选中
+            $("body").css({"-webkit-user-select":"none", "-moz-user-select":"none", "-ms-user-select":"none", "-khtml-user-select":"none", "user-select":"none"}); //禁止选中文字
+            _move=true;
+            _x=e.pageX-parseInt(_dragBody.css("left"));
+            _y=e.pageY-parseInt(_dragBody.css("top"));
+            _dragBody.fadeTo(150, 0.5);
+        });
+        $(document).mousemove(function(e){
+            if(_move){
+                let x=e.pageX-_x;//移动时根据鼠标位置计算控件左上角的绝对位置
+                let y=e.pageY-_y;
+                if(e.pageX <= 0 || e.pageY <= 0){
+                    _move=false;
+                }else {
+                    let pageW = $(window).width();
+                    let pageH = $(window).height();
+                    let dialogW = _dragBody.width();
+                    let dialogH = _dragBody.height() / 2;
+                    let maxX = pageW - dialogW;       //X轴可拖动最大值
+                    let maxY = pageH - dialogH;       //Y轴可拖动最大值
+                    let minX = dialogW - pageW;
+                    let minY = dialogH - pageH;
+                    x = Math.min(Math.max(minX,x),maxX);     //X轴可拖动范围
+                    y = Math.min(Math.max(minY,y),maxY);     //Y轴可拖动范围
+                    _dragBody.css({left:x, top:y});//控件新位置
+                }
+            }
+        }).mouseup(function(){
+            _move=false;
+            _dragBody.fadeTo("fast", 1);
+            $("body").removeAttr("style"); //移除不能选文字
+        });
+        $('.drag-modal').on('show.bs.modal', function () {
+            setTimeout(function(){
+                $('.modal-backdrop').each(function(index,item){
+                    $(item).remove();
+                })
+                $('.modal-backdrop',parent.document).each(function(index,item){
+                    $(item).remove();
+                })
+            },500)
+        });
     });
 })()
 /**************************************************************工具方法结束*************************************************************/
@@ -581,13 +641,30 @@ let formsth;let poptip;
  * @Author qitian
  */
 $(function(){
-    $('.nav-tabs a').on('click',function(e){
+    $('.content-left .nav-tabs a').on('click',function(e){
         setTimeout(function(){
             initHeight($('body').attr('id'),$(e.currentTarget).attr('href'));
         },100)
     })
+    /*$('.sidebar-nav .nav-tabs li').on('click',function(e){
+        if($(e.currentTarget).attr('go') && $(e.currentTarget).attr('name')){
+            setTimeout(function(){
+                initHeightF($('#'+$(e.currentTarget).attr('name')).contents().find('body').attr('id'),$('#'+$(e.currentTarget).attr('name')).contents()[0]);
+            },1000)
+        }
+    })*/
 });
-
+/*function initHeightF (childBodyId, childDoc) {
+    let contentHeight =  $('.content-center').css('height').split('px');
+    let htmlHeight = childDoc.body.clientHeight;
+    if(contentHeight && htmlHeight){
+        if(parseFloat(contentHeight[0]) > htmlHeight){
+            $('#'+childBodyId).css('height', parseFloat(contentHeight[0]) + 'px');
+        }else{
+            $('#'+childBodyId).css('height', htmlHeight + 'px');
+        }
+    }
+}*/
 function initHeight(bodyId,thisId) {
     if(thisId && thisId !== '#'){
         let contentHeight =  $(''+ thisId + '').css('height').split('px');

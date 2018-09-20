@@ -76,6 +76,6 @@ function loadPage(liName) {
     })
     let $li = $('.sidebar-nav').find('li[name="'+liName+'"]').addClass('active');
     let page = $li.attr('go');
-    $('.content-center')[0].innerHTML = '<object type="text/html" id="'+liName+'" data="'+page+'" width="100%" height="100%"></object>';
+    $('.content-center')[0].innerHTML = '<iframe type="text/html" id="'+liName+'" src="'+page+'" width="100%" height="100%"></iframe>';
     sessionStorage.setItem('nav-page',liName);
 };

@@ -80,5 +80,6 @@ const AJAX_URL = {
     login: requestJson ? '../../jsonDatas/login.json' : '',
     personDataTab: requestJson ? '../../jsonDatas/personDataTab.json' : '',
     personProblem: requestJson ? '../../jsonDatas/personProblem.json' : '',
-    loginLog: requestJson ? '../../jsonDatas/loginLog.json' : ''
+    loginLog: requestJson ? '../../jsonDatas/loginLog.json' : '',
+    knowledgeData: requestJson ? '../../jsonDatas/knowledgeData.json' : '',
 }
