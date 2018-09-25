@@ -160,15 +160,15 @@ body,html,.catrc-container{
     height: 27px!important;
     padding: 0px 12px!important;
 }
-.drag-modal{
+/*.drag-modal{
     width: 50%!important;
-    /*left: 25%!important;*/
+    !*left: 25%!important;*!
     margin: 0 auto;
     overflow: unset!important;
 }
 .drag-modal .modal-dialog{
     width: 100% !important;
-}
+}*/
 /**************************************************模态框结束**************************************************/
 /**************************************************其他**************************************************/
 .alert-warn{

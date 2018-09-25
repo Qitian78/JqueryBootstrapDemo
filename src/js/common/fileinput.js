@@ -425,7 +425,7 @@
             });
             return out;
         },
-        objUrl = window.URL || window.webkitURL,
+        objUrl = window.URL || window.webkitURL || window.mozURL,
         FileInput = function (element, options) {
             var self = this;
             self.$element = $(element);
@@ -1602,6 +1602,9 @@
                 previewOtherTemplate = self.getPreviewTemplate('other'),
                 ind = previewId.slice(previewId.lastIndexOf('-') + 1),
                 frameClass = '';
+            if(self.isIE9){
+                console.log(data);
+            }
             if (isDisabled === true) {
                 frameClass = ' btn disabled';
                 footer += '<div class="file-other-error text-danger"><i class="glyphicon glyphicon-exclamation-sign"></i></div>';
@@ -1802,6 +1805,99 @@
             readFile(0);
             self.updateFileDetails(numFiles, false);
         },
+        ieReadFiles: function(files){
+            //this.reader = new ieFileReader();
+            var self = this, $el = self.$element, $preview = self.$preview, /*reader = self.reader,*/
+                $container = self.$previewContainer, $status = self.$previewStatus, msgLoading = self.msgLoading,
+                msgProgress = self.msgProgress, previewInitId = self.previewInitId, numFiles = files.length,
+                settings = self.fileTypeSettings, ctr = self.filestack.length,
+                throwError = function (msg, file, previewId, index) {
+                    var p1 = $.extend(self.getOutData({}, {}, files), {id: previewId, index: index}),
+                        p2 = {id: previewId, index: index, file: file, files: files};
+                    self.previewDefault(file, previewId, true);
+                    return self.isUploadable ? self.showUploadError(msg, p1) : self.showError(msg, p2);
+                };
+
+            function readFile(i) {
+                if (isEmpty($el.attr('multiple'))) {
+                    numFiles = 1;
+                }
+                if (i >= numFiles) {
+                    if (self.isUploadable && self.filestack.length > 0) {
+                        self.raise('filebatchselected', [self.getFileStack()]);
+                    } else {
+                        self.raise('filebatchselected', [files]);
+                    }
+                    $container.removeClass('loading');
+                    $status.html('');
+                    return;
+                }
+                var node = ctr + i, previewId = previewInitId + "-" + node, isText, file = files[i],
+                    caption = self.slug(file.name), fileSize = (file.size || 0) / 1000, checkFile, fileExtExpr = '',
+                    /*previewData = objUrl.createObjectURL(file),*/ fileCount = 0, j, msg, typ, chk,
+                    fileTypes = self.allowedFileTypes, strTypes = isEmpty(fileTypes) ? '' : fileTypes.join(', '),
+                    fileExt = self.allowedFileExtensions, strExt = isEmpty(fileExt) ? '' : fileExt.join(', ');
+                if (!isEmpty(fileExt)) {
+                    fileExtExpr = new RegExp('\\.(' + fileExt.join('|') + ')$', 'i');
+                }
+                fileSize = fileSize.toFixed(2);
+                if (self.maxFileSize > 0 && fileSize > self.maxFileSize) {
+                    msg = self.msgSizeTooLarge.repl('{name}', caption)
+                        .repl('{size}', fileSize)
+                        .repl('{maxSize}', self.maxFileSize);
+                    self.isError = throwError(msg, file, previewId, i);
+                    return;
+                }
+                if (!isEmpty(fileTypes) && isArray(fileTypes)) {
+                    for (j = 0; j < fileTypes.length; j += 1) {
+                        typ = fileTypes[j];
+                        checkFile = settings[typ];
+                        chk = (checkFile !== undefined && checkFile(file.type, caption));
+                        fileCount += isEmpty(chk) ? 0 : chk.length;
+                    }
+                    if (fileCount === 0) {
+                        msg = self.msgInvalidFileType.repl('{name}', caption).repl('{types}', strTypes);
+                        self.isError = throwError(msg, file, previewId, i);
+                        return;
+                    }
+                }
+                if (fileCount === 0 && !isEmpty(fileExt) && isArray(fileExt) && !isEmpty(fileExtExpr)) {
+                    chk = caption.match(fileExtExpr);
+                    fileCount += isEmpty(chk) ? 0 : chk.length;
+                    if (fileCount === 0) {
+                        msg = self.msgInvalidFileExtension.repl('{name}', caption).repl('{extensions}',
+                            strExt);
+                        self.isError = throwError(msg, file, previewId, i);
+                        return;
+                    }
+                }
+                if (!self.showPreview) {
+                    self.filestack.push(file);
+                    setTimeout(readFile(i + 1), 100);
+                   // self.raise('fileloaded', [file, previewId, i, reader]);
+                    return;
+                }
+                if ($preview.length > 0 /*&& FileReader !== undefined*/) {
+                    //self.previewDefault(file, previewId);
+                    self.initPreviewDeletes();
+                    self.initFileActions();
+                    $status.html(msgLoading.repl('{index}', i + 1).repl('{files}', numFiles));
+                    $container.addClass('loading');
+
+                } else {
+                    self.previewDefault(file, previewId);
+                    setTimeout(function () {
+                        readFile(i + 1);
+                        self.updateFileDetails(numFiles);
+                    }, 100);
+                    //self.raise('fileloaded', [file, previewId, i, reader]);
+                }
+                self.filestack.push(file);
+            }
+
+            readFile(0);
+            self.updateFileDetails(numFiles, false);
+        },
         updateFileDetails: function (numFiles) {
             var self = this, $el = self.$element, fileStack = self.getFileStack(),
                 name = $el.val() || (fileStack.length && fileStack[0].name) || '', label = self.slug(name),
@@ -1822,6 +1918,29 @@
             }
             if (previewCache.count(self.id)) {
                 self.initPreviewDeletes();
+            }
+            if(self.isIE9){
+                //self.initFileActions();
+                //IE下，使用滤镜
+                $el.select();
+                $('.btn-default').focus();
+                var imgSrc = document.selection.createRange().text;
+                var img = '<img id="ie9-upload"/>'
+                self.$previewContainer.append(img);
+                var localImagId = document.getElementById('ie9-upload');
+                //必须设置初始大小
+                //self.autoSizeImage('ie9-upload');
+                localImagId.style.width = "50%";
+                localImagId.style.height = "50%";
+                //图片异常的捕捉，防止用户修改后缀来伪造图片
+                try {
+                    localImagId.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
+                    localImagId.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = imgSrc;
+                } catch (e) {
+                    console.log("您上传的图片格式不正确，请重新选择！");
+                    return false;
+                }
+
             }
         },
         change: function (e) {
@@ -1902,6 +2021,7 @@
             if (!self.isIE9) {
                 self.readFiles(tfiles);
             } else {
+                //self.ieReadFiles(tfiles);
                 self.updateFileDetails(1);
             }
             self.showFolderError(folders);

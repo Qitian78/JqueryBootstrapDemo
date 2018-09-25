@@ -99,7 +99,7 @@ $(function(){
         };
         $.ajax(settings).done(function (data) {
             if (data.ok) {
-                poptip.alert(data.message);
+                poptip.alert(POP_TIP.loadSuccess);
             } else {
                 console.log('失败')
             }
@@ -164,9 +164,9 @@ $("#delete-knowledge").on("click", function () {
                 };
                 $.ajax(settings).done(function (data) {
                     if (data.ok) {
-                        poptip.alert(data.message);
+                        poptip.alert(POP_TIP.deleteSuccess);
                     } else {
-                        poptip.alert(data.message);
+                        poptip.alert(POP_TIP.deleteFail);
                     }
                 });
                 poptip.close();
