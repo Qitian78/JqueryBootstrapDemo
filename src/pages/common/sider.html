@@ -4,32 +4,62 @@
         <div class="navbar-collapse sidebar-nav">
 
             <ul class="nav nav-tabs nav-stacked main-menu">
-                <li style="background: #999;"  onclick="expendSider(event)"><a href="#"> <i class="fa fa-bars" aria-hidden="true"></i></a></li>
+                <li style="background: #03213B;"  onclick="expendSider(event)"><a href="#"> <i class="fa fa-bars" aria-hidden="true"></i></a></li>
                 <!--左侧菜单栏，每一个一级菜单都需要这样一个name属性，属性值为对应模块的文件夹的名字(小驼峰)
                                 需要跳转的菜单项需要添加go属性，属性值为要跳转的页面-->
                 <li name="index" go="../index/index.html"><a href="#" ><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-tablet"> 首页</span></a></li>
                 <li name="personalCenter">
                     <a href="#" class="dropdown nav-a">
                         <i class="fa fa-address-card" aria-hidden="true"></i>
-                        <span class="hidden-tablet"> 个人中心</span>
+                        <span class="hidden-tablet"> 基础管理</span>
                     </a>
                     <ul class="dropdown-submenu" style="display: none;">
                         <!--每一个二级菜单，都需要这样一个name属性，值为[文件夹名称]-[跳转的页面名称(小驼峰)]
                                 需要跳转的菜单项需要添加go属性，属性值为要跳转的页面-->
-                        <li name="personalCenter-personal" go="../personal-center/personal.html"><a href="#" class="drop-a" ><i class="fa fa-address-card"></i><span class="hidden-tablet">个人中心</span></a></li>
-                        <li name="personalCenter-fileupload" go="../personal-center/fileupload.html"><a href="#" class="drop-a"><i class="fa fa-address-card"></i><span class="hidden-tablet"> 文件管理</span></a></li>
+                        <li name="personalCenter-personal" go=""><a href="#" class="drop-a" ><i class="fa fa-address-card"></i><span class="hidden-tablet">管理员管理</span></a></li>
+                        <li name="personalCenter-fileupload" go=""><a href="#" class="drop-a"><i class="fa fa-address-card"></i><span class="hidden-tablet"> 经销商管理</span></a></li>
                     </ul>
                 </li>
-                <li name="personDatabase" go="../person-database/person-database.html" ><a href="#" ><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-tablet"> 人员库</span></a></li>
+                <li name="personDatabase" go="" ><a href="#" ><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-tablet">个人中心</span></a></li>
                 <li name="knowledgeBase">
                     <a href="#" class="dropdown nav-a" >
                         <i class="fa fa-address-card" aria-hidden="true"></i>
-                        <span class="hidden-tablet"> 知识库管理</span>
+                        <span class="hidden-tablet"> 任务管理</span>
                     </a>
                     <ul class="dropdown-submenu" style="display: none;">
                         <!--每一个二级菜单，都需要这样一个name属性，值为[文件夹名称]-[跳转的页面名称(小驼峰)]
                                 需要跳转的菜单项需要添加go属性，属性值为要跳转的页面-->
-                        <li name="knowledgeBase-knowledgeBase" go="../knowledge-base/knowledge-base.html"><a href="#" class="drop-a" ><i class="fa fa-address-card"></i><span class="hidden-tablet">知识库列表</span></a></li>
+                        <li name="knowledgeBase-knowledgeBase" go=""><a href="#" class="drop-a" ><i class="fa fa-address-card"></i><span class="hidden-tablet">任务列表</span></a></li>
+                    </ul>
+                </li>
+                <li name="personDatabase" go="" ><a href="#" ><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-tablet">备件目录</span></a></li>
+                <li name="personDatabase" go="" ><a href="#" ><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-tablet">知识管理</span></a></li>
+                <li name="personDatabase" go="" ><a href="#" ><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-tablet">答题管理</span></a></li>
+                <li name="knowledgeBase">
+                    <a href="#" class="dropdown nav-a" >
+                        <i class="fa fa-address-card" aria-hidden="true"></i>
+                        <span class="hidden-tablet"> 消息管理</span>
+                    </a>
+                    <ul class="dropdown-submenu" style="display: none;">
+                        <li name="knowledgeBase-knowledgeBase" go=""><a href="#" class="drop-a" ><i class="fa fa-address-card"></i><span class="hidden-tablet">消息列表</span></a></li>
+                    </ul>
+                </li>
+                <li name="knowledgeBase">
+                    <a href="#" class="dropdown nav-a" >
+                        <i class="fa fa-address-card" aria-hidden="true"></i>
+                        <span class="hidden-tablet"> 日志管理</span>
+                    </a>
+                    <ul class="dropdown-submenu" style="display: none;">
+                        <li name="knowledgeBase-knowledgeBase" go=""><a href="#" class="drop-a" ><i class="fa fa-address-card"></i><span class="hidden-tablet">日志列表</span></a></li>
+                    </ul>
+                </li>
+                <li name="knowledgeBase">
+                    <a href="#" class="dropdown nav-a" >
+                        <i class="fa fa-address-card" aria-hidden="true"></i>
+                        <span class="hidden-tablet">系统设置</span>
+                    </a>
+                    <ul class="dropdown-submenu" style="display: none;">
+                        <li name="knowledgeBase-knowledgeBase" go=""><a href="#" class="drop-a" ><i class="fa fa-address-card"></i><span class="hidden-tablet">设置列表</span></a></li>
                     </ul>
                 </li>
             </ul>

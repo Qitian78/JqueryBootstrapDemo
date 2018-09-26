@@ -6,7 +6,7 @@
 
 .mody-header{
     height: 64px;
-    background: #555558;
+    background: #25A3F7;
     width: 100%;
     top: 0;
     left: 0;
@@ -15,8 +15,8 @@
 .mody-header h2{
     margin-left: 10px;
     color: #fff;
-    width: 20%;
     float: left;
+    height: 50%;
 }
 .pull-right{
     margin: 14px;
@@ -24,8 +24,10 @@
 }
 .header-navbar{
     width: 30%;
-    float: right;
-    padding: 12px;
+    height: 100%;
+    float: left;
+    padding: 20px;
+    color: #fff;
 }
 .header-navbar a{
     color: #fff;
@@ -41,9 +43,63 @@
     margin-left: 6px;
 }
 .header-navbar .dropdown-toggle:hover{
-    background: #555558!important;
+    background: #25A3F7!important;
 }
 .nav .open>.dropdown-toggle, .nav .open>.dropdown-toggle:focus, .nav .open>.dropdown-toggle:hover{
     background: none!important;
 }
 
+.head-left{
+    height: 100%;
+    width: 40%;
+    float: left;
+    margin-right: 30%;
+}
+.logo-head{
+    float: left;
+    height: 100%;
+    color: #fff;
+    margin-top: 20px;
+}
+.title-head{
+    float: left;
+    font-size: 18px;
+    font-weight: initial;
+}
+.title-line{
+    float: left;
+    background-color: #fff;
+    height: 45%;
+    width: 0.2%;
+    margin-left: 5%;
+    margin-top: 15px;
+}
+.index-img{
+    height: 100%;
+    margin-left: 5%;
+    color: #fff;
+}
+.title-index{
+    color: #fff;
+    height: 100%;
+    font-size: 16px;
+    margin-left: 10%;
+}
+.index-header{
+    float: left;
+    width: 30%;
+    height: 100%;
+    padding: 20px;
+}
+.user-img{
+    margin-right: 5%;
+}
+.user-role{
+    margin-right: 5%;
+}
+.role-line{
+    margin-right: 5%;
+}
+.user-logout{
+
+}

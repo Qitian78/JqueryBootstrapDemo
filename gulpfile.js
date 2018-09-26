@@ -198,6 +198,12 @@ gulp.task('copyJsLib', function () {
 });
 // 复制使用bower引入的组件库或样式框架的文件，带样式文件或其他文件的js框架改这里
 gulp.task('copyUiLib', function () {
+    gulp.src(bowerPath + '/bootstrap-table-fixed-columns/bootstrap-table-fixed-columns.css')
+        .pipe(cleanCss())
+        .pipe(gulp.dest(destPath + '/lib/bootstrap-table'));
+    gulp.src(bowerPath + '/bootstrap-table-fixed-columns/bootstrap-table-fixed-columns.js')
+        .pipe(uglify())
+        .pipe(gulp.dest(destPath + '/lib/bootstrap-table'));
     // bootstrap-table
     gulp.src(bowerPath + '/bootstrap-table/dist/bootstrap-table.min.css')
         .pipe(cleanCss())
@@ -275,7 +281,7 @@ if(env){
                 baseDir: destPath,
                 index: './index.html'
             },
-            port: 8898
+            port: 8899
         });
         // 监听 html
         gulp.watch([destPath + '/**/*']).on('change', browserSync.reload);
