@@ -37,6 +37,7 @@ function tabGo(){
         url: AJAX_URL.loginLog,
         method: requestJson ? 'get' : 'post',                      //请求方式（*）
         dataType: "json",
+        height:  $(window).height() - 180,
         //toolbar: '#toolbar',              //工具按钮用哪个容器
         striped: true,                      //是否显示行间隔色
         cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
@@ -127,6 +128,7 @@ function openAlertModal() {
         content: POP_TIP.confirm,
         yes: function(){
             console.log('confirm-yes');
+            pageToDo('fileupload.html');
             poptip.close();
         },
         cancel:function(){

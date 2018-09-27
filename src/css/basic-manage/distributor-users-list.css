@@ -1,0 +1,61 @@
+body, html {
+    background-color: #fff;
+    height: 100%;
+}
+
+.child-content {
+    height: 100%;
+    padding-right: 1%;
+}
+
+.search-head {
+    height: 50%;
+    width: 100%;
+    margin-top: 2%;
+}
+
+.search-content {
+    width: 100%;
+    height: 15%;
+    margin-top: 1%;
+}
+
+.search-from {
+    float: left;
+    width: 40%;
+    padding-left: 7%;
+    height: 50px;
+}
+
+.search-from input, .search-from select {
+    margin-left: 15px;
+}
+
+.search-submit {
+    padding-top: 1.5%;
+}
+
+.search-submit button {
+    width: 10%;
+    float: right;
+    margin-right: 2%;
+}
+
+.tab-pane {
+    margin-top: 2%;
+    padding-left: 3%;
+    padding-right: 6%;
+
+}
+
+#distributor-table thead {
+    background-color: rgb(250, 250, 250);
+}
+
+#distributor-table a {
+    color: rgb(67, 118, 247);
+}
+
+#distributor-table a.disable {
+    color: rgb(229, 28, 35);
+}

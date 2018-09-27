@@ -43,8 +43,8 @@ $(function(){
             field: 'knowledgeId',
             title: '知识点编号'
         }, {
-            field: 'knowledgeTitle',
-            title: '知识点标题'
+            field: 'knowledgeTitle\',\n' +
+            '            title: \'知识点标题'
         }, {
             field: 'knowledgeCategory',
             title: '知识点分类'

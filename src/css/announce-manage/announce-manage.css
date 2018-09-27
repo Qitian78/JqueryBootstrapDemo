@@ -1,0 +1,193 @@
+body{
+    background-color: #fff;
+    height: 100%;
+}
+.child-content{
+    height: 100%;
+}
+.search-content{
+    width: 100%;
+    height: 25%;
+}
+.announce-right{
+    height: 100%;
+    margin: 4%;
+}
+#announce-table{
+    border-radius: 5px;
+    background-color: #fff;
+}
+.search-head{
+    height: 50%;
+    width: 100%;
+}
+
+
+.search-submit button{
+    width: 40%;
+    float: left;
+    margin-left: 5%;
+}
+.result-num{
+    width: 40%;
+    float: left;
+}
+.operation-btn{
+    float: right;
+    margin-bottom: 2%;
+    width: 25%;
+}
+.operation-btn button{
+    margin-left: 3%;
+}
+.announce-list{
+    height: 75%;
+    background-color: #fff;
+    padding-top: 2%;
+}
+.modelBtn{
+    width: 30%;
+    float: right;
+}
+.modelBtn button{
+    width: 40%;
+    margin-left: 5%;
+}
+.announce-title{
+    font-size: 200%;
+    height: 30%;
+}
+.announce-form{
+    height: 70%;
+    padding-left: 5%;
+}
+.announce-search{
+    float: right;
+    width: 20%;
+    height: 25%;
+}
+.announce-content{
+    height: 75%;
+}
+.form-group{
+    margin-bottom: 0px;
+}
+.announce-from{
+    width: 20%;
+    float: left;
+    height: 100%;
+/*    padding-top: 50%;
+    padding-bottom: 50%;*/
+}
+.announce-from2{
+    width: 60%;
+    float: left;
+    height: 100%;
+}
+.announce-searchfont{
+    float:left;
+    height: 100%;
+    padding-top: 2%;
+}
+.announce-searchfont2{
+    float:left;
+    height: 100%;
+    padding-top: 1%;
+}
+.announce-searchfont3{
+    float:left;
+    height: 100%;
+    padding-top: 1%;
+    width: 10%;
+    text-align: center;
+}
+.announce-input{
+    float:left;
+    width: 60%;
+    height: 100%;
+}
+.announce-time{
+    float:left;
+    width: 35%;
+    height: 100%;
+}
+.announce-input-time{
+    float:left;
+    width: 90%;
+    height: 100%;
+}
+.announce-model{
+    width: 70%;
+    height: 100%;
+    margin-left: 10%;
+}
+.header-content{
+    width: 100%;
+    height: 100%;
+}
+.announce-header{
+    width: 100%;
+    height: 100%;
+}
+.modal-content{
+    height: 70%;
+}
+.modal-body{
+    height: 70%;
+}
+.announce-modal-title{
+    width: 100%;
+    height: 80%;
+}
+.before-title-line{
+    padding-left: 1%;
+    border-left: 5px solid #5e5e5e;
+}
+.before-line{
+    float: left;
+    height: 80%;
+    padding-left: 1%;
+    border-left: 5px solid #5e5e5e;
+}
+#model-title{
+    float: left;
+    width: 100%;
+    height: 70%;
+    text-align: center;
+}
+.announce-close{
+    float: left;
+}
+.announce-center{
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+.modal-dialog{
+    width: 80%;
+    height: 100%;
+}
+.modal-header{
+    padding-bottom: 0%;
+    border-bottom-width: 0px;
+}
+.modal-body{
+    padding-top: 0%;
+    border-bottom-width: 0px;
+}
+.modal-footer{
+    border-top-width: 0px;
+}
+.announce-line{
+    width: 100%;
+    height: 1%;
+    border-bottom: 1px solid #e5e5e5;
+}
+.modal-body-content{
+    padding: 2%;
+    padding-right: 4%;
+    padding-left: 4%;
+    font-weight: bolder;
+}
+.modal-body-content2{
+    padding: 1%;
+}

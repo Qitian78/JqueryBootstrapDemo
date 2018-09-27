@@ -1,0 +1,41 @@
+body, html {
+    background-color: #fff;
+    height: 100%;
+}
+
+.child-content {
+    height: 100%;
+    padding-right: 1%;
+}
+
+.search-from {
+    padding-left: 2%;
+}
+
+.content {
+    padding-left: 7%;
+}
+
+.role {
+    margin-top: 2%;
+}
+
+.power-config {
+    margin-top: 2%;
+}
+
+.power-config div:first-child {
+    margin-bottom: 2%;
+}
+
+.power-config ul li {
+    margin-top: 1.5%;
+    list-style: none;
+}
+.power-config ul li span{
+   margin-left: 1.5%;
+}
+.content button {
+    margin-top: 4%;
+    width: 15%;
+}

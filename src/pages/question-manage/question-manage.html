@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../lib/bootstrap-table/bootstrap-table.min.css">
+    <link rel="stylesheet" href="../../lib/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="../../lib/layer/theme/default/laydate.css">
+    <link rel="stylesheet" href="../../css/common/common.css"/>
+    <link rel="stylesheet" href="../../css/question-manage/question-manage.css">
+    <script src="../..//lib/js/polyfill.js" type="text/javascript"></script>
+    <title>答疑管理</title>
+</head>
+<!--答疑管理页面 2018-9-26 宣文彬   -->
+<body id="question-base-body">
+<!--<ol class="breadcrumb" style="margin-bottom: 0px">-->
+    <!--<li><a href="#">首页</a></li>-->
+    <!--&lt;!&ndash;<li><a href="#">答疑管理</a></li>&ndash;&gt;-->
+    <!--<li class="active">答疑管理</li>-->
+<!--</ol>-->
+<!--答疑管理页面-->
+<div class="child-content">
+    <div class="question-right">
+        <hr>
+        <div class="search-content" >
+            <div class="search-head">
+                <form>
+                    <div class="search-from form-group">
+                        <label>问题标题：</label>
+                            <input type="text" id="search-input-title" class="from-controller" placeholder="请输入问题标题" maxlength="50">
+
+                    </div>
+                    <div  class="search-from form-group">
+                        <label>问题类型：</label>
+                            <select class="from-controller " id="select-type">
+                                <option>类型名称</option>
+                            </select>
+
+                    </div>
+                    <div class="search-from form-group">
+                        <label>VIN码 ： </label>
+                            <input  type="text" class="from-controller" id="search-input-vin" placeholder="请输入VIN码" maxlength="50">
+
+                    </div>
+                    <div  class="search-from form-group">
+                        <label>是否共享： </label>
+                            <select class="from-controller" id="select-share">
+                                <option>已共享</option>
+                                <option>未共享</option>
+                            </select>
+
+                    </div>
+                    <div class="search-from form-group">
+                        <label>提问时间：</label>
+                            <input type="text" class="from-controller" id="choose-input-time" placeholder="请选择时间" autocomplete="off" maxlength="50">
+
+                    </div>
+
+                </form>
+            </div>
+            <div class="search-submit">
+                <button class="btn btn-primary" id="search-button">搜索</button>
+                <button class="btn" id="reset-button">重置</button>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="question-list">
+            <div class="operation-btn">
+                <button class="btn btn-primary" id="delete-button-question">删除</button>
+                <button class="btn btn-primary" id="share-button-question" onclick="share()" >共享</button>
+                <button class="btn btn-primary" id="open-button-categorymanage" >分类管理</button>
+            </div>
+            <div class="tab-pane" id="login-log">
+                <table id="show-table-question"></table>
+            </div>
+        </div>
+    </div>
+
+    <!--查看模态框-->
+    <div class="modal fade" id="detial-modal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 id="model-title"></h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xs-12 form-horizontal" id="detail-info">
+                            <div class="row">
+                                <div class="col-md-4 " id="question-id">
+                                    <div class="col-md-12">
+                                        <span class="col-md-6-left" title="问题编号">问题编号:</span>
+                                        <span class="col-md-6"> </span>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-4 " id="question-type">
+                                    <div class="col-md-12">
+                                        <span class="col-md-6-left" title="问题类型">问题类型:</span>
+                                        <span class="col-md-6"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 " id="question-user">
+                                    <div class="col-md-12">
+                                        <span class="col-md-6-left" title="提问者">提问者:</span>
+                                        <span class="col-md-6"></span>
+                                    </div>
+                                </div>
+                                <!--<div class="col-md-4 " id="questionTitle">问题标题:</div>-->
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 " id="question-title">
+                                    <div class="col-md-12">
+                                        <span class="col-md-6-left" title="问题标题">问题标题:</span>
+                                        <span class="col-md-6"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="col-md-12">
+                                        <span>问：我是谁dsfsgljdlfjgskdjlgjljl见识到了减肥了几声？</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <span>2018-9-26 18:00</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="col-md-12">
+                                        <span>答：我是我ddgfdgdfgdfg覆盖掉 ！</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <span>2018-9-26 18:00</span>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="col-md-12">
+                                        <span >问：有没有其他方法？</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <span>2018-9-26 18:00</span>
+                                </div>
+                            </div>
+                            <div class="row" >
+                                <div class="col-md-2" style="text-align: right;box-sizing: border-box;padding:2px;">
+                                    <span class="required-left"></span>&nbsp;&nbsp;答：
+                                </div>
+                                <div  class="col-md-10" style="padding:0px;">
+                                    <textarea name="mytextarea" maxlength="500px" placeholder="可输入1-500个中英文"></textarea>
+                                </div>
+                            </div>
+                            <div>
+
+                            </div>
+                            <div class="modelBtn">
+                                <button class="btn" data-dismiss="modal">取消</button>
+                                <button class="btn btn-primary save-check" check-area="add-point-info">保存</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../lib/js/jquery.min.js"></script>
+<script src="../../config/config.js"></script>
+<script src="../../lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../lib/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="../../lib/bootstrap-table/bootstrap-table-zh-CN.min.js"></script>
+<script src="../../lib/layer/laydate.js"></script>
+<!--common-util.js必须引在所有功能js前面-->
+<script src="../../utils/common-util.js"></script>
+<script src="../../utils/const-manager.js"></script>
+<!--<script src="laydate.js"></script>-->
+<script src="../../js/question-manage/question-manage.js"></script>
+</body>
+</html>

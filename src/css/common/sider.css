@@ -74,6 +74,9 @@
 .drop-a{
     background: none;
 }
+.fa-bars{
+    margin-left: 90%;
+}
 .navbar-collapse{
     padding-left: 0;
     padding-right: 0;
@@ -84,4 +87,20 @@
 .nav>li>a:focus, .nav>li>a:hover,.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
     background: #316597!important;
     color: #fff!important;
+}
+/*右侧旋转下三角
+ * @Date 2018/9/27 11:18
+ * @author Wang ke long
+*/
+.rotate-icon{
+    float: right;
+}
+.rotate-icon:last-child {
+   /* line-height: 40px;*/
+    float: right;
+    transform: rotate(0deg);
+    transition: transform 0.4s linear;
+}
+.hidden-tablet {
+    margin-left: 0.5%;
 }

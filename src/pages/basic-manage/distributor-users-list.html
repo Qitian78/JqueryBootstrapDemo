@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../lib/bootstrap-table/bootstrap-table.min.css">
+    <link rel="stylesheet" href="../../lib/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="../../lib/layer/theme/default/laydate.css">
+    <link rel="stylesheet" href="../../css/common/common.css"/>
+    <link rel="stylesheet" href="../../css/basic-manage/distributor-users-list.css">
+    <script src="../..//lib/js/polyfill.js" type="text/javascript"></script>
+    <title>经销商管理</title>
+</head>
+<body>
+<!--经销商管理页面 刘志杰 2018-09-25-->
+<div class="child-content">
+    <hr>
+    <div class="search-content">
+        <div class="search-head">
+            <form>
+                <div class="search-from form-group form-inline">
+                    <label>姓名：
+                    <input class="knowledge-title form-control" type="text" placeholder="请输入名称关键字">
+                    </label>
+                </div>
+
+                <div class="search-from form-group form-inline">
+                    <label>所属经销商：
+                    <select class="form-control">
+                        <option>天津一汽大众西青</option>
+                        <option>天津二汽大众西青</option>
+                        <option>天津三汽大众西青</option>
+                        <option>天津四汽大众西青</option>
+                    </select>
+                    </label>
+                </div>
+            </form>
+        </div>
+
+        <div class="search-submit">
+            <button class="btn" >重置</button>
+            <button class="btn btn-primary">查询</button>
+        </div>
+
+    </div>
+    <hr>
+    <div class="tab-pane" id="distributorTable">
+        <table id="distributor-table"></table>
+    </div>
+</div>
+
+<script src="../../lib/js/jquery.min.js"></script>
+<script src="../../config/config.js"></script>
+<script src="../../lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../lib/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="../../lib/bootstrap-table/bootstrap-table-zh-CN.min.js"></script>
+<script src="../../lib/layer/laydate.js"></script>
+<!--common-util.js必须引在所有功能js前面-->
+<script src="../../utils/common-util.js"></script>
+<script src="../../utils/const-manager.js"></script>
+<script src="../../js/basic-manage/distributor-users-list.js"></script>
+</body>
+</html>

@@ -692,6 +692,19 @@ function calcPageHeight(doc) {
     let height  = Math.max(cHeight, sHeight)
     return height
 }
+
+/**
+ * @Desc ifreame 中的页面跳转
+ * @Param  跳转的html路径
+ * @Date 2018-09-27 11:26:21
+ * @Author qitian
+ */
+
+function pageToDo (path) {
+    let ifreameId = sessionStorage.getItem('nav-page');
+    let browser = navigator.userAgent;
+    parent.document.getElementById(ifreameId).src = path;
+}
 /**************************************************************公共方法结束*************************************************************/
 
 

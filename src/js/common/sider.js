@@ -30,7 +30,7 @@ $(function(){
  */
 function expendSider(event){
     let siderWidth = $('.mody-sider').css('width');
-    if(siderWidth !== '38px'){//收缩
+    if(siderWidth !== '38px' && siderWidth !== '37.9922px'){//收缩
         $('.mody-sider').css('width','38px');
         $('.hidden-tablet').each(function(index,item){
             $(item).removeClass('tablet-expend');
@@ -42,11 +42,18 @@ function expendSider(event){
         $('.dropdown-submenu').each(function (index,item) {
             $(item).css('display','none');
         })
+        $('.rotate-icon').each(function (index,item) {
+            $(item).css('display','none');
+        })
     }else{//展开
         $('.mody-sider').css('width','15%');
         $('.hidden-tablet').each(function(index,item){
             $(item).removeClass('tablet-shirnk');
             $(item).addClass('tablet-expend');
+        })
+        $('.rotate-icon').each(function (index,item) {
+            $(item).css('display','block');
+            $(item).css('transform','none');
         })
         $('.content-center').css('width','85%');
         $('.content-center').css('left','15%');
@@ -56,6 +63,7 @@ function expendSider(event){
             let activeList = activeLi.split('-');
             if(activeList.length > 1){
                 $('.sidebar-nav').find('li[name="'+activeList[0]+'"]').find('.dropdown-submenu').css('display','block');
+                $('.sidebar-nav').find('li[name="'+activeList[0]+'"]').find('.rotate-icon').css({ "transform": "rotate(90deg)", "color": "#fff" });
             }
             setTimeout(function() {
                 $('.sidebar-nav').find('li[name="'+activeLi+'"]').addClass('active');
@@ -79,3 +87,20 @@ function loadPage(liName) {
     $('.content-center')[0].innerHTML = '<iframe type="text/html" id="'+liName+'" src="'+page+'" width="100%" height="100%"></iframe>';
     sessionStorage.setItem('nav-page',liName);
 };
+
+/*
+ * @Description: 左侧导航展开时，下三角图标旋转效果
+ * @Date 2018/9/27 9:17
+ * @author Wang ke long
+*/
+$(document).ready(function () {
+    $(".my-rotate").click(function () {
+        if ($(this).children(".rotate-icon").attr("leng") != "s") {
+            $(this).children(".rotate-icon").attr("leng", "s")
+            $(this).children(".rotate-icon").css({ "transform": "rotate(90deg)", "color": "#fff" })
+        } else {
+            $(this).children(".rotate-icon").attr("leng", "")
+            $(this).children(".rotate-icon").css({ "transform": "rotate(0deg)", "color": "#fff" })
+        }
+    })
+})

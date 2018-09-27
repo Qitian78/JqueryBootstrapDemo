@@ -1,0 +1,87 @@
+body{
+    background-color: #fff;
+    height: 100%;
+}
+.child-content{
+    height: 100%;
+}
+.search-content{
+    margin-bottom: 110px;
+    width: 100%;
+    /*height: 10%;*/
+}
+.log-right{
+    height: 100%;
+    margin: 30px;
+}
+#show-table-sbomchangelog{
+    border-radius: 5px;
+    background-color: #fff;
+}
+.search-head{
+    height: 50%;
+    width: 100%;
+}
+
+.sbom-search-from{
+    width: 25%;
+    /*width: 500px;*/
+    float: left;
+    margin-left: 1%;
+}
+.search-submit{
+    float: left;
+    width: 20%;
+}
+.search-submit button{
+    width: 40%;
+    float: right;
+    margin-right: 16%;
+}
+.result-num{
+    width: 40%;
+    float: left;
+}
+.operation-btn{
+    float: right;
+    margin-bottom: 2%;
+    width: 100%;
+}
+.operation-btn button{
+    /*margin-left: 3%;*/
+    margin-right: 5%;
+    float: right;
+    width: 8%;
+}
+.sbom-list{
+    background-color: #fff;
+}
+.modelBtn{
+    width: 30%;
+    float: right;
+}
+.modelBtn button{
+    width: 40%;
+    margin-left: 5%;
+}
+.sbom-from-controller{
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 150px;
+}
+/*#updateTime{*/
+    /*height: 34px;*/
+    /*padding: 6px 12px;*/
+    /*font-size: 14px;*/
+    /*line-height: 1.42857143;*/
+    /*color: #555;*/
+    /*border: 1px solid #ccc;*/
+    /*border-radius: 4px;*/
+    /*width: 200px;*/
+/*}*/
+

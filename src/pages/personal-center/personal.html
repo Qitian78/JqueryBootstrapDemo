@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="../../lib/bootstrap-table/bootstrap-table.min.css">
+    <link rel="stylesheet" href="../../lib/bootstrap-table/bootstrap-table-fixed-columns.css">
     <link rel="stylesheet" href="../../lib/fontawesome/css/fontawesome-all.css">
     <link rel="stylesheet" href="../../lib/layer/theme/default/laydate.css">
     <link rel="stylesheet" href="../../css/common/common.css"/>
@@ -108,8 +109,8 @@
                     </div>
                 </div>
                 <!--登录日志-->
-                <div class="tab-pane" id="login-log">
-                    <table id="login-log-table"></table>
+                <div class="tab-pane table-responsive" style="z-index: 1;" id="login-log">
+                    <table id="login-log-table" class="table-fixed"></table>
                 </div>
             </div>
         </div>
@@ -119,6 +120,7 @@
     <script src="../../lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="../../lib/bootstrap-table/bootstrap-table.min.js"></script>
     <script src="../../lib/bootstrap-table/bootstrap-table-zh-CN.min.js"></script>
+    <script src="../../lib/bootstrap-table/bootstrap-table-fixed-columns.js"></script>
     <script src="../../lib/layer/laydate.js"></script>
     <!--common-util.js必须引在所有功能js前面-->
     <script src="../../utils/common-util.js"></script>

@@ -1,0 +1,48 @@
+body{
+    background-color: #fff;
+    height: 100%;
+}
+.personnel-title{
+    font-size: large;
+    font-weight: bolder;
+}
+.child-content{
+    height: 100%;
+}
+.personnel-right{
+    height: 100%;
+    margin: 30px 0 0 30px;
+}
+.search-content{
+    width: 100%;
+    float: left;
+}
+.search-head{
+    width: 100%;
+    float: left;
+    margin-top: 5%;
+}
+.search-label{
+    float: left;
+    height: 34px;
+    /*margin-left: 2%;*/
+    line-height: 34px;
+}
+.search-input{
+    width:60%;
+    float: left;
+}
+.search-submit{
+    float: right;
+    width: 100%;
+}
+.search-btn{
+    width: 100px;
+    float: right;
+    margin: 30px 30px 30px 0;
+}
+.search-head-group{
+    width: 25%;
+    float: left;
+}
+

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../lib/bootstrap-table/bootstrap-table.min.css">
+    <link rel="stylesheet" href="../../lib/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="../../lib/layer/theme/default/laydate.css">
+    <link rel="stylesheet" href="../../css/common/common.css"/>
+    <link rel="stylesheet" href="../../css/log-management/sbomchange-log.css">
+    <script src="../..//lib/js/polyfill.js" type="text/javascript"></script>
+    <title>SBOM变更日志</title>
+</head>
+<!--SBOM变更日志页面 2018-9-26 宣文彬   -->
+<body id="SBOMChangeLog-base-body">
+<div class="child-content">
+    <div class="log-right">
+        <hr>
+        <div class="search-content" >
+            <div class="search-head">
+                <form>
+                    <div  class="sbom-search-from form-group">
+                        <label>项目：</label>
+                        <select class="sbom-from-controller" >
+                            <option value="" disabled selected hidden>请选择项目</option>
+                            <option>全部</option>
+                        </select>
+                    </div>
+                    <div  class="sbom-search-from form-group">
+                        <label>变更类型： </label>
+                        <select class="sbom-from-controller" >
+                            <option value="" disabled selected hidden>请选择变更类型</option>
+                        </select>
+                    </div>
+                    <div class="sbom-search-from form-group">
+                        <label>更新时间：</label>
+                        <input type="text" class="sbom-from-controller"  id="choose-input-time"  placeholder="请选择时间" autocomplete="off" maxlength="50" >
+                    </div>
+                    <div class="search-submit">
+                        <button class="btn btn-primary" id="search-button">查询</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <hr>
+        <div class="operation-btn">
+            <button class="btn btn-primary" id="export-button-log">导出</button>
+        </div>
+        <div class="sbom-list" >
+
+            <div class="btn-group" role="group" aria-label="..." >
+                <button type="button" class="btn btn-default">SBOM</button>
+                <button type="button" class="btn btn-default">EXECL导入</button>
+            </div>
+            <div class="tab-pane" id="login-log">
+                <table id="show-table-sbomchangelog"></table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="../../lib/js/jquery.min.js"></script>
+<script src="../../config/config.js"></script>
+<script src="../../lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../lib/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="../../lib/bootstrap-table/bootstrap-table-zh-CN.min.js"></script>
+<script src="../../lib/layer/laydate.js"></script>
+<!--common-util.js必须引在所有功能js前面-->
+<script src="../../utils/common-util.js"></script>
+<script src="../../utils/const-manager.js"></script>
+<!--<script src="laydate.js"></script>-->
+<script src="../../js/log-management/sbomchange-log.js"></script>
+</body>
+</html>

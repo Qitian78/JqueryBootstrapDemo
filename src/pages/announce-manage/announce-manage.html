@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../lib/bootstrap-table/bootstrap-table.min.css">
+    <link rel="stylesheet" href="../../lib/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="../../lib/layer/theme/default/laydate.css">
+    <link rel="stylesheet" href="../../css/common/common.css"/>
+    <link rel="stylesheet" href="../../css/announce-manage/announce-manage.css">
+    <script src="../..//lib/js/polyfill.js" type="text/javascript"></script>
+    <title>个人中心</title>
+</head>
+<body id="announce-manage-body">
+<!--公告管理页面-->
+<div class="child-content">
+    <div class="announce-right">
+        <div class="search-content">
+            <div class="announce-title"><div class="before-title-line">公告管理</div></div>
+            <form class="announce-form">
+                <div class="announce-content">
+                    <div class="announce-from form-group">
+                        <label>
+                            <span class="announce-searchfont">公告：</span>
+                            <input type="text" class=" announce-input form-control" id="title-search" placeholder="请输入关键字"
+                                   maxlength="50">
+                        </label>
+                    </div>
+                    <div class="announce-from form-group">
+                        <label>
+                            <span class="announce-searchfont">发布者：</span>
+                            <input type="text" class=" announce-input form-control" id="publisher-search"
+                                   placeholder="请输入发布者" maxlength="50">
+                        </label>
+                    </div>
+                    <div class="announce-from2 form-group">
+                        <label>
+                            <span class="announce-searchfont2">发布时间：</span>
+                            <div class="announce-time  input-group">
+                                <input type="text" class="announce-input-time form-control" id="begin-time-search"
+                                       placeholder="请输入开始时间" maxlength="50">
+                                <span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                            </div>
+                            <span class="announce-searchfont3">至</span>
+                            <div class="announce-time input-group">
+                                <input type="text" class="announce-input-time form-control" id="end-time-search"
+                                       placeholder="请输入结束时间" maxlength="50">
+                                <span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <div class="announce-search">
+                    <button class="btn btn-primary" id="search-submit" onclick="searchSubmit()">查询</button>
+                    <button class="btn" id="search-reset" type="reset">清空</button>
+                </div>
+            </form>
+        </div>
+        <div class="announce-list">
+            <!--公告管理列表-->
+            <div class="tab-pane" id="login-log">
+                <table id="announce-table"></table>
+            </div>
+        </div>
+    </div>
+
+    <!--公告管理详情模态框 即“查看”超链接弹出模态框-->
+    <div class="modal fade"  id="announce-detail" data-backdrop="static">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="announce-modal-title">
+                        <div class="before-line">公告</div>
+                    </div>
+                    <h2  id="model-title"></h2>
+                </div>
+                <div class="modal-body">
+                    <div class="announce-line"></div>
+                    <div class="row">
+                        <div class="modal-body-content">
+                            <div class="col-md-12 " id="add-point-info">
+                            <div class="row">
+                                <div class="col-xs-2 col-md-2 modal-body-content2">升级窗口:</div>
+                                <div class="col-xs-10 col-md-10 modal-body-content2" id="modal-update-window"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-2 col-md-2 modal-body-content2">升级内容:</div>
+                                <div class="col-xs-10  col-md-10 modal-body-content2" id="modal-update-content"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-2 col-md-2 modal-body-content2">升级影响:</div>
+                                <div class="col-xs-12 col-md-12 modal-body-content2" style="word-break:break-all" id="modal-update-effect"></div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="announce-line"></div>
+                </div>
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col-md-10 "></div>
+                        <div class="col-md-2">
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-print" aria-hidden="true"></i>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../lib/js/jquery.min.js"></script>
+<script src="../../config/config.js"></script>
+<script src="../../lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../lib/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="../../lib/bootstrap-table/bootstrap-table-zh-CN.min.js"></script>
+<script src="../../lib/layer/laydate.js"></script>
+<!--common-util.js必须引在所有功能js前面-->
+<script src="../../utils/common-util.js"></script>
+<script src="../../utils/const-manager.js"></script>
+<script src="../../js/announce-manage/announce-manage.js"></script>
+<script src="../../js/personal-center/personal.js"></script>
+</body>
+</html>

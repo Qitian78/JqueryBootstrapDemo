@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../lib/bootstrap-table/bootstrap-table.min.css">
+    <link rel="stylesheet" href="../../lib/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="../../lib/layer/theme/default/laydate.css">
+    <link rel="stylesheet" href="../../css/common/common.css"/>
+    <link rel="stylesheet" href="../../css/data-management/update-personnel.css">
+    <script src="../..//lib/js/polyfill.js" type="text/javascript"></script>
+    <title>编辑人员配置</title>
+</head>
+<body>
+    <div>
+        <div class = "update-title">
+            编辑人员配置
+        </div>
+        <div class = "medium">
+            <div class = "medium-left">
+                <div class = "left-top">
+                    <label>部门：</label>
+                    <span class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            请选择部门
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="margin-top: 10px"  id="select-ul-departmentName">
+                            <!-- 以下li最终在js中获取并显示 -->
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                        </ul>
+                    </span>
+                    <!--<select>
+                        <option>1</option>
+                        <option>1</option>
+                        <option>1</option>
+                    </select>-->
+                </div>
+                <div class = "left-medium" id="show-div-contactPersonnelName">
+                    <!-- 以下内容最终在js中获取并显示 -->
+                    <label>联络人：</label>
+                    <span>张三</span><span class="glyphicon glyphicon-pencil"></span>
+                </div>
+                <div class = "left-bottom" id = "show-div-pesonnel">
+                    <!-- 以下每组div最终在js中获取并显示 -->
+                    <div class = "left-bottom-item"><span>副总工程师1：</span><span>王五</span><span class = "glyphicon glyphicon-pencil"></span></div>
+                    <div class = "left-bottom-item"><span>副总工程师1：</span><span>王五</span><span class = "glyphicon glyphicon-pencil"></span></div>
+                    <div class = "left-bottom-item"><span>副总工程师1：</span><span>王五</span><span class = "glyphicon glyphicon-pencil"></span></div>
+                </div>
+                <div class = "left-button">
+                    <button class = "btn btn-primary" id="add-button-deputyChiefEngineerName">增加副总工程师</button>
+                </div>
+            </div>
+
+            <div class = "medium-right">
+                <div class = "right-top">
+                    <label>模块：</label>
+                    <span class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            请选择模块
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="margin-top: 10px" id="select-select-moduleName">
+                            <!-- 以下li最终在js中获取并显示 -->
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                        </ul>
+                    </span>
+                    <!--<select>
+                        <option>1</option>
+                        <option>1</option>
+                        <option>1</option>
+                    </select>-->
+                </div>
+                <div class = "right-medium" id="span-show-contactPersonnelName">
+                    <!-- 以下内容最终在js中获取并显示 -->
+                    <label>负责人：</label>
+                    <span>张三</span><span class="glyphicon glyphicon-pencil"></span>
+                </div>
+                <div class = "right-bottom" id="show-div-engineerName">
+                    <!-- 以下每组div最终在js中获取并显示 -->
+                    <div class = "right-bottom-item"><span>下属工程师：</span><span>王五</span><span class = "glyphicon glyphicon-plus-sign"></span></div>
+                    <div class = "right-bottom-item"><span>下属工程师：</span><span>王五</span><span class = "glyphicon glyphicon-plus-sign"></span></div>
+                    <div class = "right-bottom-item"><span>下属工程师：</span><span>王五</span><span class = "glyphicon glyphicon-plus-sign"></span></div>
+                </div>
+            </div>
+            <div class = "bottom" align="center">
+                <button class = "btn btn-primary bottom-btn" id = "save-button">保存</button>
+                <button class = "btn btn-disable bottom-btn" id = "goback-button">返回</button>
+            </div>
+        </div>
+    </div>
+    <script src="../../lib/js/jquery.min.js"></script>
+    <script src="../../config/config.js"></script>
+    <script src="../../lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../lib/bootstrap-table/bootstrap-table.min.js"></script>
+    <script src="../../lib/bootstrap-table/bootstrap-table-zh-CN.min.js"></script>
+    <!--common-util.js必须引在所有功能js前面-->
+    <script src="../../utils/common-util.js"></script>
+    <script src="../../utils/const-manager.js"></script>
+</body>
+</html>

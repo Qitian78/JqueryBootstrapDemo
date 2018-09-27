@@ -1,0 +1,62 @@
+/*
+*作者：岳奔
+*时间：2018年9月26号
+*
+*/
+body{
+    background-color: #fff;
+    height: 100%;
+}
+
+#classfiy-table>thead>tr{
+    border: none;
+}
+
+#classfiy-table>tbody>tr{
+    border: none;
+}
+
+.classfiy{
+    height: 100%;
+}
+
+.classfiy-right{
+    height: 100%;
+    margin: 30px;
+}
+
+.navigation-bar{
+    width: 100%;
+    height: 10px;
+    line-height: 10px;
+    font-weight: 700;
+}
+
+.modelBtn{
+    width: 50%;
+    margin: auto;
+}
+
+.input-ClassName{
+    width: 300px;
+}
+
+.classfiy-btn{
+    width: 100px;
+}
+
+.classfiy-table{
+    margin: 20px 0px 0px 0px;
+}
+
+.pagination-info{
+    display: none;
+}
+
+a.classfiy-cz1{
+    color: blue;
+}
+
+a.classfiy-cz2{
+    color: red;
+}

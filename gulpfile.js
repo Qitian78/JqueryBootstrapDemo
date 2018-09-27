@@ -281,7 +281,7 @@ if(env){
                 baseDir: destPath,
                 index: './index.html'
             },
-            port: 8899
+            port: 8898
         });
         // 监听 html
         gulp.watch([destPath + '/**/*']).on('change', browserSync.reload);

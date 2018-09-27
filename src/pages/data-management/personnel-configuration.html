@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../lib/bootstrap-table/bootstrap-table.min.css">
+    <link rel="stylesheet" href="../../lib/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="../../lib/layer/theme/default/laydate.css">
+    <link rel="stylesheet" href="../../css/common/common.css"/>
+    <link rel="stylesheet" href="../../css/data-management/personnel-configuration.css" >
+    <script src="../..//lib/js/polyfill.js" type="text/javascript"></script>
+    <title>人员配置</title>
+</head>
+<body class = "personnel-configuration-body">
+    <!-- 人员配置页 -->
+    <div class = "child-content">
+        <div class = "personnel-right">
+            <div class = "personnel-title">人员配置</div>
+            <div class = "search-content">
+                <div class = "form-group search-head">
+                    <form>
+                        <div class = "search-head-group">
+                            <label class = "label-search">部门：</label><input type = "text" class="form-control input-search" id = "search-input-departmentName" placeholder="请输入部门名称" maxlength="20"/>
+                        </div>
+                        <div class = "search-head-group">
+                            <label class = "label-search">联络人：</label><input type = "text" class="form-control input-search" id = "search-input-contactPersonneName" placeholder="请输入联络人名称" maxlength="20"/>
+                        </div>
+                        <div class = "search-head-group">
+                            <label class = "label-search">负责人：</label><input type = "text" class="form-control input-search" id = "search-input-chargePersonneName" placeholder="请输入负责人名称" maxlength="20"/>
+                        </div>
+                        <div class = "search-head-group">
+                            <label class = "label-search">模块名称：</label><input type = "text" class="form-control input-search" id = "search-input-moduleName" placeholder="请输入模块名称" maxlength="20"/>
+                        </div>
+                    </form>
+                </div>
+                <div class = "submit-search">
+                    <button class = "btn btn-primary btn-search" id = "search-button-queryPersonnel">查询</button>
+                </div>
+            </div>
+            <div class = "personnel-list">
+                <div class = "button-operation">
+                    <button class = "btn btn-primary" id = "add-button-addPersonnel" style="width: 100px;">新增</button>
+                    <button class = "btn btn-primary" id = "export-button-exportPersonnel" style="float: right;width: 100px;margin-right: 30px">导入</button>
+                    <button class = "btn btn-primary" id = "delete-button-deletePersonnel" style="float: right;width: 100px;margin-right: 30px">删除</button>
+                </div>
+                <!-- 人员配置表 -->
+                <div class = "tab-pan" style="margin-right: 30px">
+                    <table id = "personnel-table"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../lib/js/jquery.min.js"></script>
+    <script src="../../config/config.js"></script>
+    <script src="../../lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../lib/bootstrap-table/bootstrap-table.min.js"></script>
+    <script src="../../lib/bootstrap-table/bootstrap-table-zh-CN.min.js"></script>
+    <script src="../../lib/layer/laydate.js"></script>
+    <!--common-util.js必须引在所有功能js前面-->
+    <script src="../../utils/common-util.js"></script>
+    <script src="../../utils/const-manager.js"></script>
+    <script src="../../js/data-management/personnel-configuration.js"></script>
+</body>
+</html>

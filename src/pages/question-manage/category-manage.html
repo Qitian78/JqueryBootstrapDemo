@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../lib/bootstrap-table/bootstrap-table.min.css">
+    <link rel="stylesheet" href="../../lib/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="../../lib/layer/theme/default/laydate.css">
+    <link rel="stylesheet" href="../../css/common/common.css"/>
+    <link rel="stylesheet" href="../../css/question-manage/category-manage.css">
+    <script src="../..//lib/js/polyfill.js" type="text/javascript"></script>
+    <title>分类管理页面</title>
+</head>
+<!--分类管理页面 2018-9-26 宣文彬   -->
+<body id="category-base-body">
+<!--<ol class="breadcrumb" style="margin-bottom: 0px">-->
+    <!--<li><a href="#">首页</a></li>-->
+    <!--<li><a href="#">答疑管理</a></li>-->
+    <!--<li class="active">分类管理</li>-->
+<!--</ol>-->
+<!--分类管理页面-->
+<div class="child-content">
+    <div class="category-right">
+        <div class="category-list">
+            <!-- <div class="result-num">
+                 共搜索出<span></span>条结果
+             </div>-->
+            <div class="operation-btn">
+                <button class="btn btn-primary" id="return-button">返回</button>
+                <button class="btn btn-primary" id="add-button-category" onclick="openAddModal()" data-target="#add-modal" data-toggle="modal">新增分类</button>
+            </div>
+
+            <div class="tab-pane" id="login-log">
+                <table id="show-table-category"></table>
+            </div>
+        </div>
+    </div>
+
+    <!--分类管理-新增分类模态框-->
+    <div class="modal fade" id="add-modal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 id="show-model-title"></h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xs-12 form-horizontal" id="add-modal-info">
+
+                            <div class="form-group">
+                                <label for="inputTitle" class="col-sm-3 control-label required-left">分类名称 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control col-sm-2 need-check not-null" regex="account" maxlength="20" id="inputTitle" placeholder="单行输入">
+                                    <span class="alert-warn"></span>
+                                </div>
+                            </div>
+                            <div class="modelBtn">
+                                <button class="btn" data-dismiss="modal">取消</button>
+                                <button class="btn btn-primary save-check" check-area="add-button-info">保存</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../lib/js/jquery.min.js"></script>
+<script src="../../config/config.js"></script>
+<script src="../../lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../lib/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="../../lib/bootstrap-table/bootstrap-table-zh-CN.min.js"></script>
+<script src="../../lib/layer/laydate.js"></script>
+<!--common-util.js必须引在所有功能js前面-->
+<script src="../../utils/common-util.js"></script>
+<script src="../../utils/const-manager.js"></script>
+<script src="../../js/question-manage/category-manage.js"></script>
+</body>
+</html>
