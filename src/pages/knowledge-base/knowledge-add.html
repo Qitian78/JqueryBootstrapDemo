@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../lib/bootstrap-table/bootstrap-table.min.css">
+    <link rel="stylesheet" href="../../lib/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="../../lib/layer/theme/default/laydate.css">
+    <link rel="stylesheet" href="../../css/common/common.css"/>
+    <link rel="stylesheet" href="../../css/knowledge-base/knowledge-add.css">
+    <script src="../..//lib/js/polyfill.js" type="text/javascript"></script>
+    <title>知识库新增</title>
+</head>
+<body id="konwledge-add-body">
+<div class="child-content">
+    <div class="add-head-knowledge">
+        <span>首页>>知识库管理>>分类管理</span>
+    </div>
+    <hr>
+    <div class="add-body-knowledge">
+        <a href="knowledge-base.html"><button class="back-btn-add btn btn-primary">返回</button></a>
+        <div class="add-form-knowledge form-group">
+            <div class="add-div-category">
+                <label class="add-label-category"><span class="required">选择分类：</span></label>
+                <select class="add-select-category form-control">
+                    <option>类型名称1</option>
+                    <option>类型名称2</option>
+                    <option>类型名称3</option>
+                    <option>类型名称4</option>
+                </select>
+            </div>
+            <div class="add-div-title">
+                <label class="add-label-title"><span class="required">标题：</span></label>
+                <input class="add-input-title form-control" placeholder="请输入知识点标题,不得超过30个字">
+                <span class="max-span-title">30</span>
+            </div>
+            <div class="add-div-text">
+                <label class="add-label-text"><span class="required">正文：</span></label>
+                <div class="add-editor-text" id="content-editor">
+                    <script  id="container" name="content" type="text/plain"></script>
+                </div>
+                <span class="max-span-text">5000</span>
+            </div>
+
+            <div class="add-btn-knowledge">
+                <button class="add-btn-save btn btn-primary">保存</button>
+                <button class="add-btn-cancel btn btn-default">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../lib/js/jquery.min.js"></script>
+<script src="../../config/config.js"></script>
+<script src="../../lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../lib/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="../../lib/bootstrap-table/bootstrap-table-zh-CN.min.js"></script>
+<script src="../../lib/layer/laydate.js"></script>
+<script src="../../lib/ueditor/ueditor.config.js"></script>
+<script src="../../lib/ueditor/ueditor.all.js"></script>
+<script charset="utf-8" src="../../lib/ueditor/lang/zh-cn/zh-cn.js"></script>
+<!--common-util.js必须引在所有功能js前面-->
+<script src="../../utils/common-util.js"></script>
+<script src="../../utils/const-manager.js"></script>
+<script src="../../js/knowledge-base/knowledge-add.js"></script>
+</body>
+</html>
