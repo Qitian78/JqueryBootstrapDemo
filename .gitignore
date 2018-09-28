@@ -5,9 +5,9 @@ Desktop.ini
 node_modules/
 bower_components/
 dist/
-.idea/
 npm-debug.log*
 src/WeChat/WeChat.rar
 src.rar
 node_modules.rar
 *.rar
+.idea/
