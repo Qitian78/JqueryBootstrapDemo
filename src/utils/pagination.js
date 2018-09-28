@@ -255,7 +255,7 @@ Pagination.prototype.render = function () {
             'pointer-events': 'auto'
         });
     }
-    if (parseInt(this.showPage) === 1  || this.pageCount == 0) {
+    if (parseInt(this.showPage) === 1 || this.pageCount == 0) {
         $('.page-pre').addClass("disabled");
         $('.page-begin').addClass("disabled");
         $('.page-pre').attr("disabled");

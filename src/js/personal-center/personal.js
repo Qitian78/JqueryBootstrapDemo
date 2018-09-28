@@ -4,7 +4,7 @@
  * @Author qitian
  */
 let MAX_FILE_NUM = 2;
-$(function(){
+$(function() {
     laydate.render({
         elem: '#birthday',
         type: 'month',
@@ -22,7 +22,7 @@ $(function(){
  * @Author qitian
  */
 
-function saveInfo(){
+function saveInfo() {
     poptip.alert(POP_TIP.saveSuccess);
 }
 
@@ -32,7 +32,7 @@ function saveInfo(){
  * @Author qitian
  */
 
-function tabGo(){
+function tabGo() {
     $('#login-log-table').bootstrapTable({
         url: AJAX_URL.loginLog,
         method: requestJson ? 'get' : 'post',                      //请求方式（*）
@@ -94,14 +94,14 @@ function tabGo(){
             width: 120,
             align: 'center',
             valign: 'middle',
-            formatter:function(value,row,index){
+            formatter:function(value,row,index) {
                 //通过formatter可以自定义列显示的内容
                 //value：当前field的值，即id
                 //row：当前行的数据
                 let a = '<a href="#" onclick="openAlertModal()">测试</a>';
                 return a;
             }
-        }, ],
+        },],
         onLoadSuccess: function (e) {
             console.log(e)
         },
@@ -111,7 +111,7 @@ function tabGo(){
         onDblClickRow: function (row, $element) {
         },
         //客户端分页，需要指定到rows
-        responseHandler: function(data){
+        responseHandler: function(data) {
             return data.rows;
         }
     });
@@ -126,12 +126,12 @@ function tabGo(){
 function openAlertModal() {
     poptip.confirm({
         content: POP_TIP.confirm,
-        yes: function(){
+        yes: function() {
             console.log('confirm-yes');
             pageToDo('fileupload.html');
             poptip.close();
         },
-        cancel:function(){
+        cancel:function() {
             console.log('confirm-cancel');
             poptip.close();
         }

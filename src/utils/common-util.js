@@ -20,10 +20,17 @@ Date.prototype.Format = function (fmt) {
         "q+": Math.floor((this.getMonth() + 3) / 3), //季度
         "S": this.getMilliseconds() //毫秒
     };
-    if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
-    for (let k in o)
-        if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
-    return fmt;
+    if (/(y+)/.test(fmt)) {
+        fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+    }
+    for (let k in o) {
+        if (new RegExp("(" + k + ")").test(fmt)) {
+            fmt = fmt.replace(RegExp.$1, (RegExp.$1.length === 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+            return fmt;
+        }
+
+    }
+
 }
 
 /**
@@ -33,7 +40,7 @@ let HtmlEncode = function (str) {
     if (!str) {
         return str;
     }
-    let hex = new Array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f');
+    let hex = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'];
     let preescape = str;
     let escaped = "";
     for (let i = 0; i < preescape.length; i++) {
@@ -286,7 +293,7 @@ let HtmlEncode = function (str) {
 }
 let JavaScriptEncode = function (str) {
 
-    let hex = new Array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f');
+    let hex = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'];
 
     function changeTo16Hex(charCode) {
         return "\\x" + charCode.charCodeAt(0).toString(16);
@@ -393,21 +400,22 @@ function EncodetoHtml(str) {
         }[m]
     }) : '';
 }
-let formsth;let poptip;
-(function(){
+let formsth;
+let poptip;
+(function() {
     /**
      * @Desc 表单工具类
      * @Date 2018-09-18 15:21:43
      * @Author qitian
      */
-    let Formsth = function (){};
+    let Formsth = function () {};
     /**
      * @Desc 最大输入字符
      * @Param num 最大输入字符数
      */
     Formsth.prototype.limitLength = function (num, t_this) {
         let value = t_this.value;
-        if (value.length > num) t_this.value = value.slice(0, num);
+        if (value.length > num) { t_this.value = value.slice(0, num) }
     }
     /**
      * @Desc 限制文本框只能输入数字
@@ -424,34 +432,34 @@ let formsth;let poptip;
      */
     Formsth.prototype.clearFile = function (t_this) {
         let $input = t_this.outerHTML;
-        $('#'+t_this.id).replaceWith($input);
+        $('#' + t_this.id).replaceWith($input);
     }
     /**
      * @Desc 表单输入框提示验证
      */
-    Formsth.prototype.checkItem = function (t_this){
+    Formsth.prototype.checkItem = function (t_this) {
         let regex = $(t_this).attr('regex');
         let notNull = $(t_this).hasClass('not-null');
         let value = t_this.value;
         let warn;
-        switch (t_this.type){
-            case 'text':default:
+        switch (t_this.type) {
+            case 'text': default:
             warn = $(t_this).next('.alert-warn');
-            if(value){
-                if(regex && !REGEX[regex].test(value)){
+            if (value) {
+                if (regex && !REGEX[regex].test(value)) {
                     warn.html(INPUT_ALERT.account);
                     warn.show();
                     return false;
-                }else{
+                } else {
                     warn.html('');
                     warn.hide();
                     return true;
                 }
-            }else if(notNull){
+            } else if (notNull) {
                 warn.html(INPUT_ALERT.notNull);
                 warn.show();
                 return false;
-            }else{
+            } else {
                 warn.html('');
                 warn.hide();
                 return true;
@@ -459,24 +467,24 @@ let formsth;let poptip;
             break;
             case 'radio':
                 warn = $(t_this).parent().parent().next('.alert-warn');
-                if(notNull){
-                    let radios = $(t_this).parent().parent().find('input[name="'+t_this.name+'"]');
+                if (notNull) {
+                    let radios = $(t_this).parent().parent().find('input[name="' + t_this.name + '"]');
                     let unpassCount = 0;
                     radios.each(function (index,item) {
-                        if(!item.checked){
+                        if (!item.checked) {
                             unpassCount++;
                         }
                     })
-                    if(unpassCount === radios.length){
+                    if (unpassCount === radios.length) {
                         warn.html(INPUT_ALERT.notNull);
                         warn.show();
                         return false;
-                    }else{
+                    } else {
                         warn.html('');
                         warn.hide();
                         return true;
                     }
-                }else{
+                } else {
                     warn.html('');
                     warn.hide();
                     return true;
@@ -484,7 +492,7 @@ let formsth;let poptip;
                 break;
         }
 
-        $(_this).on('input',function(){
+        $(_this).on('input',function() {
             warn.html('');
             warn.hide();
         })
@@ -493,17 +501,17 @@ let formsth;let poptip;
      * @Desc 表单输入，保存按钮验证
      * @Param formId 主要用于遍历need-check项，可以是模态框最外层id，也可以是form标签的id等
      */
-    Formsth.prototype.checkItems = function (formId){
-        let checkItems = $('#'+formId).find('.need-check');
+    Formsth.prototype.checkItems = function (formId) {
+        let checkItems = $('#' + formId).find('.need-check');
         let passCount = checkItems.length;
-        checkItems.each(function(index,item){
-            if(!formsth.checkItem(item)){
-                passCount --;
+        checkItems.each(function(index,item) {
+            if (!formsth.checkItem(item)) {
+                passCount--;
             }
         });
-        if(passCount !== checkItems.length){
+        if (passCount !== checkItems.length) {
             return false;
-        }else{
+        } else {
             return true;
         }
     }
@@ -513,82 +521,72 @@ let formsth;let poptip;
      * @Date 2018-09-13 13:41:25
      * @Author qitian
      */
-    let Poptip = function(){
-        this.yes;
-        this.calcel;
-        this.state;//0：提示，1：确认
+    let Poptip = function() {
+        this.state = 0;//0：提示，1：确认
     };
-    Poptip.prototype.getEl = function(){
+    Poptip.prototype.getEl = function() {
         let $el;
         let id = this.state === 0 ? '#alert-modal' : '#confirm-modal';
-        if($(id).length === 0){
+        if ($(id).length === 0) {
             $el = $(id, parent.document);
-        }else{
+        } else {
             $el = $(id);
         }
         return $el;
     }
-    Poptip.prototype.close = function(){
+    Poptip.prototype.close = function() {
         let $el = this.getEl();
         $el.modal('hide');
     }
-    Poptip.prototype.alert = function (content){
+    Poptip.prototype.alert = function (content) {
         this.state = 0;
-        if(!this.getEl().hasClass('fade')){
+        if (!this.getEl().hasClass('fade')) {
             poptip.close();
         }
         let $el = this.getEl();
-        let _this = this;
-       // $el.find('h4').html('提示');
-        $el.find('.form-horizontal').html('<h4>'+content+'</h4>');
-        //$el.find('.alert-yes').bind('click',function(){poptip.close()});
-        //$el.find('.alert-cancel').hide();
-        //$el.find('.close').show();
+        $el.find('.form-horizontal').html('<h4>' + content + '</h4>');
         $el.modal('show');
     }
-    Poptip.prototype.confirm = function(obj){
+    Poptip.prototype.confirm = function(obj) {
         this.state = 1;
-        if(!this.getEl().hasClass('fade')){
+        if (!this.getEl().hasClass('fade')) {
             poptip.close();
         }
         let $el = this.getEl(1);
-        //$el.find('h4').html('<i class="fa fa-question-circle" aria-hidden="true"></i>');
-        $el.find('.form-horizontal').html('<h4>'+obj.content+'</h4>');
-        //$el.find('.alert-cancel').show();
-        //$el.find('.close').hide();
+        $el.find('.form-horizontal').html('<h4>' + obj.content + '</h4>');
         $el.find('.alert-yes').bind('click',obj.yes);
         $el.find('.alert-cancel').bind('click',obj.cancel);
         $el.modal('show');
     }
     formsth = new Formsth();
     poptip = new Poptip();
-    $('.need-check').each(function(index,item){
-        if(item.type === 'text'){
-            $(item).bind('blur',function(){formsth.checkItem(item)})
-        }else{
-            $(item).bind('change',function(){formsth.checkItem(item)})
+    $('.need-check').each(function(index,item) {
+        if (item.type === 'text') {
+            $(item).bind('blur',function() { formsth.checkItem(item) })
+        } else {
+            $(item).bind('change',function() { formsth.checkItem(item) })
         }
     });
-    $('.only-num').each(function(index,item){
-        $(item).bind('input',function(){formsth.onlyNum(item)})
+    $('.only-num').each(function(index,item) {
+        $(item).bind('input',function() { formsth.onlyNum(item) })
     });
-    $('.save-check').each(function(index,item){
+    $('.save-check').each(function(index,item) {
         let $onclick = item.onclick;
         $(item).removeAttr('onclick');
         let formId = $(item).attr('check-area');
-        $(item).bind('click',function(){
-            if(formsth.checkItems(formId) && $onclick){
+        $(item).bind('click',function() {
+            if (formsth.checkItems(formId) && $onclick) {
                 $onclick();
             }
         })
     });
     /*可拖动模态框*/
-   /* $(function(){
+   /* $(function() {
         let _move=false;//移动标记
         let _x,_y;//鼠标离控件左上角的相对位置
         let _dragZone = $(".drag-modal .modal-header");
         let _dragBody = _dragZone.parent().parent().parent();
-        _dragZone.mousedown(function(e){
+        _dragZone.mousedown(function(e) {
             $(this).attr("onselectstart", "return false"); //禁双击选中
             $("body").css({"-webkit-user-select":"none", "-moz-user-select":"none", "-ms-user-select":"none", "-khtml-user-select":"none", "user-select":"none"}); //禁止选中文字
             _move=true;
@@ -596,11 +594,11 @@ let formsth;let poptip;
             _y=e.pageY-parseInt(_dragBody.css("top"));
             _dragBody.fadeTo(150, 0.5);
         });
-        $(document).mousemove(function(e){
-            if(_move){
+        $(document).mousemove(function(e) {
+            if (_move) {
                 let x=e.pageX-_x;//移动时根据鼠标位置计算控件左上角的绝对位置
                 let y=e.pageY-_y;
-                if(e.pageX <= 0 || e.pageY <= 0){
+                if (e.pageX <= 0 || e.pageY <= 0) {
                     _move=false;
                 }else {
                     let pageW = $(window).width();
@@ -616,17 +614,17 @@ let formsth;let poptip;
                     _dragBody.css({left:x, top:y});//控件新位置
                 }
             }
-        }).mouseup(function(){
+        }).mouseup(function() {
             _move=false;
             _dragBody.fadeTo("fast", 1);
             $("body").removeAttr("style"); //移除不能选文字
         });
         $('.drag-modal').on('show.bs.modal', function () {
-            setTimeout(function(){
-                $('.modal-backdrop').each(function(index,item){
+            setTimeout(function() {
+                $('.modal-backdrop').each(function(index,item) {
                     $(item).remove();
                 })
-                $('.modal-backdrop',parent.document).each(function(index,item){
+                $('.modal-backdrop',parent.document).each(function(index,item) {
                     $(item).remove();
                 })
             },500)
@@ -640,15 +638,15 @@ let formsth;let poptip;
  * @Date 2018-09-18 10:30:46
  * @Author qitian
  */
-$(function(){
-    $('.content-left .nav-tabs a').on('click',function(e){
-        setTimeout(function(){
+$(function() {
+    $('.content-left .nav-tabs a').on('click',function(e) {
+        setTimeout(function() {
             initHeight($('body').attr('id'),$(e.currentTarget).attr('href'));
         },100)
     })
-    /*$('.sidebar-nav .nav-tabs li').on('click',function(e){
-        if($(e.currentTarget).attr('go') && $(e.currentTarget).attr('name')){
-            setTimeout(function(){
+    /*$('.sidebar-nav .nav-tabs li').on('click',function(e) {
+        if ($(e.currentTarget).attr('go') && $(e.currentTarget).attr('name')) {
+            setTimeout(function() {
                 initHeightF($('#'+$(e.currentTarget).attr('name')).contents().find('body').attr('id'),$('#'+$(e.currentTarget).attr('name')).contents()[0]);
             },1000)
         }
@@ -657,29 +655,29 @@ $(function(){
 /*function initHeightF (childBodyId, childDoc) {
     let contentHeight =  $('.content-center').css('height').split('px');
     let htmlHeight = childDoc.body.clientHeight;
-    if(contentHeight && htmlHeight){
-        if(parseFloat(contentHeight[0]) > htmlHeight){
+    if (contentHeight && htmlHeight) {
+        if (parseFloat(contentHeight[0]) > htmlHeight) {
             $('#'+childBodyId).css('height', parseFloat(contentHeight[0]) + 'px');
-        }else{
+        } else {
             $('#'+childBodyId).css('height', htmlHeight + 'px');
         }
     }
 }*/
 function initHeight(bodyId,thisId) {
-    if(thisId && thisId !== '#'){
-        let contentHeight =  $(''+ thisId + '').css('height').split('px');
+    if (thisId && thisId !== '#') {
+        let contentHeight =  $('' + thisId + '').css('height').split('px');
         let htmlHeight = $('html').css('height').split('px');
-        if(contentHeight && htmlHeight){
-            if(parseFloat(contentHeight[0]) > parseFloat(htmlHeight[0])){
+        if (contentHeight && htmlHeight) {
+            if (parseFloat(contentHeight[0]) > parseFloat(htmlHeight[0])) {
                 let height = calcPageHeight(document);
-                $('#'+bodyId).css('height', height + 'px');
-            }else{
-                $('#'+bodyId).css('height', $('html').css('height'));
+                $('#' + bodyId).css('height', height + 'px');
+            } else {
+                $('#' + bodyId).css('height', $('html').css('height'));
             }
         }
-    }else{
+    } else {
         let height = calcPageHeight(document);
-        $('#'+bodyId).css('height', height + 'px');
+        $('#' + bodyId).css('height', height + 'px');
     }
 
 
@@ -700,7 +698,7 @@ function calcPageHeight(doc) {
  * @Author qitian
  */
 
-function pageToDo (path) {
+function pageToDo(path) {
     let ifreameId = sessionStorage.getItem('nav-page');
     let browser = navigator.userAgent;
     parent.document.getElementById(ifreameId).src = path;

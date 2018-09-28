@@ -4,7 +4,7 @@
 *
 */
 //获得表格数据
-$(function(){
+$(function() {
     $('#classfiy-table').bootstrapTable({
         url: AJAX_URL.knowledgeData,
         method: requestJson ? 'get' : 'post',                      //请求方式（*）
@@ -54,16 +54,16 @@ $(function(){
             width: 240,
             align: 'center',
             valign: 'middle',
-            formatter:function(value,row,index){
+            formatter:function (value,row,index) {
                 //通过formatter可以自定义列显示的内容
                 //value：当前field的值，即id
                 //row：当前行的数据
                 let a = '<a class="classfiy-cz1" href="#" data-target="#my-modal" data-toggle="modal">查看</a>';
                 let b = '<a class="classfiy-cz1" href="#" data-target="#my-modal" data-toggle="modal">编辑</a>';
                 let c = '<a class="classfiy-cz2" href="#" >删除</a>';
-                return a +'  '+ b +'  '+ c;
+                return a + '  ' + b + '  ' + c;
             }
-        }, ],
+        },],
         onLoadSuccess: function (e) {
             console.log(e)
         },
@@ -73,7 +73,7 @@ $(function(){
         onDblClickRow: function (row, $element) {
         },
         //客户端分页，需要指定到rows
-        responseHandler: function(data){
+        responseHandler: function(data) {
             return data.rows;
         }
     });

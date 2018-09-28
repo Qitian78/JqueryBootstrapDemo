@@ -36,12 +36,12 @@ gulp.task('html', function () {
         minifyCSS: true//压缩页面CSS
     };
     // 网站根目录index文件，打开后会自动跳转到前台首页
-    gulp.src(['rev/**/*.json','./src/index.html'])
+    gulp.src(['rev/**/*.json' , './src/index.html'])
         /*.pipe(useref(),function (){
             return vinylPaths(del)
         })*/
         .pipe(revCollector({
-            replaceReved:true          //一定要加上这一句，不然不会替换掉上一次的值
+            replaceReved: true          //一定要加上这一句，不然不会替换掉上一次的值
         }))
         .pipe(gulp.dest(destPath));
     // src目录下的其他html文件
@@ -70,7 +70,7 @@ gulp.task('clean', function () {
         .pipe(clean());
 });
 
-if(env){//生产环境
+if (env) { //生产环境
     // 页面使用的css文件
     gulp.task('css', function () {
         return gulp.src(['./src/css/*.css', '!' + bowerPath + '/**/*'])
@@ -90,10 +90,10 @@ if(env){//生产环境
             }))
             .pipe(uglify())
             .pipe(rev())
-            .pipe(gulp.dest(destPath+'/js'))
+            .pipe(gulp.dest(destPath + '/js'))
             .pipe(flatten({includeParents:[0,1]}))
             .pipe(rev.manifest())
-            .pipe(gulp.dest(revPath +'/js'));
+            .pipe(gulp.dest(revPath + '/js'));
     });
     gulp.task('utils', function () {
         return gulp.src(['./src/utils/*.js'])
@@ -118,11 +118,11 @@ if(env){//生产环境
             .pipe(uglify())
             .pipe(rev())
             .pipe(gulp.dest(destPath + '/config'))
-            .pipe(flatten({includeParents: [0, 1]}))
+            .pipe(flatten({ includeParents: [0, 1] }))
             .pipe(rev.manifest())
             .pipe(gulp.dest(revPath + '/config'));
     });
-}else{//开发环境
+} else { //开发环境
     // 检查js文件
     gulp.task('lint', function () {
         gulp.src(['./config/*.js'])
@@ -148,7 +148,7 @@ if(env){//生产环境
                 presets: ['env'],
                 compact:false
             }))
-            .pipe(gulp.dest(destPath+'/js'));
+            .pipe(gulp.dest(destPath + '/js'));
     });
     gulp.task('utils', function () {
         return gulp.src(['./src/utils/*.js'])
@@ -156,7 +156,7 @@ if(env){//生产环境
                 presets: ['env'],
                 compact:false
             }))
-            .pipe(gulp.dest(destPath+ '/utils'));
+            .pipe(gulp.dest(destPath + '/utils'));
     });
     //配置文件
     gulp.task('config', function () {
@@ -230,6 +230,12 @@ gulp.task('copyUiLib', function () {
     gulp.src(bowerPath + '/bootstrap/dist/css/bootstrap.css')
         .pipe(cleanCss())
         .pipe(gulp.dest(destPath + '/lib/bootstrap/css'))
+    gulp.src(bowerPath + '/bootstrap-switch/dist/js/bootstrap-switch.js')
+        .pipe(uglify())
+        .pipe(gulp.dest(destPath + '/lib/bootstrap-switch/js'));
+    gulp.src(bowerPath + '/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css')
+        .pipe(cleanCss())
+        .pipe(gulp.dest(destPath + '/lib/bootstrap-switch/css'))
     /*图标*/
     gulp.src(bowerPath + '/font-awesome/web-fonts-with-css/webfonts/*')
         .pipe(gulp.dest(destPath + '/lib/fontawesome/webfonts'));
@@ -250,7 +256,7 @@ gulp.task('copyUiLib', function () {
         .pipe(gulp.dest(destPath + '/lib/layer/theme/default/font'));
 });
 // △△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△
-if(env){
+if (env) {
     // 默认任务
     gulp.task('default', function () {
         sequence(
@@ -267,12 +273,12 @@ if(env){
             'html'
         );
     });
-}else{
+} else {
     // 监听目标文件夹
     gulp.task('watch', function () {
-        gulp.watch('./src/js/**/*.js', [ 'scripts','html']);
-        gulp.watch('./src/utils/*.js', [ 'utils','html']);
-        gulp.watch('./config/*.js', [ 'config','html']);
+        gulp.watch('./src/js/**/*.js', ['scripts','html']);
+        gulp.watch('./src/utils/*.js', ['utils','html']);
+        gulp.watch('./config/*.js', ['config','html']);
         gulp.watch('./src/css/**/*.css', ['css','html']);
         gulp.watch('./src/pages/**/*.html', ['html']);
         gulp.watch('./src/jsonDatas/**/*.json', ['json']);

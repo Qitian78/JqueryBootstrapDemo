@@ -87,24 +87,24 @@ const AJAX_URL = {
      *@date 2018/09/27 09:22:00
      *@author zhangziteng
      */
-    reportProblem:requestJson ? '../../jsonDatas/reportProblem.json' : '',
+    reportProblem: requestJson ? '../../jsonDatas/reportProblem.json' : '',
     //经销商管理 刘志杰 2018-09-25
-    distributorData:requestJson ? '../../jsonDatas/distributorData.json' : '',
+    distributorData: requestJson ? '../../jsonDatas/distributorData.json' : '',
     /**
      *@desc 日志管理，答疑管理数据
      *@date 2018/09/27 09:23:06
      *@author 宣文斌
      */
-    questionManage:requestJson ? '../../jsonDatas/questionManageData.json' : '',
-    SBOMChangeLogData:requestJson ? '../../jsonDatas/SBOMChangeLogData.json' : '',
-    operationLogData:requestJson ? '../../jsonDatas/operationLogData.json' : '',
+    questionManage: requestJson ? '../../jsonDatas/questionManageData.json' : '',
+    SBOMChangeLogData: requestJson ? '../../jsonDatas/SBOMChangeLogData.json' : '',
+    operationLogData: requestJson ? '../../jsonDatas/operationLogData.json' : '',
     /**
      *@desc
      *@date 2018/09/27 10:05:20
      *@author 刘笑天
      */
-    personnelConfiguration:requestJson ? '../../jsonDatas/personnelConfiguration.json': '',
-    bomChange:requestJson ? '../../jsonDatas/bomChange.json': '',
+    personnelConfiguration: requestJson ? '../../jsonDatas/personnelConfiguration.json' : '',
+    bomChange: requestJson ? '../../jsonDatas/bomChange.json' : '',
     //崔雨鑫
     announceData: requestJson ? '../../jsonDatas/announceData.json' : '',
     announceDetailData: requestJson ? '../../jsonDatas/announceDetailData.json' : '',
