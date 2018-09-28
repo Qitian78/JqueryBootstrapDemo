@@ -5,19 +5,19 @@
  * @Date 2018-09-16 20:06:49
  * @Author qitian
  */
-$(function(){
-    $('.dropdown').on('click',function(){
-        if($(this).next('.dropdown-submenu').css('display') === 'none'){
+$(function() {
+    $('.dropdown').on('click',function() {
+        if ($(this).next('.dropdown-submenu').css('display') === 'none') {
             $(this).next('.dropdown-submenu').css('display','block');
-        }else{
+        } else {
             $(this).next('.dropdown-submenu').css('display','none');
         }
     });
     $('.sider-nav').find('li').each(function (index,item) {
         let go = $(item).attr('go');
         let name = $(item).attr('name');
-        if(go && name){
-            $(item).bind('click',function(){loadPage(name);})
+        if (go && name) {
+            $(item).bind('click',function() { loadPage(name); })
         }
     })
 })
@@ -28,11 +28,11 @@ $(function(){
  * @Date 2018-09-16 20:07:42
  * @Author qitian
  */
-function expendSider(event){
+function expendSider(event) {
     let siderWidth = $('.mody-sider').css('width');
-    if(siderWidth !== '38px' && siderWidth !== '37.9922px'){//收缩
+    if (siderWidth !== '38px' && siderWidth !== '37.9922px') { //收缩
         $('.mody-sider').css('width','38px');
-        $('.hidden-tablet').each(function(index,item){
+        $('.hidden-tablet').each(function(index,item) {
             $(item).removeClass('tablet-expend');
             $(item).addClass('tablet-shirnk');
         })
@@ -45,9 +45,9 @@ function expendSider(event){
         $('.rotate-icon').each(function (index,item) {
             $(item).css('display','none');
         })
-    }else{//展开
+    } else { //展开
         $('.mody-sider').css('width','15%');
-        $('.hidden-tablet').each(function(index,item){
+        $('.hidden-tablet').each(function(index,item) {
             $(item).removeClass('tablet-shirnk');
             $(item).addClass('tablet-expend');
         })
@@ -59,14 +59,14 @@ function expendSider(event){
         $('.content-center').css('left','15%');
         $('.fa-bars').css('transform','rotate(360deg)');
         let activeLi = sessionStorage.getItem('nav-page');
-        if(activeLi){
+        if (activeLi) {
             let activeList = activeLi.split('-');
-            if(activeList.length > 1){
-                $('.sidebar-nav').find('li[name="'+activeList[0]+'"]').find('.dropdown-submenu').css('display','block');
-                $('.sidebar-nav').find('li[name="'+activeList[0]+'"]').find('.rotate-icon').css({ "transform": "rotate(90deg)", "color": "#fff" });
+            if (activeList.length > 1) {
+                $('.sidebar-nav').find('li[name="' + activeList[0] + '"]').find('.dropdown-submenu').css('display','block');
+                $('.sidebar-nav').find('li[name="' + activeList[0] + '"]').find('.rotate-icon').css({ "transform": "rotate(90deg)", "color": "#fff" });
             }
             setTimeout(function() {
-                $('.sidebar-nav').find('li[name="'+activeLi+'"]').addClass('active');
+                $('.sidebar-nav').find('li[name="' + activeLi + '"]').addClass('active');
             });
         }
     }
@@ -79,14 +79,14 @@ function expendSider(event){
  * @Author qitian
  */
 function loadPage(liName) {
-    $('.nav-tabs').find('li').each(function(index,item){
+    $('.nav-tabs').find('li').each(function(index,item) {
         $(item).removeClass('active');
     })
-    let $li = $('.sidebar-nav').find('li[name="'+liName+'"]').addClass('active');
+    let $li = $('.sidebar-nav').find('li[name="' + liName + '"]').addClass('active');
     let page = $li.attr('go');
-    $('.content-center')[0].innerHTML = '<iframe type="text/html" id="'+liName+'" src="'+page+'" width="100%" height="100%"></iframe>';
+    $('.content-center')[0].innerHTML = '<iframe type="text/html" id="' + liName + '" src="' + page + '" width="100%" height="100%"></iframe>';
     sessionStorage.setItem('nav-page',liName);
-};
+}
 
 /*
  * @Description: 左侧导航展开时，下三角图标旋转效果

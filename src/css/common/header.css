@@ -4,69 +4,81 @@
 * @Author qitian
 */
 
-.mody-header{
+.mody-header {
     height: 64px;
-    background: #25A3F7;
+    background: #25a3f7;
     width: 100%;
     top: 0;
     left: 0;
     position: absolute;
 }
-.mody-header h2{
+
+.mody-header h2 {
     margin-left: 10px;
     color: #fff;
     float: left;
     height: 50%;
 }
-.pull-right{
+
+.pull-right {
     margin: 14px;
     line-height: 64px;
 }
-.header-navbar{
+
+.header-navbar {
     width: 30%;
     height: 100%;
     float: left;
     padding: 20px;
     color: #fff;
 }
-.header-navbar a{
+
+.header-navbar a {
     color: #fff;
 }
-.header-navbar ul{
-    min-width: 90px!important;
+
+.header-navbar ul {
+    min-width: 90px !important;
     max-width: 160px;
 }
+
 .nav-pills>li {
-    float: right!important;
-}
-.caret{
-    margin-left: 6px;
-}
-.header-navbar .dropdown-toggle:hover{
-    background: #25A3F7!important;
-}
-.nav .open>.dropdown-toggle, .nav .open>.dropdown-toggle:focus, .nav .open>.dropdown-toggle:hover{
-    background: none!important;
+    float: right !important;
 }
 
-.head-left{
+.caret {
+    margin-left: 6px;
+}
+
+.header-navbar .dropdown-toggle:hover {
+    background: #25a3f7 !important;
+}
+
+.nav .open>.dropdown-toggle, .nav .open>.dropdown-toggle:focus, .nav .open>.dropdown-toggle:hover {
+    background: none !important;
+}
+
+.head-left {
     height: 100%;
     width: 40%;
     float: left;
     margin-right: 30%;
 }
-.logo-head{
+
+.logo-head {
     float: left;
     height: 100%;
     color: #fff;
     margin-top: 20px;
 }
-.title-head{
+
+.title-head {
     float: left;
     font-size: 18px;
     font-weight: initial;
 }
-.title-line{
+
+.title-line {
     float: left;
     background-color: #fff;
     height: 45%;
@@ -74,32 +86,35 @@
     margin-left: 5%;
     margin-top: 15px;
 }
-.index-img{
+
+.index-img {
     height: 100%;
     margin-left: 5%;
     color: #fff;
 }
-.title-index{
+
+.title-index {
     color: #fff;
     height: 100%;
     font-size: 16px;
     margin-left: 10%;
 }
-.index-header{
+
+.index-header {
     float: left;
     width: 30%;
     height: 100%;
     padding: 20px;
 }
-.user-img{
-    margin-right: 5%;
-}
-.user-role{
-    margin-right: 5%;
-}
-.role-line{
-    margin-right: 5%;
-}
-.user-logout{
 
+.user-img {
+    margin-right: 5%;
+}
+
+.user-role {
+    margin-right: 5%;
+}
+
+.role-line {
+    margin-right: 5%;
 }
