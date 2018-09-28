@@ -236,6 +236,9 @@ gulp.task('copyUiLib', function () {
     gulp.src(bowerPath + '/font-awesome/web-fonts-with-css/css/fontawesome-all.css')
         .pipe(cleanCss())
         .pipe(gulp.dest(destPath + '/lib/fontawesome/css'));
+    gulp.src('./src/utils/ueditor/**/*')
+        // .pipe(uglify())
+        .pipe(gulp.dest(destPath + '/lib/ueditor'));
     //laydate
     gulp.src(bowerPath + '/laydate/dist/laydate.js')
         .pipe(uglify())

@@ -43,8 +43,8 @@ $(function(){
             field: 'knowledgeId',
             title: '知识点编号'
         }, {
-            field: 'knowledgeTitle\',\n' +
-            '            title: \'知识点标题'
+            field: 'knowledgeTitle',
+            title: '知识点标题'
         }, {
             field: 'knowledgeCategory',
             title: '知识点分类'
@@ -64,8 +64,8 @@ $(function(){
                 //通过formatter可以自定义列显示的内容
                 //value：当前field的值，即id
                 //row：当前行的数据
-                let a = '<a href="#" onclick="openDetialModal()" data-target="#my-modal" data-toggle="modal">查看</a>';
-                let b = '<a href="#" onclick="openEditorModal()" data-target="#my-modal" data-toggle="modal">编辑</a>';
+                let a = '<a href="../../pages/knowledge-base/knowledge-detial.html" onclick="openDetialModal()">查看</a>';
+                let b = '<a href="#" onclick="openEditorModal()">编辑</a>';
                 let c = '<a href="#" onclick="openDeleteModal()">删除</a>';
                 return a +'  '+ b +'  '+ c;
             }
@@ -99,7 +99,7 @@ $(function(){
         };
         $.ajax(settings).done(function (data) {
             if (data.ok) {
-                poptip.alert(POP_TIP.loadSuccess);
+                poptip.alert(data.message);
             } else {
                 console.log('失败')
             }
@@ -164,9 +164,9 @@ $("#delete-knowledge").on("click", function () {
                 };
                 $.ajax(settings).done(function (data) {
                     if (data.ok) {
-                        poptip.alert(POP_TIP.deleteSuccess);
+                        poptip.alert(data.message);
                     } else {
-                        poptip.alert(POP_TIP.deleteFail);
+                        poptip.alert(data.message);
                     }
                 });
                 poptip.close();

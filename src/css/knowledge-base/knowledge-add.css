@@ -1,0 +1,88 @@
+.child-content{
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    padding: 2%;
+}
+.add-head-knowledge{
+    width: 96%;
+    height: 3%;
+}
+.add-body-knowledge{
+    width: 96%;
+    height: 93%;
+}
+.back-btn-add{
+    width: 8%;
+}
+.add-form-knowledge{
+    width: 100%;
+    height:100% ;
+}
+.add-div-category{
+    width: 100%;
+    height: 4%;
+    margin-top: 3%;
+    float: left;
+}
+.add-label-category{
+    width: 8%;
+    height: 100%;
+    float: left;
+}
+.add-label-category span{
+    float: right;
+}
+.add-select-category{
+    width: 25%;
+    height: 100%;
+    float: left;
+}
+.add-div-title{
+    width: 100%;
+    height: 4%;
+    margin-top: 2%;
+    float: left;
+}
+.add-label-title{
+    width: 8%;
+    height: 100%;
+    float: left;
+}
+.add-label-title span{
+    float: right;
+}
+.add-input-title{
+    width: 90%;
+    height: 100%;
+    float: left;
+}
+.add-div-text{
+    width: 100%;
+    height: 30%;
+    margin-top: 2%;
+    float: left;
+}
+.max-span-title{
+    float: left;
+}
+.add-label-text{
+    width: 8%;
+    height: 100%;
+    float: left;
+}
+.add-label-text span{
+    float: right;
+}
+.max-span-text{
+    float: left;
+}
+
+.add-btn-knowledge{
+    width: 100%;
+    height: 6%;
+    text-align: center;
+}
+.add-btn-knowledge button{
+    width: 10%;
+}

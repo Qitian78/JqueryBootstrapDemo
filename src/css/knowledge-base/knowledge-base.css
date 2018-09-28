@@ -41,9 +41,10 @@ body{
     float: left;
 }
 .operation-btn{
-    float: right;
+/*    float: right;*/
     margin-bottom: 2%;
-    width: 25%;
+    margin-left: 70%;
+/*    width: 25%;*/
 }
 .operation-btn button{
     margin-left: 3%;
