@@ -6,7 +6,7 @@
 /**
  * 获取表格数据
  */
-$(function(){
+$(function() {
     $('#show-table-adminlist').bootstrapTable({
         url: AJAX_URL.administratorList,
         method: requestJson ? 'get' : 'post',                      //请求方式（*）
@@ -35,7 +35,7 @@ $(function(){
         //得到查询的参数
         queryParams : function (params) {
             //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
-            var temp = {
+            let temp = {
                 rows: params.limit,                         //页面大小
                 page: (params.offset / params.limit) + 1,   //页码
                 sort: params.sort,      //排序列名
@@ -58,11 +58,11 @@ $(function(){
             field: 'userAccount',
             title: '用户名',
             align: 'center',
-            formatter:function(value,row,index){
+            formatter:function(value,row,index) {
                 //通过formatter可以自定义列显示的内容
                 //value：当前field的值，即id
                 //row：当前行的数据
-                let userAccount = '<a href="../administrator-management/rights-management.html" onclick="">'+value+'</a>'
+                let userAccount = '<a href="../administrator-management/rights-management.html" onclick="">' + value + '</a>'
                 return userAccount;
             }
         }, {
@@ -87,19 +87,19 @@ $(function(){
             // width: 120,
             align: 'center',
             valign: 'middle',
-            formatter:function(value,row,index){
+            formatter:function(value,row,index) {
                 //通过formatter可以自定义列显示的内容
                 //value：当前field的值，即id
                 //row：当前行的数据
                 let userAction
-                if(value == '0'){
+                if (value == '0') {
                     userAction = '<a href="#" onclick="">停用</a>';
-                }else if(value == '1'){
+                } else if (value == '1') {
                     userAction = '<a href="#" onclick="">启用</a>';
                 }
                 return userAction;
             }
-        }, ],
+        }],
         onLoadSuccess: function (e) {
             console.log(e)
         },
@@ -109,7 +109,7 @@ $(function(){
         onDblClickRow: function (row, $element) {
         },
         //客户端分页，需要指定到rows
-        responseHandler: function(data){
+        responseHandler: function(data) {
             return data.rows;
         }
     });

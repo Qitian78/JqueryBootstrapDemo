@@ -21,12 +21,12 @@ $(function () {
  * 创建人崔玉鑫
  * 创建日期20180927
  */
-function searchSubmit(){
-    let data={
+function searchSubmit() {
+    let data = {
         "announceTitle": $("#title-search").val(),//获得公告输入框
         "publisher": $("#publisher-search").val(),//获得发布者输入框
         "announcePublishBeginDate":$("#begin-time-search").val(),//开始时间
-        "announcePublishEndDate":$("#end-time-search").val(),//结束时间
+        "announcePublishEndDate":$("#end-time-search").val()//结束时间
     }
     serchTable(AJAX_URL.announceData,data);//请求后台加载表格数据
 }
@@ -35,26 +35,26 @@ function searchSubmit(){
  * 创建人崔玉鑫
  * 创建日期20180927
  */
-function layDateRender(){
+function layDateRender() {
     laydate.render({
-        elem: '#begin-time-search' //指定元素
-        , format: 'yyyy年MM月dd日' //可任意组合
-        , theme: '#393D49'          //颜色主体
+        elem: '#begin-time-search', //指定元素
+         format: 'yyyy年MM月dd日', //可任意组合
+         theme: '#393D49',          //颜色主体
         /*
         ,min: '09:30:00'                //  最小值
         ,max: '17:30:00'                //最大值
          */
         //控件选择完毕后的回调,点击日期、清空、现在、确定均会触发。
-        , done: function (value, date, endDate) {
+         done: function (value, date, endDate) {
             console.log(value); //得到value
         }
     });
     laydate.render({
-        elem: '#end-time-search' //指定元素
-        , format: 'yyyy年MM月dd日' //可任意组合
-        , theme: '#393D49'
+        elem: '#end-time-search', //指定元素
+         format: 'yyyy年MM月dd日', //可任意组合
+         theme: '#393D49',
         //控件选择完毕后的回调,点击日期、清空、现在、确定均会触发。
-        , done: function (value, date, endDate) {
+         done: function (value, date, endDate) {
             // startData = Number(new Date(value));
             console.log(date); //得到日期时间对象：{year: 2017, month: 8, date: 18, hours: 0, minutes: 0, seconds: 0}
         }
@@ -69,12 +69,12 @@ function layDateRender(){
 function openDetialModal(announceId) {
     $.ajax({
         url: AJAX_URL.announceDetailData,
-        type: requestJson?'get':"post",
+        type: requestJson ? 'get' : "post",
         dataType: "json",
         success: function(data) {
-            if(data){
+            if (data) {
                 let i = 0;
-                for(let key in data){
+                for (let key in data) {
                     let actorData = data[key]
                     $.each(actorData, function (inde, item) {
                         $("#model-title").html(actorData[inde].modelTitle);
@@ -95,7 +95,7 @@ function openDetialModal(announceId) {
  * 创建人崔玉鑫
  * 创建日期20180927
  */
-function serchTable(URL,searchdate){
+function serchTable(URL,searchdate) {
     $('#announce-table').bootstrapTable({
         url: URL,
         method: requestJson ? 'get' : 'post',                      //请求方式（*）
@@ -126,7 +126,7 @@ function serchTable(URL,searchdate){
         //得到查询的参数
         queryParams: function (params) {
             //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
-            var temp = {
+            let temp = {
                 rows: params.limit,                         //页面大小
                 page: (params.offset / params.limit) + 1,   //页码
                 sort: params.sort,      //排序列名
@@ -168,10 +168,10 @@ function serchTable(URL,searchdate){
                     //通过formatter可以自定义列显示的内容
                     //value：当前field的值，即id
                     //row：当前行的数据
-                    let a = '<a href="#" onclick="openDetialModal('+value+')" data-target="#announce-detail" data-toggle="modal" style="color: blue">查看</a>';
-                    return a ;
+                    let a = '<a href="#" onclick="openDetialModal(' + value + ')" data-target="#announce-detail" data-toggle="modal" style="color: blue">查看</a>';
+                    return a;
                 }
-            },],
+            }],
         onLoadSuccess: function (e) {
             console.log(e)
         },

@@ -24,7 +24,7 @@
                 <li name="personDatabase" go="../person-database/person-database.html" ><a href="#" ><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-tablet"> 人员库</span></a></li>
                 <!--问题反馈（前台界面） 张子腾 2018-09-25-->
                 <li name="reportProblem" go="../report-problem/problem.html" ><a href="#" ><i class="fa fa-question-circle" aria-hidden="true"></i><span class="hidden-tablet"> 问题反馈</span></a></li>
-                <li name="carResult" go="../car-result/car-result.html" ><a href="#" ><i class="glyphicon glyphicon-search" aria-hidden="true"></i><span class="hidden-tablet"> 备件目录</span></a></li>
+                <li name="carResult" go="../car-result/car-result.html" ><a href="#" ><i class="glyphicon glyphicon-search" aria-hidden="true"></i><span class="hidden-tablet"> 车辆查询结果</span></a></li>
                 <!--基础管理（经销商管理） 刘志杰 2018-09-25-->
                 <li name="distributorManage">
                     <a href="#" class="dropdown nav-a my-rotate" >
@@ -38,6 +38,7 @@
 
                     </ul>
                 </li>
+                <!--王克龙-->
                 <li name="knowledgeBase">
                     <a href="#" class="dropdown nav-a my-rotate" >
                         <i class="fa fa-address-card" aria-hidden="true"></i>
@@ -47,6 +48,21 @@
                     </a>
                     <ul class="dropdown-submenu" style="display: none;">
                         <li name="knowledgeBase-knowledgeBase" go="../knowledge-base/knowledge-base.html"><a href="#" class="drop-a" ><i class="fa fa-address-card"></i><span class="hidden-tablet">知识库列表</span></a></li>
+                    </ul>
+                </li>
+                <li name="taskManage">
+                    <a href="#" class="dropdown nav-a my-rotate" >
+                        <i class="fa fa-address-card" aria-hidden="true"></i>
+                        <span class="hidden-tablet"> 任务管理</span>
+                        <i class="fa fa-address-card fa-angle-right rotate-icon" aria-hidden="true"></i>
+                    </a>
+                    <ul class="dropdown-submenu" style="display: none;">
+                        <li name="taskManage-spareCatalog" go="../task-manage/vin-query.html">
+                            <a href="#" class="drop-a" >
+                                <i class="fa fa-address-card"></i>
+                                <span class="hidden-tablet">VIN查询结果</span>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <!--***********2018年9月27日09:19:49 宣文斌****************-->
@@ -95,9 +111,10 @@
                     </ul>
                 </li>
                 <li name="administratorManagement">
-                    <a href="#" class="dropdown nav-a" >
+                    <a href="#" class="dropdown nav-a my-rotate" >
                         <i class="fa fa-address-card" aria-hidden="true"></i>
                         <span class="hidden-tablet"> 管理员管理</span>
+                        <i class="fa fa-address-card fa-angle-right rotate-icon" aria-hidden="true"></i>
                     </a>
                     <ul class="dropdown-submenu" style="display: none;">
                         <li name="administratorManagement-administratorList" go="../administrator-management/administrator-list.html"><a href="#" class="drop-a" ><i class="fa fa-address-card"></i><span class="hidden-tablet">管理员列表</span></a></li>
@@ -122,9 +139,10 @@
                 </li>
                 <!--系统设置 刘志杰/何培玮 2018-09-28 -->
                 <li name="systemSetting">
-                    <a href="#" class="dropdown nav-a" >
+                    <a href="#" class="dropdown nav-a my-rotate" >
                         <i class="fa fa-address-card" aria-hidden="true"></i>
                         <span class="hidden-tablet"> 系统设置</span>
+                        <i class="fa fa-address-card fa-angle-right rotate-icon" aria-hidden="true"></i>
                     </a>
                     <ul class="dropdown-submenu" style="display: none;">
                         <!--个性化设置 刘志杰 2018-09-28-->

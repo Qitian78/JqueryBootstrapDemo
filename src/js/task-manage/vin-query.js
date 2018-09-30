@@ -5,7 +5,7 @@
 */
 //备件查询列表
 //获得表格数据
-$(function(){
+$(function() {
     $('#vin-table-right').bootstrapTable({
         url: AJAX_URL.vinQuery,
         method: requestJson ? 'get' : 'post',                      //请求方式（*）
@@ -34,7 +34,7 @@ $(function(){
         //得到查询的参数
         queryParams : function (params) {
             //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
-            var temp = {
+            let temp = {
                 rows: params.limit,                         //页面大小
                 page: (params.offset / params.limit) + 1,   //页码
                 sort: params.sort,      //排序列名
@@ -57,7 +57,7 @@ $(function(){
         }, {
             field: 'spareName',
             title: '备件名称'
-        } ],
+        }],
         onLoadSuccess: function (e) {
             console.log(e)
         },
@@ -67,7 +67,7 @@ $(function(){
         onDblClickRow: function (row, $element) {
         },
         //客户端分页，需要指定到rows
-        responseHandler: function(data){
+        responseHandler: function(data) {
             return data.rows;
         }
     });
@@ -75,7 +75,7 @@ $(function(){
 
 //备件显示列表
 //获得表格数据
-$(function(){
+$(function() {
     $('#vin-table-bottom').bootstrapTable({
         url: AJAX_URL.vinList,
         method: requestJson ? 'get' : 'post',                      //请求方式（*）
@@ -104,7 +104,7 @@ $(function(){
         //得到查询的参数
         queryParams : function (params) {
             //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
-            var temp = {
+            let temp = {
                 rows: params.limit,                         //页面大小
                 page: (params.offset / params.limit) + 1,   //页码
                 sort: params.sort,      //排序列名
@@ -145,14 +145,14 @@ $(function(){
             width: 120,
             align: 'center',
             valign: 'middle',
-            formatter:function(value,row,index){
+            formatter:function(value,row,index) {
                 //通过formatter可以自定义列显示的内容
                 //value：当前field的值，即id
                 //row：当前行的数据
                 let a = '<a href="../../pages/knowledge-base/knowledge-detial.html" onclick="openDetialModal()">查看</a>';
                 let b = '<a href="#" onclick="openEditorModal()">编辑</a>';
                 let c = '<a href="#" onclick="openDeleteModal()">删除</a>';
-                return a +'  '+ b +'  '+ c;
+                return a + '  ' + b + '  ' + c;
             }
         }],
         onLoadSuccess: function (e) {
@@ -164,7 +164,7 @@ $(function(){
         onDblClickRow: function (row, $element) {
         },
         //客户端分页，需要指定到rows
-        responseHandler: function(data){
+        responseHandler: function(data) {
             return data.rows;
         }
     });
