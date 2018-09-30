@@ -160,15 +160,6 @@ $(function () {
     })
 })
 
-//编辑器内容判空
-function editorContent(){
-    if (ue.getContentTxt().length === 0) {
-        $("#add-script-editor").parent().next().show();
-    }
-    else {
-        $("#add-script-editor").parent().next().hide();
-    }
-}
 
 
 /**
@@ -264,33 +255,6 @@ function openDetialModal() {
     //模态框标题
     $("#accounce-modaltitle").html('<h4>' + ' 公告详情' + '</h4>')
     //得到当前数据的详细信息
-    // $.ajax({
-    //     // url: AJAX_URL.personProblem,
-    //     type: requestJson?'get':"post",
-    //     dataType: "json",
-    //     success: function(data) {
-    //         ////获得问题列表的内容
-    //         if(data){
-    //             $('.show-question').empty();
-    //             $.each(data, function (index, item) {
-    //                 //循环获取数据
-    //                 $('.problem').append('<div class="question-info" id="'+index+'"></div>');
-    //                 let proData = data[index]
-    //                 let proEach = index;
-    //                 console.log(proEach)
-    //                 $.each(proData, function (inde, it) {
-    //                     let $str ='<ul>' +
-    //                         '<li>' + '问题编号：' + proData[inde].pro1 + '</li>' +
-    //                         '<li>' + '问题类型：' + proData[inde].pro2 + '</li>' +
-    //                         '<li>' + '提问者：' + proData[inde].pro3 + '</li>' +
-    //                         '<li>' + '问题标题：' + proData[inde].pro4 + '</li>' +
-    //                         '</ul>'
-    //                     $("#"+proEach).eq(0).append($str)
-    //                 })
-    //             });
-    //         }
-    //     }
-    // })
 
 }
 function openUpdateModal(){
@@ -315,7 +279,8 @@ function selectFile(){
 }
 
 /**
- * 判空提示语
+ * 模态框判空提示语
+ * ------开始--------
  */
 
 function hideTip(that) {
@@ -343,3 +308,21 @@ function saveSubmit() {
     //编辑器内容
     editorContent();
 }
+
+//编辑器内容判空
+function editorContent(){
+    if (ue.getContentTxt().length === 0) {
+        $("#add-script-editor").parent().next().show();
+    }
+    else {
+        $("#add-script-editor").parent().next().hide();
+    }
+}
+
+//当模态框完全对用户隐藏时触发隐藏提示语
+$('#add-accouncemodal').on('hidden.bs.modal', function () {
+    // 执行提示语
+    $(".judge-tip").css("display","none");
+})
+
+//-----------结束--------------
