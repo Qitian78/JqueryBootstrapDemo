@@ -24,6 +24,7 @@
                 <li name="personDatabase" go="../person-database/person-database.html" ><a href="#" ><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-tablet"> 人员库</span></a></li>
                 <!--问题反馈（前台界面） 张子腾 2018-09-25-->
                 <li name="reportProblem" go="../report-problem/problem.html" ><a href="#" ><i class="fa fa-question-circle" aria-hidden="true"></i><span class="hidden-tablet"> 问题反馈</span></a></li>
+                <li name="carResult" go="../car-result/car-result.html" ><a href="#" ><i class="glyphicon glyphicon-search" aria-hidden="true"></i><span class="hidden-tablet"> 备件目录</span></a></li>
                 <!--基础管理（经销商管理） 刘志杰 2018-09-25-->
                 <li name="distributorManage">
                     <a href="#" class="dropdown nav-a my-rotate" >
@@ -64,7 +65,8 @@
                         </li>
                     </ul>
                 </li>
-
+                <!--公告管理（后台界面） 宣文彬 2018-09-28-->
+                <li name="announceManagement" go="../announce-management/announce-management.html" ><a href="#" ><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-tablet"> 公告管理</span></a></li>
                 <li name="logManagement">
                     <a href="#" class="dropdown nav-a my-rotate" >
                         <i class="fa fa-address-card" aria-hidden="true"></i>
@@ -92,6 +94,16 @@
                         </li>
                     </ul>
                 </li>
+                <li name="administratorManagement">
+                    <a href="#" class="dropdown nav-a" >
+                        <i class="fa fa-address-card" aria-hidden="true"></i>
+                        <span class="hidden-tablet"> 管理员管理</span>
+                    </a>
+                    <ul class="dropdown-submenu" style="display: none;">
+                        <li name="administratorManagement-administratorList" go="../administrator-management/administrator-list.html"><a href="#" class="drop-a" ><i class="fa fa-address-card"></i><span class="hidden-tablet">管理员列表</span></a></li>
+                        <li name="administratorManagement-rightsManagement" go="../administrator-management/rights-management.html"><a href="#" class="drop-a" ><i class="fa fa-address-card"></i><span class="hidden-tablet">权限管理</span></a></li>
+                    </ul>
+                </li>
                 <!--cyx 20190925-->
                 <li name="announceManage">
                     <a href="#" class="dropdown nav-a my-rotate">
@@ -108,6 +120,23 @@
                         </li>
                     </ul>
                 </li>
+                <!--系统设置 刘志杰/何培玮 2018-09-28 -->
+                <li name="systemSetting">
+                    <a href="#" class="dropdown nav-a" >
+                        <i class="fa fa-address-card" aria-hidden="true"></i>
+                        <span class="hidden-tablet"> 系统设置</span>
+                    </a>
+                    <ul class="dropdown-submenu" style="display: none;">
+                        <!--个性化设置 刘志杰 2018-09-28-->
+                        <li name="systemSetting-personalSetting" go="../system-setting/personal-setting.html"><a href="#" class="drop-a" ><i class="fa fa-address-card"></i><span class="hidden-tablet">个性化设置</span></a></li>
+                        <!--待办事项管理 刘志杰 2018-09-28-->
+                        <li name="systemSetting-scheduleManage" go="../system-setting/schedule-manage.html"><a href="#" class="drop-a" ><i class="fa fa-address-card"></i><span class="hidden-tablet">待办事项管理</span></a></li>
+                        <!--答疑设置 刘志杰 2018-09-28-->
+                        <li name="systemSetting-answerSetting" go="../system-setting/answer-setting.html"><a href="#" class="drop-a" ><i class="fa fa-address-card"></i><span class="hidden-tablet">答疑设置</span></a></li>
+
+                    </ul>
+                </li>
+
             </ul>
         </div>
         <div class="sider-content">

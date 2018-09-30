@@ -1,0 +1,110 @@
+/**
+ * 页面整体配置
+ */
+body{
+    background-color: white;
+    height: 100%;
+}
+.child-content{
+    height: 100%;
+}
+.adminlist-body{
+    background-color: white;
+    height: 100%;
+}
+/**
+ * 页面头部标题部分
+ */
+.adminlist-body-top{
+    width: 100%;
+    float: left;
+}
+/**
+ * 页面中部表单部分
+ */
+.adminlist-body-medium{
+    width: 100%;
+    float: left;
+    margin-top: 1%;
+}
+/**
+ * 页面中部表单部分-左侧
+ */
+.medium-left{
+    width: 50%;
+    float: left;
+}
+.medium-left-group{
+    width: 100%;
+    float: left;
+    margin-top: 4%;
+}
+.medium-left-label{
+    margin-left: 5%;
+    width: 20%;
+    float: left;
+    text-align: right;
+    margin-top: 1%;
+}
+.medium-left-input{
+    width: 50%;
+    float: left;
+    margin-left: 5%;
+}
+.left-dropdown-ul{
+    width: 50%;
+    float: left;
+    margin-left: 30%;
+    margin-top: 34px;
+}
+/**
+ * 页面中部表单部分-右侧
+ */
+.medium-right{
+    width: 50%;
+    float: left;
+}
+.medium-right-group{
+    width: 100%;
+    float: left;
+    margin-top: 4%;
+}
+.medium-right-label{
+    width: 20%;
+    float: left;
+    text-align: right;
+    margin-top: 1%;
+}
+.medium-right-input{
+    width: 50%;
+    float: left;
+    margin-left: 5%;
+}
+.right-dropdown-ul{
+    width: 50%;
+    float: left;
+    margin-left: 25%;
+    margin-top: 34px;
+}
+.group-btngroup{
+    width: 50%;
+    float: left;
+    margin-left: 25%;
+}
+.medium-right-button{
+    width: 40%;
+    float: left;
+    margin-left: 20%;
+}
+
+/**
+ * 页面下部列表部分
+ */
+.adminlist-body-bottom{
+    width: 100%;
+    float: left;
+}
+.bottom-table{
+    /*background-color: #00f7de;*/
+    margin: 5% 11% 0 6%;
+}

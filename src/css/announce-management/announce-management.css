@@ -1,0 +1,120 @@
+body{
+    background-color: #fff;
+    height: 100%;
+}
+.child-content{
+    height: 100%;
+}
+.search-content{
+    /*margin-bottom: 110px;*/
+    width: 100%;
+    height: 20%;
+}
+.announce-right{
+    height: 100%;
+    margin: 30px;
+}
+#show-table-announce{
+    border-radius: 5px;
+    background-color: #fff;
+}
+.search-head{
+    height: 50%;
+    width: 100%;
+}
+
+.search-from{
+    width: 40%;
+    /*width: 500px;*/
+    float: left;
+    margin-left: 1%;
+}
+.search-from label{
+    min-width: 85px;
+    text-align: right;
+}
+.search-submit{
+    float: right;
+    width: 20%;
+}
+.search-submit button{
+    width: 40%;
+    float: left;
+    margin-left: 5%;
+}
+.result-num{
+    width: 40%;
+    float: left;
+}
+.operation-button-right{
+    float: right;
+    margin-bottom: 2%;
+    /*width: 25%;*/
+    width: 30%;
+}
+.operation-button-right button{
+    /*margin-left: 3%;*/
+    width: 29%;
+    margin-right: 2%;
+    padding: 6px 2px;
+}
+.operation-button-left{
+    float: left;
+    margin-bottom: 2%;
+    width: 30%;
+}
+.operation-button-left button{
+    width: 29%;
+    margin-right: 2%;
+    padding: 6px 2px;
+}
+
+.announce-list{
+    background-color: #fff;
+}
+.modelBtn{
+    width: 30%;
+    float: right;
+}
+.modelBtn button{
+    width: 40%;
+    margin-left: 5%;
+}
+.question-title{
+    float: right;
+}
+.from-controller{
+    /*display: block;*/
+    /*width: 100%;*/
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px;
+}
+.col-md-6-left {
+    width: 80px;
+    min-width: 80px;
+    display: block;
+}
+.col-md-2{
+    width: 10%;
+}
+.radio-choose{
+    float: left;
+    margin-right: 3%;
+}
+.select-modal{
+    width: 30%;
+}
+.input-theme{
+    width: 63%;
+}
+.judge-tip{
+    color: red;
+    display: none;
+    margin-left: 19%;
+}

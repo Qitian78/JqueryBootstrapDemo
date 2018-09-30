@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../css/common/common.css"/>
+    <link rel="stylesheet" href="../../css/system-setting/personal-setting.css">
+    <title>系统设置（个性化设置）</title>
+</head>
+<body>
+<!--系统设置（个性化设置）刘志杰 2018-09-28-->
+<div class="content">
+    <hr>
+    <div class="header form-inline">
+        <div class="title-header">个性化设置</div>
+    </div>
+    <div class="main-content">
+        <!--logo图片-->
+        <div class="setting-left">
+            <div class="img">
+                <img />
+            </div>
+
+            <a>修改LOGO</a>
+        </div>
+        <div class="setting-right">
+            <label class="form-group form-inline">
+                <i class="glyphicon glyphicon-asterisk"></i>
+                <span>系统名称：</span>
+                <input class="form-control need-check not-null" type="text" maxlength="50" placeholder="EPC电子配件目录">
+            </label>
+            <div class="btn-content">
+                <button class="btn btn-primary save-check">保存</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="../../lib/js/jquery.min.js"></script>
+<script src="../../config/config.js"></script>
+<script src="../../lib/bootstrap/js/bootstrap.min.js"></script>
+<!--common-util.js必须引在所有功能js前面-->
+<script src="../../utils/common-util.js"></script>
+<script src="../../utils/const-manager.js"></script>
+<script src="../../js/system-setting/personal-setting.js"></script>
+</body>
+</html>

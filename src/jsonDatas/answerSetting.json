@@ -1,0 +1,33 @@
+{
+  "total": "4",
+  "rows": [
+    {
+      "index": "1",
+      "name": "预警名称1",
+      "userId": "admin11",
+      "username": "经销商1",
+      "reportTime": "2018-02-24 15:15:26"
+    },
+    {
+      "index": "2",
+      "name": "预警名称1",
+      "userId": "admin11",
+      "username": "经销商1",
+      "reportTime": "2018-02-24 15:15:26"
+    },
+    {
+      "index": "3",
+      "name": "预警名称1",
+      "userId": "admin11",
+      "username": "经销商1",
+      "reportTime": "2018-02-24 15:15:26"
+    },
+    {
+      "index": "4",
+      "name": "预警名称1",
+      "userId": "admin11",
+      "username": "经销商1",
+      "reportTime": "2018-02-24 15:15:26"
+    }
+  ]
+}

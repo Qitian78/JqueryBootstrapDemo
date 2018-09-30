@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../../lib/bootstrap-table/bootstrap-table.min.css">
     <link rel="stylesheet" href="../../lib/fontawesome/css/fontawesome-all.css">
     <link rel="stylesheet" href="../../lib/layer/theme/default/laydate.css">
+    <link rel="stylesheet" href="../../css/common/common.css">
     <link rel="stylesheet" href="../../css/report-problem/problem.css">
     <title>问题反馈</title>
 </head>
@@ -61,6 +62,10 @@
 
         </form>
     </div>
+    <div class="search-submit">
+        <button class="btn btn-primary" id="search-button">搜索</button>
+        <button class="btn" id="reset-button">重置</button>
+    </div>
 </div>
 <hr>
 <!--2018年9月27日08:55:53 表格新增删除按钮-->
@@ -71,12 +76,12 @@
     </div>
     <br>
     <div class="tab-pane" id="login-log">
-        <table id="login-log-table"></table>
+        <table id="problem-table-all"></table>
     </div>
 </div>
 </div>
 <!--2018年9月27日08:56:47 页面模态窗 -zhangziteng-->
-<!--新增模态窗-->
+<!--新增模态窗-vin码有数据-->
 <div class="modal fade" id="add-point">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -86,23 +91,82 @@
                 </button>
                 <h4 id="modelTitle"></h4>
             </div>
-            <div class="modal-bodyhy">
+            <div class="modal-body">
                 <div class="row" style="margin-left: 21px;">
                     <div class="col-xs-12 form-horizontal" id="add-point-info">
                         <div class="form-group">
                             <div class="col-sm-3">
-                                <label for="inputName" class="control-label required">账号： </label>
+                                <label for="inputName" class="control-label required">账号 </label>
                                 <label id="inputName" class="control-label">张同志</label>
                             </div>
                             <div class="col-sm-3">
-                                <label for="inputDealer" class="control-label required">经销商： </label>
+                                <label for="inputDealer" class="control-label">经销商： </label>
                                 <label id="inputDealer" class="control-label">xxx</label>
                             </div>
                             <div class="col-sm-3">
-                                <label for="CarType" class="control-label required">车型： </label>
+                                <label for="CarType" class="control-label">车型： </label>
                                 <label id="CarType" class="control-label">xxx</label>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <div class="col-sm-6 form-inline">
+                                <label for="ProblemType" class="control-label">问题分类：</label>
+                                <select class="form-control" id="ProblemType" style="width: 150px">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-5 form-inline" style="margin-left: -30px">
+                                <label for="inputNumber" class="control-label">VIN：</label>
+                                <input type="text" class="form-control need-check not-null" style="width: 150px;" regex="account" maxlength="11" id="inputNumber" placeholder="请输入VIN">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-6 form-inline">
+                                <label for="inputNumber" class="control-label">联系电话：</label>
+                                <input type="text" class="form-control need-check not-null" style="width: 150px;" regex="account" maxlength="11" id="inputNumber" placeholder="请输入联系电话">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12 form-inline">
+                                <label for="inputProblem" class="control-label required">问题</label>
+                                <textarea class="form-control" rows="7" style="width: 500px" id="inputProblem" placeholder="请输入1-500字中英文">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-10 form-inline">
+                                <label for="uploadFile" class="control-label">上传文件：</label>
+                                <input type="file" id="uploadFile">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn" data-dismiss="modal">取消</button>
+                            <button class="btn btn-primary save-check" onclick="openAddModalNothing()" check-area="add-point-info" data-target="#add-point-nothing" data-toggle="modal">提交</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--新增模态窗-vin码无数据-->
+<div class="modal fade" id="add-point-nothing">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 id="modelTitle-nothing"></h4>
+            </div>
+            <div class="modal-body">
+                <div class="row" style="margin-left: 21px;">
+                    <div class="col-xs-12 form-horizontal" id="add-point-info">
                         <div class="form-group">
                             <div class="col-sm-6 form-inline">
                                 <label for="ProblemType" class="control-label required">问题分类：</label>
@@ -115,25 +179,19 @@
                                 </select>
                             </div>
                             <div class="col-sm-5 form-inline" style="margin-left: -30px">
-                                <label for="inputNumber" class="control-label required">VIN：</label>
+                                <label for="inputNumber" class="control-label">VIN：</label>
                                 <input type="text" class="form-control need-check not-null" style="width: 150px;" regex="account" maxlength="11" id="inputNumber" placeholder="请输入VIN">
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-sm-6 form-inline">
-                                <label for="inputNumber" class="control-label required">联系电话：</label>
-                                <input type="text" class="form-control need-check not-null" style="width: 150px;" regex="account" maxlength="11" id="inputNumber" placeholder="请输入联系电话">
-                            </div>
-                        </div>
-                        <div class="form-group">
                             <div class="col-sm-12 form-inline">
-                                <label for="inputProblem" class="control-label required" style="margin-top: -150px">问题：</label>
+                                <label for="inputProblem" class="control-label required">问题</label>
                                 <textarea class="form-control" rows="7" style="width: 500px" id="inputProblem" placeholder="请输入1-500字中英文">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-10 form-inline">
-                                <label for="uploadFile" class="control-label required">上传文件：</label>
+                                <label for="uploadFile" class="control-label">上传文件：</label>
                                 <input type="file" id="uploadFile">
                             </div>
                         </div>
@@ -159,25 +217,12 @@
                 </button>
                 <h4 id="modelTitleContinue"></h4>
             </div>
-            <div class="modal-bodyhy">
+            <div class="modal-body">
                 <div class="row" style="margin-left: 20px;margin-right: 20px;">
-                    <div class="col-xs-12 form-horizontal" id="add-point-info">
-                        <div class="form-group">
-                            <label class="control-label" style="float: left">问：dasdsadsadbshadjvsahdvhsgavdhgsav</label>
-                            <label class="control-label" style="float: right">2018-1-1 13:25</label>
-                            <br>
-                            <label class="control-label" style="float: left">答：dasdsadsadbshadjvsahdvhsgavdhgsav</label>
-                            <label class="control-label" style="float: right">2018-1-1 14:25</label>
-                        </div>
-                        <hr>
-                        <div class="form-group">
-                            <label class="control-label" style="float: left">问：十万个为什么</label>
-                            <label class="control-label" style="float: right">2018-1-1 13:25</label>
-                            <br>
-                            <label class="control-label" style="float: left">答：十万个不知道十万个不知道十万个不知道十万个不知道</label>
-                            <label class="control-label" style="float: right">2018-1-1 14:25</label>
-                        </div>
-                        <hr>
+                    <div class="col-xs-12 form-horizontal" id="continue-point-info">
+
+                    </div>
+                    <div class="col-xs-12 form-horizontal">
                         <div class="form-group form-inline">
                                 <label for="inputProblem" class="control-label required" style="margin-top: -70px">问题：</label>
                                 <textarea class="form-control" rows="3" style="width: 450px" id="inputProblem" placeholder="请输入1-500字中英文">
@@ -208,24 +253,10 @@
                 </button>
                 <h4 id="allproblemTitle"></h4>
             </div>
-            <div class="modal-bodyhy">
+            <div class="modal-body">
                 <div class="row" style="margin-left: 20px;margin-right: 20px;">
-                    <div class="col-xs-12 form-horizontal" id="add-point-info">
-                        <div class="form-group">
-                            <label class="control-label" style="float: left">问：dasdsadsadbshadjvsahdvhsgavdhgsav</label>
-                            <label class="control-label" style="float: right">2018-1-1 13:25</label>
-                            <br>
-                            <label class="control-label" style="float: left">答：dasdsadsadbshadjvsahdvhsgavdhgsav</label>
-                            <label class="control-label" style="float: right">2018-1-1 14:25</label>
-                        </div>
-                        <hr>
-                        <div class="form-group">
-                            <label class="control-label" style="float: left">问：十万个为什么</label>
-                            <label class="control-label" style="float: right">2018-1-1 13:25</label>
-                            <br>
-                            <label class="control-label" style="float: left">答：十万个不知道十万个不知道十万个不知道十万个不知道</label>
-                            <label class="control-label" style="float: right">2018-1-1 14:25</label>
-                        </div>
+                    <div class="col-xs-12 form-horizontal" id="check-point-info">
+
                         <div class="modal-footer"></div>
                     </div>
                 </div>

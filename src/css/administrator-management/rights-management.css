@@ -1,0 +1,81 @@
+/**
+ * 页面整体配置
+ */
+body{
+    background-color: white;
+    height: 100%;
+}
+.child-content{
+    height: 100%;
+}
+.rights-body{
+    /*background-color: white;*/
+    height: 100%;
+}
+/**
+ * 页面头部标题部分
+ */
+.rights-body-top{
+    /*float: left;*/
+    width: 100%;
+}
+.top-title{
+    /*float: left;*/
+    margin: 2% 0 0 2%;
+}
+/**
+ * 页面中部表单部分
+ */
+.rights-body-medium{
+    float: left;
+    width: 100%;
+    margin-top: 1%;
+}
+.medium-group{
+    float: left;
+    width: 100%;
+    margin: 1% 0 0 2%;
+}
+.medium-group-label{
+    width: 10%;
+    float: left;
+    height: 34px;
+    line-height: 34px;
+}
+.medium-group-select{
+    width: 20%;
+    float: left;
+}
+.medium-group-selectul{
+    width: 20%;
+    margin: 34px 0 0 10%;
+}
+
+.rights-body-bottom{
+    width: 100%;
+    float: left;
+    margin-top: 2%;
+}
+.bottom-title{
+    margin-left: 2%;
+}
+.bottom-checkbox{
+    margin-left: 10%;
+}
+.bottom-checkboxes-pickrights{
+    margin-top: 1%;
+}
+.bottom-button{
+    float: left;
+    width: 100%;
+    margin: 2% 0 0 8%;
+}
+.bottom-button-save{
+    width: 10%;
+    float: left;
+}
+.bottom-button-reset{
+    width: 10%;
+    float: left;
+    margin-left: 5%;
+}

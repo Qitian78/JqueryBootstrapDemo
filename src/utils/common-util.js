@@ -679,9 +679,6 @@ function initHeight(bodyId,thisId) {
         let height = calcPageHeight(document);
         $('#' + bodyId).css('height', height + 'px');
     }
-
-
-
 }
 
 function calcPageHeight(doc) {
@@ -689,6 +686,17 @@ function calcPageHeight(doc) {
     let sHeight = Math.max(doc.body.scrollHeight, doc.documentElement.scrollHeight)
     let height  = Math.max(cHeight, sHeight)
     return height
+}
+
+/**
+ * @Desc 高度同步
+ * @Date 2018-09-30 10:29:33
+ * @Author qitian
+ */
+
+function heightSync() {
+    let siderHeight = $('.mody-sider').css('height');
+    $('.content-center').css('height',siderHeight);
 }
 
 /**

@@ -1,0 +1,100 @@
+body, html {
+    background-color: #fff;
+    height: 100%;
+    width: 100%;
+}
+
+.content {
+    width: 100%;
+}
+
+.header {
+    width: 100%;
+    margin-left: 3%;
+}
+
+.title-header {
+    height: 100%;
+    padding-left: 1.5%;
+    border-left: 5px solid rgb(74, 80, 100);
+    padding-top: 3px;
+}
+
+/*预警设置*/
+.warning-setting {
+    width: 100%;
+    height: 20%;
+}
+.warning-setting-box{
+    width: 60%;
+    float: left;
+}
+.warning-icons {
+    width: 40%;
+    float: left;
+    padding-right: 2%;
+}
+.warning-icons i{
+    float: right;
+}
+.conntent-warning-setting {
+    padding-top: 3%;
+    padding-left: 5%;
+    height: 50px;
+}
+.conntent-warning-setting div{
+
+}
+
+.warning-name{
+    float: left;
+    padding-right: 30px;
+    padding-left: 30px;
+}
+.connten-warning-name{
+    float: left;
+}
+.connten-warning-name input{
+    width: 100px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.connten-warning-name div{
+    float: left;
+}
+
+/*联系我们*/
+.call-us {
+    width: 100%;
+    height: 25%;
+}
+
+.content-call-us {
+    padding-top: 5%;
+    padding-left: 5%;
+}
+
+.left-content-call-us {
+    float: left;
+    padding-right: 40px;
+}
+
+.right-content-call-us{
+    float: left;
+
+}
+
+/*预警列表*/
+.warning-list {
+    width: 100%;
+
+}
+.tab-content{
+    width: 100%;
+    padding-top: 2%;
+    padding-left: 2%;
+    padding-right: 7%;
+}
+.tab-content table{
+    width: 100%;
+}

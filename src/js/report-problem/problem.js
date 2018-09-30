@@ -16,17 +16,6 @@ $(function(){
     });
 });
 
-
-/**
- * @Desc 保存按钮出发事件-弹出框示例
- * @Date 2018-09-17 00:47:31
- * @Author qitian
- */
-
-function saveInfo(){
-    poptip.alert(POP_TIP.saveSuccess);
-}
-
 /**
  * @Desc 登录日志tab跳转
  * @Date 2018-09-19 10:06:12
@@ -34,7 +23,7 @@ function saveInfo(){
  */
 
 $(function(){
-    $('#login-log-table').bootstrapTable({
+    $('#problem-table-all').bootstrapTable({
         url: AJAX_URL.reportProblem,
         method: requestJson ? 'get' : 'post',                      //请求方式（*）
         dataType: "json",
@@ -107,7 +96,7 @@ $(function(){
                 //value：当前field的值，即id
                 //row：当前行的数据
                 let a = '<a href="#" onclick="openContinueModal()" data-target="#allproblem-continue" data-toggle="modal">继续提问</a>';
-                let b = '<a href="#" onclick="openAllModal()" data-target="#allproblem" data-toggle="modal">查看</a>';
+                let b = '<a href="#" onclick="openAllModal()" id="check-allproblem" data-target="#allproblem" data-toggle="modal">查看</a>';
                 let c = '<a href="#" onclick="openDeleteModal()">删除</a>';
                 return a +'  '+ b +'   '+ c;
             }
@@ -147,10 +136,9 @@ function openAlertModal() {
     });
 }
 
-//新增一条问题
+//新增一条问题-有VIN
 function openAddModal() {
-    console.log("1111");
-    $("#modelTitle").html('<h4>' + ' 新增问题' + '</h4>')
+    $("#modelTitle").html('<h4>' + ' 新增问题' + '</h4>');
     $("#knowledge-add-btn").on("click", function () {
         let modal = $("#");//还原，置空
         modal.find("input").eq(0).val("");//将模态框中的数据清空
@@ -172,6 +160,11 @@ function openAddModal() {
             }
         });
     });
+}
+
+//新增一条问题-有VIN
+function openAddModalNothing() {
+    $("#modelTitle-nothing").html('<h4>' + ' 新增问题' + '</h4>');
 }
 
 //删除一条数据
@@ -192,53 +185,78 @@ function openDeleteModal() {
 
 //继续提问
 function openContinueModal() {
-    console.log("1111");
     $("#modelTitleContinue").html('<h4>' + ' 答疑详情' + '</h4>');
-    $("#knowledge-add-btn").on("click", function () {
-        let modal = $("#");//还原，置空
-        modal.find("input").eq(0).val("");//将模态框中的数据清空
-        modal.find("input").eq(1).val("");
-        modal.find("input").eq(2).val("");
-        modal.find("select").eq(0).find("option:first").prop("selected", 'selected');
-        $.ajax({
-            turl: AJAX_URL.knowledgeData,
-            method: requestJson ? 'get' : 'post',
-            dataType: "json",
-            data: JSON.stringify(data),
-            success: function (data) {
-                if (data.ok) {
-                    if (!data.data) {
-                    }
-                } else {
-                    poptip.alert(data.message);
-                }
+    $.ajax({
+        url: AJAX_URL.allProblemData,
+        method: requestJson ? 'get' : 'post',
+        dataType: "json",
+        success: function (data) {
+            console.log(data);
+            // if (data) {
+            //     alert("1111");
+            // } else {
+            //     poptip.alert(data.message);
+            // };
+            ////获得问题列表的内容 2018年9月28日10:18:51
+            if(data){
+                $('#continue-point-info').empty();
+                $.each(data, function (index, item) {
+                    //循环获取数据
+                    $('#continue-point-info').append('<div class="form-group" id="'+index+'"></div><hr>');
+                    let proData = data[index];
+                    let proEach = index;
+                    console.log(proEach);
+                    $.each(proData, function (inde, it) {
+                        let $str ='<label class="pro-left">'+'问：'+'</label>'+ '<label class="pro-left" style="width: 70%">'+ proData[inde].pro1 + '</label>'
+                            + '<label class="control-label" style="float: right">' + proData[inde].pro2 + '</label>'+'<br><br><br>'
+                            + '<label class="pro-left">'+'答：'+'</label>'+'<label class="pro-left" style="width: 70%">'+ proData[inde].pro4 + '</label>'
+                            + '<label class="control-label" style="float: right">'+ proData[inde].pro5 + '</label>'+'<br>';
+                        $("#"+proEach).eq(0).append($str);
+                    })
+                });
             }
-        });
+        }
     });
 }
 
 //查看详情
 function openAllModal() {
     $("#allproblemTitle").html('<h4>' + ' 答疑详情' + '</h4>');
-    $("#knowledge-add-btn").on("click", function () {
-        let modal = $("#");//还原，置空
-        modal.find("input").eq(0).val("");//将模态框中的数据清空
-        modal.find("input").eq(1).val("");
-        modal.find("input").eq(2).val("");
-        modal.find("select").eq(0).find("option:first").prop("selected", 'selected');
-        $.ajax({
-            turl: AJAX_URL.knowledgeData,
-            method: requestJson ? 'get' : 'post',
-            dataType: "json",
-            data: JSON.stringify(data),
-            success: function (data) {
-                if (data.ok) {
-                    if (!data.data) {
-                    }
-                } else {
-                    poptip.alert(data.message);
-                }
+    console.log('156116165156');
+    // let modal = $("#");//还原，置空
+    // modal.find("input").eq(0).val("");//将模态框中的数据清空
+    // modal.find("input").eq(1).val("");
+    // modal.find("input").eq(2).val("");
+    // modal.find("select").eq(0).find("option:first").prop("selected", 'selected');
+    $.ajax({
+        url: AJAX_URL.checkAllProblemData,
+        method: requestJson ? 'get' : 'post',
+        dataType: "json",
+        success: function (data) {
+            console.log(data);
+            // if (data) {
+            //     alert("1111");
+            // } else {
+            //     poptip.alert(data.message);
+            // };
+            ////获得问题列表的内容 2018年9月28日10:18:51
+            if (data) {
+                $('#check-point-info').empty();
+                $.each(data, function (index, item) {
+                    //循环获取数据
+                    $('#check-point-info').append('<div class="form-group" id="' + index + '"></div><hr>');
+                    let proData = data[index];
+                    let proEach = index;
+                    console.log(proEach);
+                    $.each(proData, function (inde, it) {
+                        let $str = '<label class="pro-left">' + '问：' + '</label>' + '<label class="pro-left" style="width: 70%">' + proData[inde].pro1 + '</label>'
+                            + '<label class="control-label" style="float: right">' + proData[inde].pro2 + '</label>' + '<br><br><br>'
+                            + '<label class="pro-left">' + '答：' + '</label>' + '<label class="pro-left" style="width: 70%">' + proData[inde].pro4 + '</label>'
+                            + '<label class="control-label" style="float: right">' + proData[inde].pro5 + '</label>' + '<br>';
+                        $("#" + proEach).eq(0).append($str);
+                    })
+                });
             }
-        });
+        }
     });
 }

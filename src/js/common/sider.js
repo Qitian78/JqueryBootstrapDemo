@@ -6,19 +6,36 @@
  * @Author qitian
  */
 $(function() {
-    $('.dropdown').on('click',function() {
+    /*$('.dropdown').on('click',function() {
         if ($(this).next('.dropdown-submenu').css('display') === 'none') {
             $(this).next('.dropdown-submenu').css('display','block');
         } else {
             $(this).next('.dropdown-submenu').css('display','none');
         }
-    });
+    });*/
     $('.sider-nav').find('li').each(function (index,item) {
         let go = $(item).attr('go');
         let name = $(item).attr('name');
         if (go && name) {
             $(item).bind('click',function() { loadPage(name); })
         }
+    })
+    /*
+     * @Description: 左侧导航展开时，下三角图标旋转效果
+     * @Date 2018/9/27 9:17
+     * @author Wang ke long
+    */
+    $(".my-rotate").click(function () {
+        if ($(this).children(".rotate-icon").attr("leng") !== "s" && $(this).next().css('display') === 'none') {
+            $(this).next('.dropdown-submenu').css('display','block');
+            $(this).children(".rotate-icon").attr("leng", "s");
+            $(this).children(".rotate-icon").css({ "transform": "rotate(90deg)", "color": "#fff" })
+        } else {
+            $(this).children(".rotate-icon").attr("leng", "");
+            $(this).next('.dropdown-submenu').css('display','none');
+            $(this).children(".rotate-icon").css({ "transform": "rotate(0deg)", "color": "#fff" })
+        }
+        heightSync();
     })
 })
 
@@ -54,6 +71,7 @@ function expendSider(event) {
         $('.rotate-icon').each(function (index,item) {
             $(item).css('display','block');
             $(item).css('transform','none');
+            $(item).removeAttr('leng');
         })
         $('.content-center').css('width','85%');
         $('.content-center').css('left','15%');
@@ -63,6 +81,7 @@ function expendSider(event) {
             let activeList = activeLi.split('-');
             if (activeList.length > 1) {
                 $('.sidebar-nav').find('li[name="' + activeList[0] + '"]').find('.dropdown-submenu').css('display','block');
+                $('.sidebar-nav').find('li[name="' + activeList[0] + '"]').find('.rotate-icon').attr('leng','s');
                 $('.sidebar-nav').find('li[name="' + activeList[0] + '"]').find('.rotate-icon').css({ "transform": "rotate(90deg)", "color": "#fff" });
             }
             setTimeout(function() {
@@ -70,7 +89,7 @@ function expendSider(event) {
             });
         }
     }
-
+    heightSync();
 }
 
 /**
@@ -86,21 +105,7 @@ function loadPage(liName) {
     let page = $li.attr('go');
     $('.content-center')[0].innerHTML = '<iframe type="text/html" id="' + liName + '" src="' + page + '" width="100%" height="100%"></iframe>';
     sessionStorage.setItem('nav-page',liName);
+    heightSync();
 }
 
-/*
- * @Description: 左侧导航展开时，下三角图标旋转效果
- * @Date 2018/9/27 9:17
- * @author Wang ke long
-*/
-$(document).ready(function () {
-    $(".my-rotate").click(function () {
-        if ($(this).children(".rotate-icon").attr("leng") != "s") {
-            $(this).children(".rotate-icon").attr("leng", "s")
-            $(this).children(".rotate-icon").css({ "transform": "rotate(90deg)", "color": "#fff" })
-        } else {
-            $(this).children(".rotate-icon").attr("leng", "")
-            $(this).children(".rotate-icon").css({ "transform": "rotate(0deg)", "color": "#fff" })
-        }
-    })
-})
+

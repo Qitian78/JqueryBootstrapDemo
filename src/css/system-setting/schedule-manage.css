@@ -1,0 +1,101 @@
+body, html {
+    background-color: rgb(245, 245, 245);
+    height: 100%;
+    width: 100%;
+}
+
+.content {
+    width: 100%;
+}
+
+.header {
+    margin-top: 20px;
+    width: 100%;
+    height: 5%;
+    margin-left: 3%;
+}
+
+.title-header {
+    height: 100%;
+    padding-left: 1.5%;
+    border-left: 5px solid rgb(74, 80, 100);
+    padding-top: 3px;
+}
+
+.main-content {
+    width: 100%;
+    padding-left: 2%;
+    padding-right: 5%;
+    padding-bottom: 5%;
+}
+
+.show-content {
+    width: 100%;
+    height: 250px;
+    background-color: #FFFFFF;
+    margin-top: 10px;
+
+}
+/* “首页展示” 和 “可添加待办” 标题 */
+.title-main-content {
+    height: 40px;
+    width: 100%;
+    padding-top: 10px;
+    padding-left: 20px;
+}
+.title-main-content .left-title{
+    width: 50%;
+    float:left;
+}
+/*图标*/
+.title-main-content .right-title{
+    width: 50%;
+    float:left;
+    padding-right: 1%;
+}
+.title-main-content .right-title i{
+    float:right;
+}
+
+.list-schedule {
+    height: 40px;
+    width: 100%;
+    padding-top: 11px;
+    padding-left: 30px;
+}
+
+.list-schedule .circular{
+     width: 10px;
+     height: 10px;
+     border: 2px solid black;
+     border-radius: 50%;
+     float: left;
+    margin-top: 6px;
+ }
+.list-schedule .list-content{
+    width: 150px;
+    float: left;
+    padding-left: 20px;
+}
+.list-schedule i{
+    float: left;
+    padding-left: 20px;
+
+}
+.show-content .list-schedule:nth-child(even),.add-schedule .list-schedule:nth-child(even) { /*双数*/
+    background-color: rgb(245, 245, 245);
+}
+
+.show-content .list-schedule:nth-child(odd),.add-schedule .list-schedule:nth-child(odd)  { /*单数*/
+    background-color: #f8f8f8;
+}
+
+.add-schedule {
+    width: 100%;
+    height: 400px;
+    background-color: #FFFFFF;
+    margin-top: 50px;
+}
+
+
+
