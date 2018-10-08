@@ -3,15 +3,15 @@
  *  宣文彬
  *  2018-9-28
  */
-let ue;
+var ue;
 //获得表格数据
-$(function() {
+$(function(){
     $('#show-table-announce').bootstrapTable({
         url: AJAX_URL.announceManagementData,
         method: requestJson ? 'get' : 'post',                      //请求方式（*）
         dataType: "json",
-        //toolbar: '#toolbar',              //工具按钮用哪个容器
-        striped: true,                      //是否显示行间隔色
+        toolbar: '#toolbar',              //工具按钮用哪个容器
+        striped: false,                      //是否显示行间隔色
         cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
         pagination: true,                   //是否显示分页（*）
         sortable: false,                     //是否启用排序
@@ -23,7 +23,7 @@ $(function() {
         search: false,                      //是否显示表格搜索
         strictSearch: true,
         //showColumns: true,                  //是否显示所有的列（选择显示的列）
-        showRefresh: true,                  //是否显示刷新按钮
+        showRefresh: false,                  //是否显示刷新按钮
         minimumCountColumns: 2,             //最少允许的列数
         clickToSelect: true,                //是否启用点击选中行
         //height: 500,                      //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
@@ -34,7 +34,7 @@ $(function() {
         //得到查询的参数
         queryParams : function (params) {
             //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
-            let temp = {
+            var temp = {
                 rows: params.limit,                         //页面大小
                 page: (params.offset / params.limit) + 1,   //页码
                 sort: params.sort,      //排序列名
@@ -79,7 +79,7 @@ $(function() {
             width: 200,
             align: 'center',
             valign: 'middle',
-            formatter:function(value,row,index) {
+            formatter:function(value,row,index){
                 //通过formatter可以自定义列显示的内容
                 //value：当前field的值，即id
                 //row：当前行的数据
@@ -87,12 +87,12 @@ $(function() {
                 let b = '<a href="#" onclick="openDetialModal()" data-target="#add-accouncemodal" data-toggle="modal" style="color: #00b3ee">查看</a>';
                 let c = '<a href="#" onclick="announce()">发布</a>';
 
-                return a + '  ' + b + ' ' + c;
+                return a +'  '+ b +' '+c;
             }
-        }],
+        }, ],
         onLoadSuccess: function (e) {
             // console.log(e)
-            let data = e;
+            var data = e;
             console.log(data);
         },
         onLoadError: function () {
@@ -101,7 +101,7 @@ $(function() {
         onDblClickRow: function (row, $element) {
         },
         //客户端分页，需要指定到rows
-        responseHandler: function(data) {
+        responseHandler: function(data){
             return data.rows;
         }
     });
@@ -139,7 +139,7 @@ $(function () {
                 'forecolor', //字体颜色
                 'edittip ', //编辑提示
                 'customstyle', //自定义标题
-                'template' //模板
+                'template', //模板
             ]
         ],
         elementPathEnabled: false,
@@ -160,15 +160,6 @@ $(function () {
     })
 })
 
-//编辑器内容判空
-function editorContent() {
-    if (ue.getContentTxt().length === 0) {
-        $("#add-script-editor").parent().next().show();
-    }
-    else {
-        $("#add-script-editor").parent().next().hide();
-    }
-}
 
 
 /**
@@ -185,7 +176,7 @@ laydate.render({
  * 宣文彬
  * 2018-9-28
  */
-$(function() {
+$(function(){
     $("#search-submit").on("click", function () {
         let settings = {
             url: AJAX_URL.announceManagementData,
@@ -194,7 +185,7 @@ $(function() {
             data:{
                 "accounceTitle": $("#search-input-announcetitle").val(),//获得公告关键词
                 "announceCategory":$("#search-input-announcetyp").val(),//获得公告类型
-                "announceTime":$("#search-input-announcetime").val()//发布时间
+                "announceTime":$("#search-input-announcetime").val(),//发布时间
             }
         };
         $.ajax(settings).done(function (data) {
@@ -234,7 +225,7 @@ $("#delete-button-accounce").on("click", function () {
     else {
         poptip.confirm({
             content: POP_TIP.confirm,
-            yes : function() {
+            yes : function(){
                 let settings = {
                     url: AJAX_URL.announceManagementData,
                     method: requestJson ? 'get' : 'post',
@@ -264,36 +255,9 @@ function openDetialModal() {
     //模态框标题
     $("#accounce-modaltitle").html('<h4>' + ' 公告详情' + '</h4>')
     //得到当前数据的详细信息
-    // $.ajax({
-    //     // url: AJAX_URL.personProblem,
-    //     type: requestJson?'get':"post",
-    //     dataType: "json",
-    //     success: function(data) {
-    //         ////获得问题列表的内容
-    //         if(data){
-    //             $('.show-question').empty();
-    //             $.each(data, function (index, item) {
-    //                 //循环获取数据
-    //                 $('.problem').append('<div class="question-info" id="'+index+'"></div>');
-    //                 let proData = data[index]
-    //                 let proEach = index;
-    //                 console.log(proEach)
-    //                 $.each(proData, function (inde, it) {
-    //                     let $str ='<ul>' +
-    //                         '<li>' + '问题编号：' + proData[inde].pro1 + '</li>' +
-    //                         '<li>' + '问题类型：' + proData[inde].pro2 + '</li>' +
-    //                         '<li>' + '提问者：' + proData[inde].pro3 + '</li>' +
-    //                         '<li>' + '问题标题：' + proData[inde].pro4 + '</li>' +
-    //                         '</ul>'
-    //                     $("#"+proEach).eq(0).append($str)
-    //                 })
-    //             });
-    //         }
-    //     }
-    // })
 
 }
-function openUpdateModal() {
+function openUpdateModal(){
     //模态框标题
     $("#model-title").html('<h4>' + ' 公告编辑' + '</h4>')
 }
@@ -306,40 +270,59 @@ function openUpdateModal() {
 $("#reset-button").on("click",function () {
     $("#search-input-announcetitle").val("");
     $("#search-input-announcetime").val("");
-    $("#search-select-announcetype").find("option:first").prop("selected", 'selected');
+    $("#search-select-announcetype").find("option:first").prop("selected", 'selected');;
 })
 
 //打开文件选择框
-function selectFile() {
+function selectFile(){
     $("#add-input-file").trigger("click");
 }
 
 /**
- * 判空提示语
+ * 模态框判空提示语
+ * ------开始--------
  */
 
 function hideTip(that) {
     //主题
-    if ($(that).val() == null || $(that).val() == "") {
+    if($(that).val()==null || $(that).val()==""){
         $(that).parent().next().show();
-    } else {
+    }else{
         $(that).parent().next().hide();
     }
 }
 
 function saveSubmit() {
     //主题
-    if ($("#add-input-theme").val() == "") {
+    if($("#add-input-theme").val()==""){
         $("#add-input-theme").parent().next().show();
-    } else {
+    }else{
         $("#add-input-theme").parent().next().hide();
     }
     //分类
-    if ($("#add-select-category").val() == null) {
+    if($("#add-select-category").val()==null){
         $("#add-select-category").parent().next().show();
-    } else {
+    }else{
         $("#add-select-category").parent().next().hide();
     }
     //编辑器内容
     editorContent();
 }
+
+//编辑器内容判空
+function editorContent(){
+    if (ue.getContentTxt().length === 0) {
+        $("#add-script-editor").parent().next().show();
+    }
+    else {
+        $("#add-script-editor").parent().next().hide();
+    }
+}
+
+//当模态框完全对用户隐藏时触发隐藏提示语
+$('#add-accouncemodal').on('hidden.bs.modal', function () {
+    // 执行提示语
+    $(".judge-tip").css("display","none");
+})
+
+//-----------结束--------------

@@ -25,6 +25,14 @@
     content: '*';
     color: #f00;
 }
+/**
+ *  必填标识在文字前
+    宣文彬 2018-9-30
+ */
+.required-left::before{
+    content: '*';
+    color: #f00;
+}
 
 .modal {
     -moz-user-select: none;

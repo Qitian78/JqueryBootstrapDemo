@@ -271,7 +271,38 @@ function openDetialModal() {
     //模态框标题
     $("#model-title").html('<h4>' + ' 答疑详情' + '</h4>')
     //得到当前数据的详细信息
-
+    $.ajax({
+        url: AJAX_URL.allProblemData,
+        method: requestJson ? 'get' : 'post',
+        dataType: "json",
+        success: function (data) {
+            // console.log(data);
+            // if (data) {
+            //     alert("1111");
+            // } else {
+            //     poptip.alert(data.message);
+            // };
+            ////获得问题列表的内容 2018年9月28日10:18:51
+            if(data){
+                // $('#add-point-info').empty();
+                $('#show-detail-question').empty();
+                $.each(data, function (index, item) {
+                    //循环获取数据
+                    $('#show-detail-question').append('<div  id="'+index+'"></div><hr>');
+                    let proData = data[index];
+                    let proEach = index;
+                    // console.log(proEach);
+                    $.each(proData, function (inde, it) {
+                        let $str ='<div class="row">'+ '<div class="col-md-8">'+ '<div class="col-md-12">'+ '<span>'+'<b>'+ '问：'+'</b>'+ proData[inde].pro1+ '</span>'+ '</div>'+
+                            '</div>'+ '<div class="col-md-4">'+ '<span>'+ proData[inde].pro2+ '</span>'+ '</div>'+ '</div>'+ '<br>'+
+                            '<div class="row">'+ '<div class="col-md-8">'+ '<div class="col-md-12">'+ '<span>'+'<b>'+ '答：'+'</b>'+ proData[inde].pro4+ '</span>'+ '</div>'+ '</div>'+
+                            '<div class="col-md-4">'+ '<span>'+ proData[inde].pro5+ '</span>'+ '</div>'+ '</div>'+'<br>';
+                        $("#"+proEach).eq(0).append($str);
+                    })
+                });
+            }
+        }
+    });
 }
 /**
 * 重置按钮,搜索项变为空
