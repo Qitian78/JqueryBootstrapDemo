@@ -14,14 +14,16 @@
 .tab-wrapper {
     margin: 20px auto;
     width: 93%;
-    height: 100%;
+    height: auto;
     line-height: 1.5;
     color: #464646;
 }
-.tab-menu .active{
-    background-color: #acadb7!important;
+
+.tab-menu .active {
+    background-color: #acadb7 !important;
 }
-.tab-menu .active::after{
+
+.tab-menu .active::after {
     content: '';
     position: absolute;
     left: 40%;
@@ -30,96 +32,111 @@
     border-top: 9px solid #acadb7;
     top: 100%;
 }
+
 .tab-menu li {
-    position:relative;
+    position: relative;
     background-color: #fff;
-    color:#5e5e5e;
+    color: #5e5e5e;
     display: inline-block;
     padding: 13px 30px;
     border-right: solid 3px #e6e1e1;
     opacity: 0.8;
-    cursor:pointer;
+    cursor: pointer;
     z-index:0;
 }
 
 .tab-menu li:hover {
-    color:#464646;
+    color: #464646;
 }
 
 .tab-menu li.active {
-    color:#464646;
+    color: #464646;
     opacity: 1;
 }
 
 .tab-menu li.active:hover {
-    color:#464646;
+    color: #464646;
 }
 
 .tab-content>div {
     background-color: #fff;
-    box-sizing:border-box;
+    box-sizing: border-box;
     width: 100%;
     padding: 30px;
-    height:100%;
+    height: 100%;
 }
-.tab-content{
+
+.tab-content {
     height: 50%;
     max-height: 200px;
     overflow: auto;
     background: #fff;
+    padding: 3% 0;
 }
+
 .line {
-    position:absolute;
+    position: absolute;
     width: 0;
     height: 7px;
     background-color: aqua;
     top: 0;
     left: 0;
 }
+
 a{
     text-decoration: none;
     color: #31b0d5;
 }
-.content{
+
+.content {
     width: 100%;
     height: 300px;
     margin-top: 1%;
 }
-.content-left{
+
+.content-left {
     padding: 30px;
     background-color: #fff;
 }
-.content-right{
+
+.content-right {
     margin-top: 1%;
     padding: 30px;
     background-color: #fff;
 }
-.info-content{
+
+.info-content {
     float: left;
     width: 100%;
 }
-.info-content ul{
+
+.info-content ul {
     margin-left: 3%;
     width: 30%;
     float: left;
 }
-.info-content ul li{
+
+.info-content ul li {
     list-style: circle;
     word-wrap: break-word;
     word-break: break-all;
 }
-.problem-head{
+
+.problem-head {
     margin-top: 1%;
 }
-.problem-header{
+
+.problem-header {
     font-size: 1.2em;
     font-weight: bold;
 }
-.problem{
+
+.problem {
     width: 100%;
     height: 500px;
 }
-.problem-info{
+
+.problem-info {
     background-color: #fff;
     padding: 2%;
     width: 26%;
@@ -127,21 +144,25 @@ a{
     margin: 1.65%;
     float: left;
 }
-#problemProblem2{
+
+#problemProblem2 {
     margin-left: 12%;
 }
-#problemProblem3{
+
+#problemProblem3 {
     margin-left: 12%;
 }
-#problemProblem4{
+
+#problemProblem4 {
     margin-top: 3%;
 }
-#problemProblem5{
-    margin-left: 12%;
-    margin-top: 3%;
-}
-#problemProblem6{
+
+#problemProblem5 {
     margin-left: 12%;
     margin-top: 3%;
 }
 
+#problemProblem6 {
+    margin-left: 12%;
+    margin-top: 3%;
+}

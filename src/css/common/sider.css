@@ -6,11 +6,10 @@
 .mody-sider {
     float: left;
     display: inline-block;
-    background: #555558;
-    /*height: 100%;*/
+    background: #1b3953;
     width: 15%;
-    position: absolute;
-    top: 64px;
+    height: 100%;
+    overflow-y: auto;
 }
 
 .sider-nav {
@@ -20,6 +19,10 @@
     background: #1b3953;
     float: left;
 }
+
+/*.sidebar-nav {
+    height: auto;
+}*/
 
 .sider-content {
     display: none;

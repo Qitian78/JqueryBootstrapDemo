@@ -21,11 +21,11 @@ Date.prototype.Format = function (fmt) {
         "S": this.getMilliseconds() //毫秒
     };
     if (/(y+)/.test(fmt)) {
-        fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+        fmt = fmt.replace(RegExp.$1, (String(this.getFullYear())).substr(4 - RegExp.$1.length));
     }
     for (let k in o) {
         if (new RegExp("(" + k + ")").test(fmt)) {
-            fmt = fmt.replace(RegExp.$1, (RegExp.$1.length === 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+            fmt = fmt.replace(RegExp.$1, (RegExp.$1.length === 1) ? (o[k]) : (("00" + o[k]).substr((String(o[k])).length)));
             return fmt;
         }
 
@@ -367,7 +367,7 @@ let JavaScriptEncode = function (str) {
                 let a2 = c % 16;
                 c = Math.floor(c / 16);
                 let a1 = c % 16;
-                return "\\u" + hex[a1] + hex[a2] + hex[a3] + hex[a4] + "";
+                return String("\\u" + hex[a1] + hex[a2] + hex[a3] + hex[a4]);
             }
             else {
                 return changeTo16Hex(original);
@@ -400,6 +400,11 @@ function EncodetoHtml(str) {
         }[m]
     }) : '';
 }
+
+$(window).resize(function () {
+    heightSync();
+});
+
 let formsth;
 let poptip;
 (function() {
@@ -665,7 +670,7 @@ $(function() {
 }*/
 function initHeight(bodyId,thisId) {
     if (thisId && thisId !== '#') {
-        let contentHeight =  $('' + thisId + '').css('height').split('px');
+        let contentHeight =  $(String(String(thisId))).css('height').split('px');
         let htmlHeight = $('html').css('height').split('px');
         if (contentHeight && htmlHeight) {
             if (parseFloat(contentHeight[0]) > parseFloat(htmlHeight[0])) {
@@ -696,7 +701,10 @@ function calcPageHeight(doc) {
 
 function heightSync() {
     let siderHeight = $('.mody-sider').css('height');
-    $('.content-center').css('height',siderHeight);
+    //$('.content-center').css('height',siderHeight);
+    //let ifreameId = sessionStorage.getItem('nav-page');
+    //let $el = document.getElementById(ifreameId);
+    //$($el).find('html').css('height',siderHeight);
 }
 
 /**

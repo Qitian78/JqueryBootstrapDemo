@@ -57,9 +57,9 @@ select::-ms-expand {
     display: none;
 }
 
-.child-content::-webkit-scrollbar {
+/*.child-content::-webkit-scrollbar {
     display: none;
-}
+}*/
 /**************************************************全局标签样式结束**************************************************/
 /**************************************************页面布局**************************************************/
 body,html,.catrc-container {
@@ -87,16 +87,16 @@ body,html,.catrc-container {
 .content {
     height: calc(100% - 64px);
     width: 100%;
-    top: 64px;
+    margin-top: 64px;
+    position: relative;
 }
 
 .content-center {
     /*border-top-left-radius: 8px;*/
     width: 85%;
     height: 100%;
-    top: 64px;
-    left: 15%;
-    position: absolute;
+    /*left: 15%;
+    position: absolute;*/
     display: inline-block;
     background: #f4f1f1;
 }

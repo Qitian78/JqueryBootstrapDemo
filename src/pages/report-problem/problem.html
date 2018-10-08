@@ -13,258 +13,259 @@
     <title>问题反馈</title>
 </head>
 <body>
-<ol class="breadcrumb">
-    <li><a href="#">XXX前台</a></li>
-    <li class="active">问题反馈</li>
-</ol>
-<div class="page-header" style="margin-top: -10px">
-    <h3>&nbsp;&nbsp;问题反馈</h3>
-</div>
-<div class="question-right">
-<!--搜索框-->
+    <div class="child-content">
+        <ol class="breadcrumb">
+            <li><a href="#">XXX前台</a></li>
+            <li class="active">问题反馈</li>
+        </ol>
+        <div class="page-header" style="margin-top: -10px">
+            <h3>&nbsp;&nbsp;问题反馈</h3>
+        </div>
+        <div class="question-right">
+        <!--搜索框-->
 
-<div class="search-content">
+        <div class="search-content">
 
-    <div class="search-head">
-        <form>
-            <div class="search-from form-group">
-                <label>问题名称：</label>
-                <input type="text" class="from-controller" placeholder="请输入问题关键字" aria-describedby="sizing-addon2">
-            </div>
-            <div  class="search-from form-group">
-                <label>问题编号：</label>
-                <input type="text" class="from-controller" placeholder="请输入问题编号" aria-describedby="sizing-addon2">
-            </div>
-            <div class="search-from form-group">
-                <label>问题类型：</label>
-                <select class="from-controller" style="width: 100px">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </select>
-            </div>
-            <div  class="search-from form-group">
-                <label>问题状态：</label>
-                <select class="from-controller" style="width: 100px">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </select>
-            </div>
-            <div class="search-from form-group">
-                <label for="birthday">提交时间：</label>
-                <input type="text" class="from-controller" id="birthday" placeholder="请选择时间">
-            </div>
+            <div class="search-head">
+                <form>
+                    <div class="search-from form-group">
+                        <label>问题名称：</label>
+                        <input type="text" class="from-controller" placeholder="请输入问题关键字" aria-describedby="sizing-addon2">
+                    </div>
+                    <div  class="search-from form-group">
+                        <label>问题编号：</label>
+                        <input type="text" class="from-controller" placeholder="请输入问题编号" aria-describedby="sizing-addon2">
+                    </div>
+                    <div class="search-from form-group">
+                        <label>问题类型：</label>
+                        <select class="from-controller" style="width: 100px">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                    <div  class="search-from form-group">
+                        <label>问题状态：</label>
+                        <select class="from-controller" style="width: 100px">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                    <div class="search-from form-group">
+                        <label for="birthday">提交时间：</label>
+                        <input type="text" class="from-controller" id="birthday" placeholder="请选择时间">
+                    </div>
 
-        </form>
-    </div>
-    <div class="search-submit">
-        <button class="btn btn-primary" id="search-button">搜索</button>
-        <button class="btn" id="reset-button">重置</button>
-    </div>
-</div>
-<hr>
-<!--2018年9月27日08:55:53 表格新增删除按钮-->
-<div class="bootstrap-table">
-    <div class="btn-left">
-        <button type="button" class="btn btn-success" onclick="openAddModal()" data-target="#add-point" data-toggle="modal">新增</button>
-        <button type="button" class="btn btn-warning">删除</button>
-    </div>
-    <br>
-    <div class="tab-pane" id="login-log">
-        <table id="problem-table-all"></table>
-    </div>
-</div>
-</div>
-<!--2018年9月27日08:56:47 页面模态窗 -zhangziteng-->
-<!--新增模态窗-vin码有数据-->
-<div class="modal fade" id="add-point">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4 id="modelTitle"></h4>
+                </form>
             </div>
-            <div class="modal-body">
-                <div class="row" style="margin-left: 21px;">
-                    <div class="col-xs-12 form-horizontal" id="add-point-info">
-                        <div class="form-group">
-                            <div class="col-sm-3">
-                                <label for="inputName" class="control-label required">账号 </label>
-                                <label id="inputName" class="control-label">张同志</label>
-                            </div>
-                            <div class="col-sm-3">
-                                <label for="inputDealer" class="control-label">经销商： </label>
-                                <label id="inputDealer" class="control-label">xxx</label>
-                            </div>
-                            <div class="col-sm-3">
-                                <label for="CarType" class="control-label">车型： </label>
-                                <label id="CarType" class="control-label">xxx</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-6 form-inline">
-                                <label for="ProblemType" class="control-label">问题分类：</label>
-                                <select class="form-control" id="ProblemType" style="width: 150px">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
-                            </div>
-                            <div class="col-sm-5 form-inline" style="margin-left: -30px">
-                                <label for="inputNumber" class="control-label">VIN：</label>
-                                <input type="text" class="form-control need-check not-null" style="width: 150px;" regex="account" maxlength="11" id="inputNumber" placeholder="请输入VIN">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-6 form-inline">
-                                <label for="inputNumber" class="control-label">联系电话：</label>
-                                <input type="text" class="form-control need-check not-null" style="width: 150px;" regex="account" maxlength="11" id="inputNumber" placeholder="请输入联系电话">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-12 form-inline">
-                                <label for="inputProblem" class="control-label required">问题</label>
-                                <textarea class="form-control" rows="7" style="width: 500px" id="inputProblem" placeholder="请输入1-500字中英文">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-10 form-inline">
-                                <label for="uploadFile" class="control-label">上传文件：</label>
-                                <input type="file" id="uploadFile">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button class="btn" data-dismiss="modal">取消</button>
-                            <button class="btn btn-primary save-check" onclick="openAddModalNothing()" check-area="add-point-info" data-target="#add-point-nothing" data-toggle="modal">提交</button>
-                        </div>
+            <div class="search-submit">
+                <button class="btn btn-primary" id="search-button">搜索</button>
+                <button class="btn" id="reset-button">重置</button>
+            </div>
+        </div>
+        <hr>
+        <!--2018年9月27日08:55:53 表格新增删除按钮-->
+        <div class="bootstrap-table">
+            <div class="btn-left">
+                <button type="button" class="btn btn-success" onclick="openAddModal()" data-target="#add-point" data-toggle="modal">新增</button>
+                <button type="button" class="btn btn-warning">删除</button>
+            </div>
+            <br>
+            <div class="tab-pane" id="login-log">
+                <table id="problem-table-all"></table>
+            </div>
+        </div>
+        </div>
+        <!--2018年9月27日08:56:47 页面模态窗 -zhangziteng-->
+        <!--新增模态窗-vin码有数据-->
+        <div class="modal fade" id="add-point">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 id="modelTitle"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row" style="margin-left: 21px;">
+                            <div class="col-xs-12 form-horizontal" id="add-point-info">
+                                <div class="form-group">
+                                    <div class="col-sm-3">
+                                        <label for="inputName" class="control-label required">账号 </label>
+                                        <label id="inputName" class="control-label">张同志</label>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label for="inputDealer" class="control-label">经销商： </label>
+                                        <label id="inputDealer" class="control-label">xxx</label>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label for="CarType" class="control-label">车型： </label>
+                                        <label id="CarType" class="control-label">xxx</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-6 form-inline">
+                                        <label for="ProblemType" class="control-label">问题分类：</label>
+                                        <select class="form-control" id="ProblemType" style="width: 150px">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-5 form-inline" style="margin-left: -30px">
+                                        <label for="inputNumber" class="control-label">VIN：</label>
+                                        <input type="text" class="form-control need-check not-null" style="width: 150px;" regex="account" maxlength="11" id="inputNumber" placeholder="请输入VIN">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-6 form-inline">
+                                        <label for="inputNumber" class="control-label">联系电话：</label>
+                                        <input type="text" class="form-control need-check not-null" style="width: 150px;" regex="account" maxlength="11" id="inputNumber" placeholder="请输入联系电话">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12 form-inline">
+                                        <label for="inputProblem" class="control-label required">问题</label>
+                                        <textarea class="form-control" rows="7" style="width: 500px" id="inputProblem" placeholder="请输入1-500字中英文">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-10 form-inline">
+                                        <label for="uploadFile" class="control-label">上传文件：</label>
+                                        <input type="file" id="uploadFile">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn" data-dismiss="modal">取消</button>
+                                    <button class="btn btn-primary save-check" onclick="openAddModalNothing()" check-area="add-point-info" data-target="#add-point-nothing" data-toggle="modal">提交</button>
+                                </div>
 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--新增模态窗-vin码无数据-->
+        <div class="modal fade" id="add-point-nothing">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 id="modelTitle-nothing"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row" style="margin-left: 21px;">
+                            <div class="col-xs-12 form-horizontal" id="add-point-info">
+                                <div class="form-group">
+                                    <div class="col-sm-6 form-inline">
+                                        <label for="ProblemType" class="control-label required">问题分类：</label>
+                                        <select class="form-control" id="ProblemType" style="width: 150px">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-5 form-inline" style="margin-left: -30px">
+                                        <label for="inputNumber" class="control-label">VIN：</label>
+                                        <input type="text" class="form-control need-check not-null" style="width: 150px;" regex="account" maxlength="11" id="inputNumber" placeholder="请输入VIN">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12 form-inline">
+                                        <label for="inputProblem" class="control-label required">问题</label>
+                                        <textarea class="form-control" rows="7" style="width: 500px" id="inputProblem" placeholder="请输入1-500字中英文">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-10 form-inline">
+                                        <label for="uploadFile" class="control-label">上传文件：</label>
+                                        <input type="file" id="uploadFile">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn" data-dismiss="modal">取消</button>
+                                    <button class="btn btn-primary save-check" check-area="add-point-info">提交</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--继续提问模态窗-->
+        <div class="modal fade" id="allproblem-continue">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 id="modelTitleContinue"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row" style="margin-left: 20px;margin-right: 20px;">
+                            <div class="col-xs-12 form-horizontal" id="continue-point-info">
+
+                            </div>
+                            <div class="col-xs-12 form-horizontal">
+                                <div class="form-group form-inline">
+                                        <label for="inputProblem" class="control-label required" style="margin-top: -70px">问题：</label>
+                                        <textarea class="form-control" rows="3" style="width: 450px" id="inputProblem" placeholder="请输入1-500字中英文">
+                                </div>
+                                <div class="form-group form-inline">
+                                        <label for="uploadFile" class="control-label required">上传文件：</label>
+                                        <input type="file" id="uploadFile">
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn" data-dismiss="modal">取消</button>
+                                    <button class="btn btn-primary save-check" check-area="add-point-info">提交</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--查看详情模态窗-->
+        <div class="modal fade" id="allproblem">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 id="allproblemTitle"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row" style="margin-left: 20px;margin-right: 20px;">
+                            <div class="col-xs-12 form-horizontal" id="check-point-info">
+
+                                <div class="modal-footer"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
-<!--新增模态窗-vin码无数据-->
-<div class="modal fade" id="add-point-nothing">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4 id="modelTitle-nothing"></h4>
-            </div>
-            <div class="modal-body">
-                <div class="row" style="margin-left: 21px;">
-                    <div class="col-xs-12 form-horizontal" id="add-point-info">
-                        <div class="form-group">
-                            <div class="col-sm-6 form-inline">
-                                <label for="ProblemType" class="control-label required">问题分类：</label>
-                                <select class="form-control" id="ProblemType" style="width: 150px">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
-                            </div>
-                            <div class="col-sm-5 form-inline" style="margin-left: -30px">
-                                <label for="inputNumber" class="control-label">VIN：</label>
-                                <input type="text" class="form-control need-check not-null" style="width: 150px;" regex="account" maxlength="11" id="inputNumber" placeholder="请输入VIN">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-12 form-inline">
-                                <label for="inputProblem" class="control-label required">问题</label>
-                                <textarea class="form-control" rows="7" style="width: 500px" id="inputProblem" placeholder="请输入1-500字中英文">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-10 form-inline">
-                                <label for="uploadFile" class="control-label">上传文件：</label>
-                                <input type="file" id="uploadFile">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button class="btn" data-dismiss="modal">取消</button>
-                            <button class="btn btn-primary save-check" check-area="add-point-info">提交</button>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!--继续提问模态窗-->
-<div class="modal fade" id="allproblem-continue">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4 id="modelTitleContinue"></h4>
-            </div>
-            <div class="modal-body">
-                <div class="row" style="margin-left: 20px;margin-right: 20px;">
-                    <div class="col-xs-12 form-horizontal" id="continue-point-info">
-
-                    </div>
-                    <div class="col-xs-12 form-horizontal">
-                        <div class="form-group form-inline">
-                                <label for="inputProblem" class="control-label required" style="margin-top: -70px">问题：</label>
-                                <textarea class="form-control" rows="3" style="width: 450px" id="inputProblem" placeholder="请输入1-500字中英文">
-                        </div>
-                        <div class="form-group form-inline">
-                                <label for="uploadFile" class="control-label required">上传文件：</label>
-                                <input type="file" id="uploadFile">
-                        </div>
-                        <div class="modal-footer">
-                            <button class="btn" data-dismiss="modal">取消</button>
-                            <button class="btn btn-primary save-check" check-area="add-point-info">提交</button>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!--查看详情模态窗-->
-<div class="modal fade" id="allproblem">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4 id="allproblemTitle"></h4>
-            </div>
-            <div class="modal-body">
-                <div class="row" style="margin-left: 20px;margin-right: 20px;">
-                    <div class="col-xs-12 form-horizontal" id="check-point-info">
-
-                        <div class="modal-footer"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
 <!--/*********JS部分***********/-->
 <script src="../../lib/js/jquery.min.js"></script>
 <script src="../../config/config.js"></script>

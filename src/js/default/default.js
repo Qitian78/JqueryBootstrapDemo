@@ -23,5 +23,4 @@ $(function() {
         heightSync();
         loadPage('index');
     }
-
 })
