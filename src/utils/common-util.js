@@ -451,10 +451,20 @@ let poptip;
             case 'text': default:
             warn = $(t_this).next('.alert-warn');
             if (value) {
-                if (regex && !REGEX[regex].test(value)) {
-                    warn.html(INPUT_ALERT.account);
-                    warn.show();
-                    return false;
+                if (regex) {
+                    regex = regex.replace(/\s+/g, ' ').split(' ');
+                    if (regex.length > 0) {
+                        for (let re of regex) {
+                            if (re && !REGEX[re].test(value)) {
+                                warn.html(INPUT_ALERT[re]);
+                                warn.show();
+                                return false;
+                            } else {
+                                warn.html('');
+                                warn.hide();
+                            }
+                        }
+                    }
                 } else {
                     warn.html('');
                     warn.hide();
