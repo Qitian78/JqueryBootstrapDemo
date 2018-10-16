@@ -1,6 +1,14 @@
 require('babel-polyfill');//es6转es5，为了支持ie10及以下
 let gulp = require('gulp');// 引入 gulp
 let jshint = require('gulp-jshint');// 引入检查文件组件
+let jshintConfig = {
+    undef: false,//未定义变量，禁止检测，因为项目中存在处于不同文件夹的全局变量调用
+    asi: true,//此选项可抑制有关缺少分号的警告
+    predef: ["$"],//预定义全局变量
+    lastsemic: true,//此选项禁止有关缺少分号的警告
+    esversion: 6,//es版本
+    strict: false//严格模式检测
+};
 let uglify = require('gulp-uglify');//压缩js
 let cleanCss = require('gulp-clean-css');//压缩css
 let htmlmin = require('gulp-htmlmin');//压缩html
@@ -126,10 +134,10 @@ if (env) { //生产环境
     // 检查js文件
     gulp.task('lint', function () {
         gulp.src(['./config/*.js'])
-            .pipe(jshint())
+            .pipe(jshint(jshintConfig))
             .pipe(jshint.reporter('default'));
         return gulp.src(['./src/js/**/*.js'])
-            .pipe(jshint())
+            .pipe(jshint(jshintConfig))
             .pipe(jshint.reporter('default'));
     });
     // 页面使用的json文件
@@ -290,7 +298,7 @@ if (env) {
                 baseDir: destPath,
                 index: './index.html'
             },
-            port: 8898
+            port: 9999
         });
         // 监听 html
         gulp.watch([destPath + '/**/*']).on('change', browserSync.reload);
