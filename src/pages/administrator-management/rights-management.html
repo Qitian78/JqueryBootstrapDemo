@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../lib/bootstrap-table/bootstrap-table.min.css">
+    <link rel="stylesheet" href="../../lib/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="../../lib/layer/theme/default/laydate.css">
+    <link rel="stylesheet" href="../../css/common/common.css"/>
+    <!-- 当前页css -->
+    <link rel="stylesheet" href="../../css/administrator-management/rights-management.css"/>
+    <script src="../..//lib/js/polyfill.js" type="text/javascript"></script>
+    <title>权限管理</title>
+</head>
+<body>
+    <div class = "rights-body">
+        <div class = "child-content">
+
+                <div class = "rights-body-top">
+                    <div class = "top-title">
+                        首页>>管理员管理>>权限管理
+                    </div>
+                </div>
+            <!-- form范围：下拉列表+所有复选框+两个按钮 -->
+            <form>
+                <div class = "rights-body-medium">
+                    <div class = "medium-group">
+                        <label class = "medium-group-label">所在组织：</label>
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle medium-group-select" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                请选择
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu medium-group-selectul" aria-labelledby="dropdownMenu1" id="select-select-userorganization">
+                                <!-- 以下li最终在js中获取并显示 -->
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class = "medium-group">
+                        <label class = "medium-group-label">选择角色：</label>
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle medium-group-select" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                请选择
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu medium-group-selectul" aria-labelledby="dropdownMenu2" id="select-select-userRole">
+                                <!-- 以下li最终在js中获取并显示 -->
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class = "rights-body-bottom">
+                <div class = "bottom-title">
+                    <span>权限配置：</span>
+                </div>
+                <div class = "bottom-checkbox">
+                    <div class = "bottom-checkboxes-pickrights">
+                        <div>
+                            <span><input type="checkbox" name="admin-management" />管理员管理</span>
+                            <span>--</span>
+                            <span><input type="checkbox" name="admin-management" />管理员管理</span>
+                        </div>
+                        <div>
+                            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</span>
+                            <span>-------</span>
+                            <span><input type="checkbox" name="admin-management" />权限管理</span>
+                        </div>
+                    </div>
+                    <div class = "bottom-checkboxes-pickrights">
+                        <div>
+                            <span><input type="checkbox" name="dealer-management" />经销商管理</span>
+                            <span>--</span>
+                            <span><input type="checkbox" name="dealer-management" />经销商列表</span>
+                        </div>
+                        <div>
+                            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</span>
+                            <span>-------</span>
+                            <span><input type="checkbox" name="dealer-management" />权限管理</span>
+                        </div>
+                    </div>
+                    <div class = "bottom-checkboxes-pickrights">
+                        <div>
+                            <span><input type="checkbox" name="log-management" />日志管理</span>
+                            <span>--</span>
+                            <span><input type="checkbox" name="log-management" />操作日志</span>
+                        </div>
+                        <div>
+                            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</span>
+                            <span>-------</span>
+                            <span><input type="checkbox" name="log-management" />接口日志</span>
+                        </div>
+                        <div>
+                            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</span>
+                            <span>-------</span>
+                            <span><input type="checkbox" name="log-management" />SBOM变更日志</span>
+                        </div>
+                    </div>
+                    <div class = "bottom-checkboxes-pickrights">
+                        <div>
+                            <span><input type="checkbox" name="data-management" />数据管理</span>
+                            <span>--</span>
+                            <span><input type="checkbox" name="data-management" />数据模板管理</span>
+                        </div>
+                        <div>
+                            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</span>
+                            <span>-------</span>
+                            <span><input type="checkbox" name="data-management" />SBOM接口管理</span>
+                        </div>
+                        <div>
+                            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</span>
+                            <span>-------</span>
+                            <span><input type="checkbox" name="data-management" />SBOM导入管理</span>
+                        </div>
+                    </div>
+                    <div class = "bottom-checkboxes-pickrights">
+                        <div>
+                            <span><input type="checkbox" name="picture-management" />图片管理</span>
+                            <span>--</span>
+                            <span><input type="checkbox" name="picture-management" />图片上传</span>
+                        </div>
+                        <div>
+                            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</span>
+                            <span>-------</span>
+                            <span><input type="checkbox" name="picture-management" />图片审核</span>
+                        </div>
+                        <div>
+                            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</span>
+                            <span>-------</span>
+                            <span><input type="checkbox" name="picture-management" />图片分配</span>
+                        </div>
+                    </div>
+                    <div class = "bottom-checkboxes-pickrights">
+                        <div>
+                            <span><input type="checkbox" name="announcement-publish" />公告发布</span>
+                        </div>
+                    </div>
+                    <div class = "bottom-checkboxes-pickrights">
+                        <div>
+                            <span><input type="checkbox" name="knowledgedatabase-management" />知识库管理</span>
+                        </div>
+                    </div>
+                    <div class = "bottom-checkboxes-pickrights">
+                        <div>
+                            <span><input type="checkbox" name="warning-prompt" />预警提示</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom-button">
+                    <button type="button" class = "btn btn-primary bottom-button-save">保存</button>
+                    <button type="button" class = "btn btn-primary bottom-button-reset">重置</button>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+
+
+
+<script src="../../lib/js/jquery.min.js"></script>
+<script src="../../config/config.js"></script>
+<script src="../../lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../lib/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="../../lib/bootstrap-table/bootstrap-table-zh-CN.min.js"></script>
+<script src="../../lib/layer/laydate.js"></script>
+<!--common-util.js必须引在所有功能js前面-->
+<script src="../../utils/common-util.js"></script>
+<script src="../../utils/const-manager.js"></script>
+<!-- 当前页面js -->
+
+</body>
+</html>

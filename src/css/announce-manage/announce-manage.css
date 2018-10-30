@@ -182,12 +182,14 @@ body{
     height: 1%;
     border-bottom: 1px solid #e5e5e5;
 }
-.modal-body-content{
+
+.modal-body-content {
     padding: 2%;
     padding-right: 4%;
     padding-left: 4%;
     font-weight: bolder;
 }
-.modal-body-content2{
+
+.modal-body-content2 {
     padding: 1%;
 }

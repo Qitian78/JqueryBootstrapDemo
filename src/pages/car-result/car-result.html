@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--适应IE兼容性-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../lib/bootstrap-table/bootstrap-table.min.css">
+    <link rel="stylesheet" href="../../lib/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="../../lib/layer/theme/default/laydate.css">
+    <link rel="stylesheet" href="../../css/common/common.css">
+    <link rel="stylesheet" href="../../css/car-result/car-result.css">
+    <title>备件目录</title>
+</head>
+<!--************2018年9月28日14:37:03 张子腾 车辆查询结果界面*************-->
+<body>
+<ol class="breadcrumb">
+    <li><a href="#">XXX前台</a></li>
+    <li class="active">备件目录</li>
+</ol>
+<div class="container">
+    <div class="page-header" style="margin-top: -20px;">
+        <h3>&nbsp;&nbsp;备件目录</h3>
+        <div class="search-input-left">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="请输入VIN码查询.">
+                <span class="input-group-btn">
+               <button class="btn btn-default" type="button"><i class="glyphicon glyphicon-search" aria-hidden="true"></i></button>
+            </span>
+            </div>
+        </div>
+    </div>
+    <!--按钮组-->
+    <div class="btn-group" role="group">
+        <button type="button" class="btn btn-default" style="font-size: 10px;">发动机&nbsp;<a class="event-badge badge">10</a></button>
+        <button type="button" class="btn btn-default" style="font-size: 10px;">发动机系统&nbsp;<a class="event-badge badge">10</a></button>
+        <button type="button" class="btn btn-default" style="font-size: 10px;">离合器及变调器&nbsp;<a class="event-badge badge">10</a></button>
+        <button type="button" class="btn btn-default" style="font-size: 10px;">悬架转向及制动&nbsp;<a class="event-badge badge">10</a></button>
+        <button type="button" class="btn btn-default" style="font-size: 10px;">车身&nbsp;<a class="event-badge badge">10</a></button>
+        <button type="button" class="btn btn-default" style="font-size: 10px;">内外饰件及座椅&nbsp;<a class="event-badge badge">10</a></button>
+        <button type="button" class="btn btn-default" style="font-size: 10px;">电器&nbsp;<a class="event-badge badge">10</a></button>
+        <button type="button" class="btn btn-default" style="font-size: 10px;">空调及气囊&nbsp;<a class="event-badge badge">10</a></button>
+        <button type="button" class="btn btn-default" style="font-size: 10px;">附件及其他&nbsp;<a class="event-badge badge">10</a></button>
+    </div>
+<!--窗口界面-->
+    <!--模块名称界面 2018年9月28日16:40:37-->
+    <div class="spare-query">
+        <div class="spare-head">
+            <span  class="spare-head-img glyphicon glyphicon-search"></span>
+            <span class="spare-title">模块号|模块名称</span>
+        </div>
+        <hr>
+        <div class="spare-content">
+
+        </div>
+    </div>
+    <!--模块图界面  2018年9月28日16:41:06-->
+    <div class="data-publish">
+        <div class="data-head">
+            <sapn class="data-head-img glyphicon glyphicon-send"></sapn>
+            <span class="data-title">模块图</span>
+        </div>
+        <hr>
+        <div class="data-content">
+
+        </div>
+    </div>
+    <!--数据查询界面 2018年9月28日16:51:54-->
+    <div class="wait-event">
+        <div class="event-head">
+            <div class="input-group">
+            <input type="text" class="form-control" placeholder="请输入备件名称">
+            <span class="input-group-btn">
+               <button class="btn btn-default" type="button"><i class="glyphicon glyphicon-search" aria-hidden="true"></i></button>
+            </span>
+            </div>
+        </div>
+        <hr>
+        <div class="event-content">
+
+        </div>
+    </div>
+    <!--查询结果表格 2018年9月28日17:03:16-->
+    <div class="result-table">
+        <table class="result-table-table" id="result-table-part"></table>
+    </div>
+
+</div><!--container结束-->
+
+<!--/*********JS部分***********/-->
+<script src="../../lib/js/jquery.min.js"></script>
+<script src="../../config/config.js"></script>
+<script src="../../lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../lib/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="../../lib/bootstrap-table/bootstrap-table-zh-CN.min.js"></script>
+<script src="../../lib/layer/laydate.js"></script>
+<!--common-util.js必须引在所有功能js前面-->
+<script src="../../utils/common-util.js"></script>
+<script src="../../utils/const-manager.js"></script>
+<script src="../../js/car-result/car-result.js"></script>
+</body>
+</html>

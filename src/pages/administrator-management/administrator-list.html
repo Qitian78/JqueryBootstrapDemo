@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../lib/bootstrap-table/bootstrap-table.min.css">
+    <link rel="stylesheet" href="../../lib/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="../../lib/layer/theme/default/laydate.css">
+    <link rel="stylesheet" href="../../css/common/common.css"/>
+    <!-- 当前页css -->
+    <link  rel="stylesheet" href="../../css/administrator-management/administrator-list.css"/>
+    <script src="../..//lib/js/polyfill.js" type="text/javascript"></script>
+    <title>管理员列表</title>
+</head>
+<body>
+<div class = "adminlist-body">
+    <div class = "child-content">
+        <div class = "adminlist-body-top">
+            <div class = "top-title">
+                <span>首页>>管理员管理</span>
+            </div>
+        </div>
+        <!-- form范围：所有输入框+下拉列表+按钮 -->
+        <form>
+            <div class = "adminlist-body-medium">
+            <form>
+                <div class = "medium-left">
+                    <div class = "medium-left-group">
+                        <label class = "medium-left-label">用户ID：</label>
+                        <input type="text" class = "form-control medium-left-input" id = "search-input-userid" maxlength="20" placeholder="请输入用户ID"/>
+                    </div>
+                    <div class = "medium-left-group">
+                        <label class = "medium-left-label">用户名：</label>
+                        <input type="text" class = "form-control medium-left-input" id = "search-input-username" maxlength="20" placeholder="请输入用户名"/>
+                    </div>
+                    <div class = "medium-left-group">
+                        <label class = "medium-left-label">启用状态：</label>
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle medium-left-input" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                全部
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu left-dropdown-ul" aria-labelledby="dropdownMenu1" id="search-select-userstate">
+                                <!-- 以下li最终在js中获取并显示 -->
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class = "medium-right">
+                <div class = "medium-right-group">
+                    <label class = "medium-right-label">所在组织：</label>
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle medium-right-input" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            全部
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu right-dropdown-ul" aria-labelledby="dropdownMenu2" id="search-select-userorganization">
+                            <!-- 以下li最终在js中获取并显示 -->
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class = "medium-right-group">
+                    <label class = "medium-right-label">角色筛选：</label>
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle medium-right-input" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            全部
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu right-dropdown-ul" aria-labelledby="dropdownMenu3" id="search-select-userrole">
+                            <!-- 以下li最终在js中获取并显示 -->
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class = "medium-right-group">
+                    <div class = "group-btngroup">
+                        <button type="button" class = "btn btn-primary" id = "search-button-searchbtn" style="float: left;width: 40%">搜索</button>
+                        <button type="button" class = "btn btn-primary medium-right-button" id = "search-button-resetbtn">重置</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </form>
+        <div class = "adminlist-body-bottom">
+            <div class = "tab-pan bottom-table">
+                <table id = "show-table-adminlist"></table>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../lib/js/jquery.min.js"></script>
+<script src="../../config/config.js"></script>
+<script src="../../lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../lib/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="../../lib/bootstrap-table/bootstrap-table-zh-CN.min.js"></script>
+<script src="../../lib/layer/laydate.js"></script>
+<!--common-util.js必须引在所有功能js前面-->
+<script src="../../utils/common-util.js"></script>
+<script src="../../utils/const-manager.js"></script>
+<!-- 当前页面js -->
+<script src="../../js/administrator-management/administrator-list.js"></script>
+</body>
+</html>

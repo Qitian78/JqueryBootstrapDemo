@@ -63,3 +63,8 @@ body, html {
     border-radius: 4px;
     width: 200px;
 }
+.pro-left{
+    float: left;
+    text-align: left;
+
+}

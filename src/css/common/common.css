@@ -20,108 +20,132 @@
     -moz-border-radius: 50%;
     border-radius: 50%;
 }
-.required::after{
+
+.required::after {
     content: '*';
-    color: #ff0000;
+    color: #f00;
 }
-.modal{
+/**
+ *  必填标识在文字前
+    宣文彬 2018-9-30
+ */
+.required-left::before{
+    content: '*';
+    color: #f00;
+}
+
+.modal {
     -moz-user-select: none;
     -webkit-user-select: none;
 }
 /**************************************************全局样式结束**************************************************/
 /**************************************************全局标签样式**************************************************/
-a,button{
-    cursor: pointer!important;
+a,button {
+    cursor: pointer !important;
 }
-a{
+
+a {
     text-decoration: none;
     color: #000;
 }
+
 /*下拉框样式兼容*/
-select{
+select {
     -moz-appearance: none;
     appearance: none;
     -webkit-appearance: none;
-    background-image: url(../../images/arrow.png)!important;
-    background-repeat: no-repeat!important;
-    background-position: 100% 75%!important;
-    background-size: 30px 30px!important;
-    padding: 0px 25px 0 9px!important;
+    background-image: url('../../images/arrow.png') !important;
+    background-repeat: no-repeat !important;
+    background-position: 100% 75% !important;
+    background-size: 30px 30px !important;
+    padding: 0 25px 0 9px !important;
 }
+
 select::-ms-expand {
     display: none;
 }
-.child-content::-webkit-scrollbar{
+
+/*.child-content::-webkit-scrollbar {
     display: none;
-}
+}*/
 /**************************************************全局标签样式结束**************************************************/
 /**************************************************页面布局**************************************************/
-body,html,.catrc-container{
+body,html,.catrc-container {
     position: absolute;
     background: #e5e5e5;
-    top:0;
+    top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     width: 100%;
     height: 100%;
 }
-.row{
+
+.row {
     height: 100%;
     /*position: relative;*/
 }
-.container{
+
+.container {
     width: 100%;
     height: 100%;
     position: relative;
 }
-.content{
+
+.content {
     height: calc(100% - 64px);
     width: 100%;
-    top: 64px;
+    margin-top: 64px;
+    position: relative;
 }
-.content-center{
+
+.content-center {
     /*border-top-left-radius: 8px;*/
     width: 85%;
     height: 100%;
-    top: 64px;
-    left: 15%;
-    position: absolute;
+    /*left: 15%;
+    position: absolute;*/
     display: inline-block;
     background: #f4f1f1;
 }
-.content-left{
+
+.content-left {
     height: 100%;
     width: 13%;
     float: left;
-    margin-right: 0!important;
+    margin-right: 0 !important;
 }
 
-.content-left li{
+.content-left li {
     float: none;
     width: 100%;
 }
-.content-left a{
-    border: none!important;
-    margin: 0!important;
-    -webkit-border-radius: 0!important;
-    -moz-border-radius: 0!important;
-    border-radius: 0!important;
+
+.content-left a {
+    border: none !important;
+    margin: 0 !important;
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    border-radius: 0 !important;
 }
-.content-right{
+
+.content-right {
     height: 100%;
     width: 87%;
     float: right;
     background-color: #fff;
 }
-.left .tab-content{
+
+.left .tab-content {
     padding: 20px;
 }
-.tabs,.left{
+
+.tabs,.left {
     height: 100%;
     width: 100%;
 }
-.child-content{
+
+.child-content {
     width: 100%;
     height: 100%;
     overflow-y: auto;
@@ -129,50 +153,55 @@ body,html,.catrc-container{
 /**************************************************页面布局结束**************************************************/
 /**************************************************模态框自定义样式**************************************************/
 .modal-backdrop, .modal-backdrop.fade.in {
-    opacity: .3;
+    opacity: 0.3;
 }
-#alert-modal{
+
+#alert-modal {
     z-index: 2000;
 }
+
 /*弹出提示*/
-.alert-dia-content,.alert-dia-dialog{
-    min-width: 250px!important;
-    max-width: 280px!important;
+.alert-dia-content,.alert-dia-dialog {
+    min-width: 250px !important;
+    max-width: 280px !important;
     height: auto;
 }
-.alert-dia-content .modal-header{
-    height: 36px!important;
-    padding: 7px 10px 7px 14px!important;
+
+.alert-dia-content .modal-header {
+    height: 36px !important;
+    padding: 7px 10px 7px 14px !important;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
     background: #f3f3f3;
+}
 
+.alert-dia-content .modal-footer {
+    padding: 10px !important;
+    height: 50px !important;
+    border-top: none !important;
 }
-.alert-dia-content .modal-footer{
-    padding: 10px!important;
-    height: 50px!important;
-    border-top: none!important;
-}
-.alert-dia-content h4{
+
+.alert-dia-content h4 {
     margin: 0 !important;
 }
-.alert-dia-content .btn{
-    height: 27px!important;
-    padding: 0px 12px!important;
+
+.alert-dia-content .btn {
+    height: 27px !important;
+    padding: 0 12px !important;
 }
-/*.drag-modal{
-    width: 50%!important;
-    !*left: 25%!important;*!
+
+/*.drag-modal {
+    width: 50% !important;
+    !*left: 25% !important;*!
     margin: 0 auto;
-    overflow: unset!important;
+    overflow: unset !important;
 }
-.drag-modal .modal-dialog{
-    width: 100% !important;
+.drag-modal .modal-dialog {
+    width: 100%  !important;
 }*/
 /**************************************************模态框结束**************************************************/
 /**************************************************其他**************************************************/
-.alert-warn{
-    color: #ff0000;
+.alert-warn {
+    color: #f00;
 }
 /**************************************************其他结束**************************************************/
-

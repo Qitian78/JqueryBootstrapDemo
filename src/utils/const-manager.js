@@ -87,25 +87,38 @@ const AJAX_URL = {
      *@date 2018/09/27 09:22:00
      *@author zhangziteng
      */
-    reportProblem:requestJson ? '../../jsonDatas/reportProblem.json' : '',
+    reportProblem: requestJson ? '../../jsonDatas/reportProblem.json' : '',
+    allProblemData:requestJson ? '../../jsonDatas/allProblemData.json' : '',
+    checkAllProblemData:requestJson ? '../../jsonDatas/checkAllProblemData.json' : '',
     //经销商管理 刘志杰 2018-09-25
-    distributorData:requestJson ? '../../jsonDatas/distributorData.json' : '',
+    distributorData: requestJson ? '../../jsonDatas/distributorData.json' : '',
     /**
      *@desc 日志管理，答疑管理数据
      *@date 2018/09/27 09:23:06
      *@author 宣文斌
      */
-    questionManage:requestJson ? '../../jsonDatas/questionManageData.json' : '',
-    SBOMChangeLogData:requestJson ? '../../jsonDatas/SBOMChangeLogData.json' : '',
-    operationLogData:requestJson ? '../../jsonDatas/operationLogData.json' : '',
+    questionManage: requestJson ? '../../jsonDatas/questionManageData.json' : '',
+    SBOMChangeLogData: requestJson ? '../../jsonDatas/SBOMChangeLogData.json' : '',
+    operationLogData: requestJson ? '../../jsonDatas/operationLogData.json' : '',
+    announceManagementData:requestJson ? '../../jsonDatas/announceManagementData.json' : '',
     /**
      *@desc
      *@date 2018/09/27 10:05:20
      *@author 刘笑天
      */
-    personnelConfiguration:requestJson ? '../../jsonDatas/personnelConfiguration.json': '',
-    bomChange:requestJson ? '../../jsonDatas/bomChange.json': '',
+    personnelConfiguration: requestJson ? '../../jsonDatas/personnelConfiguration.json' : '',
+    bomChange: requestJson ? '../../jsonDatas/bomChange.json' : '',
+    administratorList: requestJson ? '../../jsonDatas/administratorList.json': '',
     //崔雨鑫
     announceData: requestJson ? '../../jsonDatas/announceData.json' : '',
     announceDetailData: requestJson ? '../../jsonDatas/announceDetailData.json' : '',
+    //系统设置-答疑设置（预警列表） 刘志杰 2018-09-28
+    answerSetting: requestJson ? '../../jsonDatas/answerSetting.json' : '',
+    //王克龙
+    knowledgeDetial: requestJson ? '../../jsonDatas/knowledgeDetial.json' : '',
+    IndexEvent: requestJson ? '../../jsonDatas/index-event.json' : '',
+    IndexData: requestJson ? '../../jsonDatas/index-data.json' : '',
+    IndexSpare: requestJson ? '../../jsonDatas/index-spare.json' : '',
+    vinQuery: requestJson ? '../../jsonDatas/vin-query.json' : '',
+    vinList: requestJson ? '../../jsonDatas/vin-list.json' : '',
 }

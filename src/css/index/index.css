@@ -44,6 +44,14 @@
 }
 .event-li-span{
     margin-right: 3%;
+    float: left;
+}
+.event-a{
+    float: left;
+    width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space:nowrap;
 }
 .event-badge{
     float: right;
@@ -80,8 +88,26 @@
     height: 65%;
     overflow-y: auto;
 }
-.data-table{
+.data-table-publish{
     border: 0px solid transparent;
+}
+.data-table-publish >tbody >tr :hover{
+    color: #00b3ee;
+}
+/*去掉table的边框线*/
+.data-table-publish >tbody >tr >td{
+    border: white 0px solid;
+    line-height: 0.5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space:nowrap;
+}
+.data-tr-publish{
+    line-height: 5%;
+}
+data-a-publish{
+    width: 100%;
+    height: 100%;
 }
 .spare-query{
     background: #fff;
@@ -127,7 +153,7 @@
     margin-top: 1%;
     border-left: 1px solid #bbbbbb;
 }
-.spare-content{
+.spare-li-content{
     width: 100%;
     height: 70%;
     overflow-y: auto;
