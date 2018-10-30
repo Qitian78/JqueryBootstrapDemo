@@ -48,14 +48,14 @@ $(function() {
 function expendSider(event) {
     let siderWidth = $('.mody-sider').css('width') ? parseFloat($('.mody-sider').css('width').split('px')[0]) : '';
     if (siderWidth) {
-        if (siderWidth > 38) { //收缩
-            $('.mody-sider').css('width','38px');
+        if (siderWidth > 60) { //收缩
+            $('.mody-sider').css('width','60px');
             $('.hidden-tablet').each(function(index,item) {
                 $(item).removeClass('tablet-expend');
                 $(item).addClass('tablet-shirnk');
             })
-            $('.content-center').css('width','calc(100% - 38px)');
-            $('.content-center').css('left','38px');
+            $('.content-center').css('width','calc(100% - 60px)');
+            $('.content-center').css('left','60px');
             $('.fa-bars.top-bar').css('transform','rotate(90deg)');
             $('.dropdown-submenu').each(function (index,item) {
                 $(item).css('display','none');
